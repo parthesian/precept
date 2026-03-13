@@ -1,0 +1,23 @@
+{
+  "name": "@cinegraph/api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo \"No lint configured for @cinegraph/api\""
+  },
+  "dependencies": {
+    "@cinegraph/db": "file:../../packages/db",
+    "@cinegraph/shared": "file:../../packages/shared",
+    "hono": "^4.6",
+    "ulid": "^2.3",
+    "zod": "^3.23"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250320.0",
+    "wrangler": "^4"
+  }
+}
