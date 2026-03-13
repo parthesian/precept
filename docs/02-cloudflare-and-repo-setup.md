@@ -1,10 +1,10 @@
 # Cloudflare and Repo Setup
 
-This document covers full setup for D1, R2, Vectorize, Worker API, Pages web app, and required repo configuration.
+This document is optimized for **Windows PowerShell** and covers full setup for D1, R2, Vectorize, Worker API, Pages web app, and repo configuration.
 
 ## 1) Clone and Install
 
-```bash
+```powershell
 git clone <your-repo-url> precept
 cd precept
 npm install
@@ -12,13 +12,13 @@ npm install
 
 ## 2) Cloudflare Auth
 
-```bash
+```powershell
 npx wrangler login
 ```
 
 Confirm account:
 
-```bash
+```powershell
 npx wrangler whoami
 ```
 
@@ -26,7 +26,7 @@ npx wrangler whoami
 
 ### D1
 
-```bash
+```powershell
 npx wrangler d1 create precept
 ```
 
@@ -36,7 +36,7 @@ Copy the returned `database_id` into `apps/api/wrangler.toml`:
 
 ### R2
 
-```bash
+```powershell
 npx wrangler r2 bucket create precept-frames
 ```
 
@@ -48,7 +48,7 @@ Ensure in `apps/api/wrangler.toml`:
 
 Create a 512-d cosine index (for CLIP vectors):
 
-```bash
+```powershell
 npx wrangler vectorize create precept-shots --dimensions=512 --metric=cosine
 ```
 
@@ -60,13 +60,13 @@ Ensure in `apps/api/wrangler.toml`:
 
 Local:
 
-```bash
+```powershell
 npx wrangler d1 migrations apply precept --local --config apps/api/wrangler.toml
 ```
 
 Remote:
 
-```bash
+```powershell
 npx wrangler d1 migrations apply precept --remote --config apps/api/wrangler.toml
 ```
 
@@ -74,7 +74,7 @@ npx wrangler d1 migrations apply precept --remote --config apps/api/wrangler.tom
 
 Set ingest API key in Worker:
 
-```bash
+```powershell
 npx wrangler secret put API_KEY --config apps/api/wrangler.toml
 ```
 
@@ -84,7 +84,7 @@ Use a strong value and keep it consistent with pipeline env.
 
 ### `packages/pipeline/.env`
 
-```bash
+```env
 ANTHROPIC_API_KEY=sk-ant-...
 PRECEPT_API_URL=https://precept-api.<your-subdomain>.workers.dev
 PRECEPT_API_KEY=<same-value-as-worker-secret>
@@ -92,7 +92,7 @@ PRECEPT_API_KEY=<same-value-as-worker-secret>
 
 ### `apps/web/.env`
 
-```bash
+```env
 VITE_API_URL=https://precept-api.<your-subdomain>.workers.dev
 ```
 
@@ -100,46 +100,46 @@ VITE_API_URL=https://precept-api.<your-subdomain>.workers.dev
 
 API:
 
-```bash
+```powershell
 npm run dev:api
 ```
 
 Web:
 
-```bash
+```powershell
 npm run dev:web
 ```
 
 Type safety:
 
-```bash
+```powershell
 npm run typecheck
 ```
 
 ## 8) Deploy API (Worker)
 
-```bash
+```powershell
 npx wrangler deploy --config apps/api/wrangler.toml
 ```
 
 Validate:
 
-```bash
-curl "https://precept-api.<your-subdomain>.workers.dev/"
-curl "https://precept-api.<your-subdomain>.workers.dev/api/films"
+```powershell
+Invoke-RestMethod "https://precept-api.<your-subdomain>.workers.dev/" | ConvertTo-Json -Depth 6
+Invoke-RestMethod "https://precept-api.<your-subdomain>.workers.dev/api/films" | ConvertTo-Json -Depth 6
 ```
 
 ## 9) Deploy Web (Pages)
 
 Build web:
 
-```bash
+```powershell
 npm --workspace @precept/web run build
 ```
 
 Deploy:
 
-```bash
+```powershell
 npx wrangler pages deploy apps/web/dist
 ```
 
@@ -151,13 +151,13 @@ In Cloudflare Pages project settings:
 
 Use pipeline against a short test clip first:
 
-```bash
-node packages/pipeline/dist/cli.js process \
-  --input "/path/to/test-clip.mp4" \
-  --title "Inception Test Clip" \
-  --year 2010 \
-  --director "Christopher Nolan" \
-  --runtime 5 \
+```powershell
+node packages/pipeline/dist/cli.js process `
+  --input "C:\path\to\test-clip.mp4" `
+  --title "Inception Test Clip" `
+  --year 2010 `
+  --director "Christopher Nolan" `
+  --runtime 5 `
   --max-shots 20
 ```
 
@@ -166,7 +166,19 @@ Verify:
 - `/api/search/tags` returns rows with `thumbnail_url`
 - opening `thumbnail_url` returns image data
 
-## 11) Recommended Repo Conventions
+## 11) Recommended Deploy Order
+
+1. Create D1/R2/Vectorize resources
+2. Update `apps/api/wrangler.toml` with actual IDs/names
+3. Apply local migration
+4. Start API locally and run local ingest smoke test
+5. Apply remote migration
+6. Deploy Worker API
+7. Build and deploy Pages web app
+8. Run first short cloud ingest (`--max-shots 20`)
+9. Verify `/api/films`, `/api/search/tags`, and media URLs
+
+## 12) Recommended Repo Conventions
 
 - Keep migrations append-only in `packages/db/migrations`
 - Keep shared enums/types in `packages/shared` as single source of truth
