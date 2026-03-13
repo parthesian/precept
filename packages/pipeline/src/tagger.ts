@@ -15,7 +15,7 @@ import {
   SubjectAction,
   TimeOfDay,
   shotSchema,
-} from "@cinegraph/shared";
+} from "@precept/shared";
 import type { AudioMetadata } from "./audio-extract";
 
 export interface TaggedShotDraft {

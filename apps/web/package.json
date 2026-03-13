@@ -1,5 +1,5 @@
 {
-  "name": "@cinegraph/web",
+  "name": "@precept/web",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -7,10 +7,10 @@
     "dev": "vite",
     "build": "tsc -p tsconfig.json && vite build",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo \"No lint configured for @cinegraph/web\""
+    "lint": "echo \"No lint configured for @precept/web\""
   },
   "dependencies": {
-    "@cinegraph/shared": "file:../../packages/shared",
+    "@precept/shared": "file:../../packages/shared",
     "@tanstack/react-query": "^5",
     "clsx": "^2",
     "d3": "^7",

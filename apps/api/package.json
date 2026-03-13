@@ -1,5 +1,5 @@
 {
-  "name": "@cinegraph/api",
+  "name": "@precept/api",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -7,11 +7,11 @@
     "dev": "wrangler dev",
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo \"No lint configured for @cinegraph/api\""
+    "lint": "echo \"No lint configured for @precept/api\""
   },
   "dependencies": {
-    "@cinegraph/db": "file:../../packages/db",
-    "@cinegraph/shared": "file:../../packages/shared",
+    "@precept/db": "file:../../packages/db",
+    "@precept/shared": "file:../../packages/shared",
     "hono": "^4.6",
     "ulid": "^2.3",
     "zod": "^3.23"

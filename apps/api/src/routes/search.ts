@@ -11,6 +11,9 @@ export const searchRouter = new Hono<{ Bindings: Bindings }>();
 searchRouter.get("/search/tags", async (c) => {
   const shotScale = c.req.query("shot_scale");
   const setting = c.req.query("setting");
+  const lighting = c.req.query("lighting");
+  const audioVisualRelationship = c.req.query("audio_visual_relationship");
+  const q = c.req.query("q");
   const limit = Number(c.req.query("limit") ?? "50");
   const offset = Number(c.req.query("offset") ?? "0");
 
@@ -24,16 +27,32 @@ searchRouter.get("/search/tags", async (c) => {
     filters.push(`setting = ?${args.length + 1}`);
     args.push(setting);
   }
+  if (lighting) {
+    filters.push(`lighting = ?${args.length + 1}`);
+    args.push(lighting);
+  }
+  if (audioVisualRelationship) {
+    filters.push(`audio_visual_relationship = ?${args.length + 1}`);
+    args.push(audioVisualRelationship);
+  }
+  if (q) {
+    filters.push(`llm_description LIKE ?${args.length + 1}`);
+    args.push(`%${q}%`);
+  }
 
   const where = filters.length ? `WHERE ${filters.join(" AND ")}` : "";
-  const sql = `SELECT * FROM shots ${where} ORDER BY created_at DESC LIMIT ?${args.length + 1} OFFSET ?${
-    args.length + 2
-  }`;
+  const sql = `SELECT s.*, f.title AS film_title, f.year AS film_year, f.director AS film_director FROM shots s JOIN films f ON s.film_id = f.id ${where} ORDER BY s.created_at DESC LIMIT ?${
+    args.length + 1
+  } OFFSET ?${args.length + 2}`;
   const rows = await c.env.DB.prepare(sql)
     .bind(...args, limit, offset)
     .all();
 
-  return c.json({ data: rows.results ?? [], limit, offset });
+  const data = (rows.results ?? []).map((row: any) => ({
+    ...row,
+    thumbnail_url: `/api/assets?key=${encodeURIComponent(row.thumbnail)}`,
+  }));
+  return c.json({ data, limit, offset });
 });
 
 searchRouter.post("/search/similar", async (c) => {

@@ -1,20 +1,20 @@
 {
-  "name": "@cinegraph/pipeline",
+  "name": "@precept/pipeline",
   "version": "0.0.1",
   "private": true,
   "type": "module",
   "bin": {
-    "cinegraph-ingest": "./dist/cli.js"
+    "precept-ingest": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo \"No lint configured for @cinegraph/pipeline\"",
+    "lint": "echo \"No lint configured for @precept/pipeline\"",
     "pipeline": "node ./dist/cli.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39",
-    "@cinegraph/shared": "file:../shared",
+    "@precept/shared": "file:../shared",
     "@xenova/transformers": "^2.17",
     "chalk": "^5",
     "commander": "^12",
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@types/ffprobe-static": "^2.0.3",
+    "@types/mime-types": "^3.0.1",
     "@types/node": "^22"
   }
 }

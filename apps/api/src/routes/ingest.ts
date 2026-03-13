@@ -1,11 +1,12 @@
 import { Hono } from "hono";
-import type { ShotIngestPayload } from "@cinegraph/shared";
+import type { ShotIngestPayload } from "@precept/shared";
 import { ingestAuth } from "../middleware/auth";
 import { generateId, nowIsoString, toSqliteBool } from "../services/d1";
 import { upsertVectors } from "../services/vectorize";
 
 type Bindings = {
   DB: D1Database;
+  FRAMES: R2Bucket;
   VECTORS: VectorizeIndex;
   API_KEY: string;
 };
@@ -13,6 +14,15 @@ type Bindings = {
 export const ingestRouter = new Hono<{ Bindings: Bindings }>();
 
 ingestRouter.use("*", ingestAuth);
+
+function decodeBase64(base64: string): Uint8Array {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i += 1) {
+    bytes[i] = binary.codePointAt(i) ?? 0;
+  }
+  return bytes;
+}
 
 ingestRouter.post("/ingest/shots", async (c) => {
   const payload = await c.req.json<ShotIngestPayload>();
@@ -42,6 +52,22 @@ ingestRouter.post("/ingest/shots", async (c) => {
   for (const shot of payload.shots) {
     const shotId = generateId();
     const embeddingId = generateId();
+    const frameKeys: string[] = [];
+
+    for (const frame of shot.frame_buffers ?? []) {
+      await c.env.FRAMES.put(frame.key, decodeBase64(frame.data_base64), {
+        httpMetadata: { contentType: frame.content_type },
+      });
+      frameKeys.push(frame.key);
+    }
+
+    let audioKey: string | null = null;
+    if (shot.audio_buffer) {
+      await c.env.FRAMES.put(shot.audio_buffer.key, decodeBase64(shot.audio_buffer.data_base64), {
+        httpMetadata: { contentType: shot.audio_buffer.content_type },
+      });
+      audioKey = shot.audio_buffer.key;
+    }
 
     await c.env.DB.prepare(
       "INSERT INTO shots (id, film_id, shot_index, timecode_start, timecode_end, duration_seconds, frames, thumbnail, audio_clip, shot_scale, camera_angle, camera_movement, composition, lighting, color_palette, dominant_colors, location_type, setting, time_of_day, subject_count, subject_actions, emotional_register, narrative_function, props_or_motifs, music_present, music_type, music_mood, music_diegetic, audio_visual_relationship, sound_design, dialogue_present, specific_song, llm_description, embedding_id, created_at, updated_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31, ?32, ?33, ?34, ?35, ?36)"
@@ -53,9 +79,9 @@ ingestRouter.post("/ingest/shots", async (c) => {
         shot.timecode_start,
         shot.timecode_end,
         shot.duration_seconds,
-        JSON.stringify(shot.frames),
-        shot.thumbnail,
-        shot.audio_clip ?? null,
+        JSON.stringify(frameKeys),
+        frameKeys[Math.floor(frameKeys.length / 2)] ?? shot.thumbnail,
+        audioKey,
         shot.shot_scale,
         shot.camera_angle,
         JSON.stringify(shot.camera_movement),

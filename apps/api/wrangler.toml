@@ -1,16 +1,16 @@
-name = "cinegraph-api"
+name = "precept-api"
 main = "src/index.ts"
 compatibility_date = "2025-03-01"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "cinegraph"
+database_name = "precept"
 database_id = "replace-with-d1-id"
 
 [[r2_buckets]]
 binding = "FRAMES"
-bucket_name = "cinegraph-frames"
+bucket_name = "precept-frames"
 
 [[vectorize]]
 binding = "VECTORS"
-index_name = "cinegraph-shots"
+index_name = "precept-shots"

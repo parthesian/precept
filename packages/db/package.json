@@ -1,5 +1,5 @@
 {
-  "name": "@cinegraph/db",
+  "name": "@precept/db",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -8,11 +8,11 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo \"No lint configured for @cinegraph/db\"",
+    "lint": "echo \"No lint configured for @precept/db\"",
     "db:migrate": "echo \"Run wrangler d1 migrations apply from apps/api\""
   },
   "dependencies": {
-    "@cinegraph/shared": "file:../shared"
+    "@precept/shared": "file:../shared"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250320.0"

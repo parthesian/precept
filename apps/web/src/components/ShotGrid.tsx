@@ -5,10 +5,12 @@ interface ShotLike {
   title: string;
   year: number;
   tags: string[];
+  thumbnail?: string;
+  audioVisualRelationship?: string;
 }
 
 interface Props {
-  shots: ShotLike[];
+  readonly shots: readonly ShotLike[];
 }
 
 export function ShotGrid({ shots }: Props) {
@@ -21,7 +23,14 @@ export function ShotGrid({ shots }: Props) {
       }}
     >
       {shots.map((shot) => (
-        <ShotCard key={shot.id} title={shot.title} year={shot.year} tags={shot.tags} />
+        <ShotCard
+          key={shot.id}
+          title={shot.title}
+          year={shot.year}
+          tags={shot.tags}
+          thumbnail={shot.thumbnail}
+          audioVisualRelationship={shot.audioVisualRelationship}
+        />
       ))}
     </div>
   );

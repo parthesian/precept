@@ -15,7 +15,7 @@ export default function App() {
   return (
     <div className="container" style={{ padding: "1.5rem 0 2rem" }}>
       <header style={{ marginBottom: "1rem" }}>
-        <h1 style={{ margin: 0 }}>CineGraph</h1>
+        <h1 style={{ margin: 0 }}>Precept</h1>
         <p style={{ margin: "0.35rem 0 0", color: "#9ca3af" }}>
           Cinematic visual genealogy platform (starter UI scaffold)
         </p>

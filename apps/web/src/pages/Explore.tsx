@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { SearchPanel } from "../components/SearchPanel";
 import { ShotGrid } from "../components/ShotGrid";
 import { useSearch } from "../hooks/useSearch";
+import type { SearchShotRow } from "../lib/api";
 
 export function Explore() {
   const [query, setQuery] = useState("");
@@ -9,11 +10,13 @@ export function Explore() {
 
   const rows = useMemo(
     () =>
-      (data?.data ?? []).map((row: any, index: number) => ({
+      (data?.data ?? []).map((row: SearchShotRow, index: number) => ({
         id: row.id ?? `shot-${index}`,
-        title: row.title ?? "Unknown Film",
-        year: row.year ?? 0,
+        title: row.film_title ?? "Unknown Film",
+        year: row.film_year ?? 0,
         tags: [row.shot_scale, row.setting, row.lighting].filter(Boolean),
+        thumbnail: row.thumbnail_url,
+        audioVisualRelationship: row.audio_visual_relationship,
       })),
     [data]
   );

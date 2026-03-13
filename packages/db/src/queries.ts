@@ -1,4 +1,4 @@
-import type { Connection, Film, Shot } from "@cinegraph/shared";
+import type { Connection, Film, Shot } from "@precept/shared";
 
 type D1 = D1Database;
 

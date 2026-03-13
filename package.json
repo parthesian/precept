@@ -1,5 +1,5 @@
 {
-  "name": "cinegraph",
+  "name": "precept",
   "private": true,
   "packageManager": "npm@11.6.2",
   "workspaces": [
@@ -8,11 +8,11 @@
   ],
   "scripts": {
     "dev": "turbo dev",
-    "dev:api": "turbo dev --filter=@cinegraph/api",
-    "dev:web": "turbo dev --filter=@cinegraph/web",
+    "dev:api": "turbo dev --filter=@precept/api",
+    "dev:web": "turbo dev --filter=@precept/web",
     "build": "turbo build",
-    "pipeline": "turbo pipeline --filter=@cinegraph/pipeline",
-    "db:migrate": "turbo db:migrate --filter=@cinegraph/db",
+    "pipeline": "turbo pipeline --filter=@precept/pipeline",
+    "db:migrate": "turbo db:migrate --filter=@precept/db",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint"
   },

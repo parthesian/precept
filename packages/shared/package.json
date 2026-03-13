@@ -1,5 +1,5 @@
 {
-  "name": "@cinegraph/shared",
+  "name": "@precept/shared",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo \"No lint configured for @cinegraph/shared\""
+    "lint": "echo \"No lint configured for @precept/shared\""
   },
   "dependencies": {
     "zod": "^3.23"

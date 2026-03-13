@@ -1,10 +1,10 @@
-import type { ShotIngestPayload } from "@cinegraph/shared";
+import type { ShotIngestPayload } from "@precept/shared";
 
 export async function uploadIngestPayload(
   apiUrl: string,
   apiKey: string,
   payload: ShotIngestPayload
-): Promise<void> {
+): Promise<{ film_id: string; shots_ingested: number }> {
   const response = await fetch(`${apiUrl.replace(/\/$/, "")}/api/ingest/shots`, {
     method: "POST",
     headers: {
@@ -18,4 +18,6 @@ export async function uploadIngestPayload(
     const text = await response.text();
     throw new Error(`Ingest upload failed (${response.status}): ${text}`);
   }
+
+  return (await response.json()) as { film_id: string; shots_ingested: number };
 }

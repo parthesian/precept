@@ -18,7 +18,6 @@ import type {
   SubjectAction,
   TimeOfDay,
 } from "./taxonomy";
-import type { Buffer } from "node:buffer";
 
 export interface Film {
   id: string;
@@ -91,8 +90,8 @@ export interface ShotIngestPayload {
   film: Omit<Film, "id" | "created_at">;
   shots: Array<
     Omit<Shot, "id" | "film_id" | "created_at" | "updated_at" | "embedding_id"> & {
-      frame_buffers: { key: string; data: Buffer }[];
-      audio_buffer?: { key: string; data: Buffer };
+      frame_buffers: { key: string; content_type: string; data_base64: string }[];
+      audio_buffer?: { key: string; content_type: string; data_base64: string };
       embedding_vector: number[];
     }
   >;

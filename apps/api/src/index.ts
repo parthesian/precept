@@ -17,7 +17,7 @@ type Bindings = {
 const app = new Hono<{ Bindings: Bindings }>();
 app.use("*", cors());
 
-app.get("/", (c) => c.json({ name: "cinegraph-api", status: "ok" }));
+app.get("/", (c) => c.json({ name: "precept-api", status: "ok" }));
 
 app.route("/api", filmsRouter);
 app.route("/api", shotsRouter);
