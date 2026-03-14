@@ -13,6 +13,7 @@
     "build": "turbo build",
     "pipeline": "turbo pipeline --filter=@precept/pipeline",
     "db:migrate": "turbo db:migrate --filter=@precept/db",
+    "db:reset:local": "powershell -ExecutionPolicy Bypass -File ./scripts/clear-local-db.ps1",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint"
   },

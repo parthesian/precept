@@ -19,7 +19,7 @@ app.use("*", cors());
 
 app.get("/", (c) => c.json({ name: "precept-api", status: "ok" }));
 
-app.route("/api", filmsRouter);
+app.route("/api/films", filmsRouter);
 app.route("/api", shotsRouter);
 app.route("/api", searchRouter);
 app.route("/api", connectionsRouter);

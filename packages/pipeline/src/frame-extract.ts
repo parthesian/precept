@@ -1,10 +1,13 @@
 import { join } from "node:path";
-import { getFfmpegBinary, runCommand } from "./ffmpeg";
-import { ensureDir } from "./utils";
-import type { DetectedShot } from "./scene-detect";
+import { getFfmpegBinary, runCommand } from "./ffmpeg.js";
+import { ensureDir } from "./utils.js";
+import type { DetectedShot } from "./scene-detect.js";
 
 export interface ExtractedFrameSet {
   shot_index: number;
+  timecode_start: number;
+  timecode_end: number;
+  duration_seconds: number;
   frames: string[];
   thumbnail: string;
   audio_clip?: string;
@@ -86,6 +89,9 @@ export async function extractFrames(
 
     results.push({
       shot_index: shot.shot_index,
+      timecode_start: shot.start,
+      timecode_end: shot.end,
+      duration_seconds: shot.duration,
       frames,
       thumbnail,
       audio_clip: audioClip,

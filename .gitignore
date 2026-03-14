@@ -4,5 +4,7 @@ dist
 .wrangler
 .env
 .env.*
+.dev.vars
+**/.dev.vars
 *.log
 workspace

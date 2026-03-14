@@ -6,13 +6,13 @@ import { Command } from "commander";
 import ora from "ora";
 import { ulid } from "ulid";
 import type { ShotIngestPayload } from "@precept/shared";
-import { analyzeShotAudio } from "./audio-extract";
-import { embedThumbnail } from "./embedder";
-import { extractFrames } from "./frame-extract";
-import { detectScenes } from "./scene-detect";
-import { tagShotsWithVisionModel } from "./tagger";
-import { uploadIngestPayload } from "./uploader";
-import { readJson, writeJson } from "./utils";
+import { analyzeShotAudio } from "./audio-extract.js";
+import { embedThumbnail } from "./embedder.js";
+import { extractFrames } from "./frame-extract.js";
+import { detectScenes } from "./scene-detect.js";
+import { tagShotsWithVisionModel } from "./tagger.js";
+import { uploadIngestPayload } from "./uploader.js";
+import { readJson, writeJson } from "./utils.js";
 import mime from "mime-types";
 
 function contentTypeFromPath(path: string, fallback: string): string {

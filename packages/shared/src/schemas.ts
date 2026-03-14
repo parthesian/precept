@@ -18,7 +18,7 @@ import {
   SoundDesignEmphasis,
   SubjectAction,
   TimeOfDay,
-} from "./taxonomy";
+} from "./taxonomy.js";
 
 export const filmSchema = z.object({
   title: z.string().min(1),

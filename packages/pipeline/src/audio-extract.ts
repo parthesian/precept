@@ -1,4 +1,4 @@
-import { getFfmpegBinary, getFfprobeBinary, runCommand } from "./ffmpeg";
+import { getFfmpegBinary, getFfprobeBinary, runCommand } from "./ffmpeg.js";
 
 export interface AudioMetadata {
   has_music: boolean;

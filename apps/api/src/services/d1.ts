@@ -1,5 +1,3 @@
-import { ulid } from "ulid";
-
 export function toSqliteBool(value: boolean): number {
   return value ? 1 : 0;
 }
@@ -18,5 +16,6 @@ export function nowIsoString(): string {
 }
 
 export function generateId(): string {
-  return ulid();
+  // Use Web Crypto so ID generation works in Cloudflare Workers and wrangler dev.
+  return crypto.randomUUID();
 }

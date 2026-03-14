@@ -12,3 +12,8 @@ export async function upsertVectors(
 ): Promise<void> {
   await index.upsert(vectors);
 }
+
+export function isVectorizeUnavailableInLocalDev(error: unknown): boolean {
+  if (!(error instanceof Error)) return false;
+  return /Binding VECTORS needs to be run remotely/i.test(error.message);
+}

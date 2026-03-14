@@ -17,7 +17,7 @@ import type {
   SoundDesignEmphasis,
   SubjectAction,
   TimeOfDay,
-} from "./taxonomy";
+} from "./taxonomy.js";
 
 export interface Film {
   id: string;

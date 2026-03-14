@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import type { ShotIngestPayload } from "@precept/shared";
 import { ingestAuth } from "../middleware/auth";
 import { generateId, nowIsoString, toSqliteBool } from "../services/d1";
-import { upsertVectors } from "../services/vectorize";
+import { isVectorizeUnavailableInLocalDev, upsertVectors } from "../services/vectorize";
 
 type Bindings = {
   DB: D1Database;
@@ -125,8 +125,25 @@ ingestRouter.post("/ingest/shots", async (c) => {
     });
   }
 
-  await upsertVectors(c.env.VECTORS, vectors);
-  return c.json({ film_id: filmId, shots_ingested: payload.shots.length }, 201);
+  let vectorsUpserted = true;
+  try {
+    await upsertVectors(c.env.VECTORS, vectors);
+  } catch (error) {
+    if (!isVectorizeUnavailableInLocalDev(error)) {
+      throw error;
+    }
+    vectorsUpserted = false;
+    console.warn("Vectorize unavailable in local dev. Skipping vector upsert.");
+  }
+
+  return c.json(
+    {
+      film_id: filmId,
+      shots_ingested: payload.shots.length,
+      vectors_upserted: vectorsUpserted,
+    },
+    201
+  );
 });
 
 ingestRouter.post("/ingest/frames", (c) => c.json({ error: "Use /api/ingest/shots in scaffold." }, 501));

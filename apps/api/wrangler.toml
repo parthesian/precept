@@ -6,6 +6,7 @@ compatibility_date = "2025-03-01"
 binding = "DB"
 database_name = "precept"
 database_id = "replace-with-d1-id"
+migrations_dir = "../../packages/db/migrations"
 
 [[r2_buckets]]
 binding = "FRAMES"

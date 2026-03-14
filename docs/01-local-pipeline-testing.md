@@ -55,14 +55,14 @@ npx turbo build --filter=@precept/pipeline
 Then run:
 
 ```powershell
-node packages/pipeline/dist/cli.js process `
-  --input "C:\movies\inception-trailer.mp4" `
-  --title "Inception Trailer Test" `
-  --year 2010 `
+node dist/cli.js process `
+  --input "C:\Movies\TheOdyssey.webm" `
+  --title "Odyssey Trailer Test" `
+  --year 2026 `
   --director "Christopher Nolan" `
-  --cinematographer "Wally Pfister" `
-  --runtime 3 `
-  --max-shots 20 `
+  --cinematographer "Hoyte van Hoytema" `
+  --runtime 2 `
+  --max-shots 40 `
   --scene-threshold 0.3
 ```
 
