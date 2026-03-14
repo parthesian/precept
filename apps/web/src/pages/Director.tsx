@@ -2,9 +2,11 @@ import { TagBrowser } from "../components/TagBrowser";
 
 export function Director() {
   return (
-    <section style={{ display: "grid", gap: "0.85rem" }}>
-      <h2 style={{ marginBottom: 0 }}>Director Overview</h2>
-      <p style={{ color: "#9ca3af", margin: 0 }}>
+    <section style={{ display: "grid", gap: "6px", padding: "0 12px 18px" }}>
+      <h2 className="section-title" style={{ marginBottom: 0 }}>
+        Directors
+      </h2>
+      <p className="section-subtitle" style={{ margin: 0 }}>
         Start with Christopher Nolan as seed corpus, then expand to influences and peers.
       </p>
       <TagBrowser />

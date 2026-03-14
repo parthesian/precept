@@ -2,6 +2,10 @@ import { useRef, useState, type MouseEvent, type WheelEventHandler } from "react
 import { useQuery } from "@tanstack/react-query";
 import { api, type FilmShotRow } from "../lib/api";
 
+function toDisplayShotNumber(shotIndex: number): number {
+  return shotIndex + 1;
+}
+
 export function FilmTimeline() {
   const timelineRef = useRef<HTMLDivElement | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -48,45 +52,40 @@ export function FilmTimeline() {
 
   const handleMouseUp = () => setDragging(false);
 
+  const shots = shotsQuery.data?.data ?? [];
+  const totalDuration = shots.reduce((sum, shot) => sum + Math.max(0.2, shot.duration_seconds), 0);
+  const averageDuration = shots.length > 0 ? totalDuration / shots.length : 0;
+  const dominantScale = shots.reduce(
+    (acc, shot) => {
+      acc.set(shot.shot_scale, (acc.get(shot.shot_scale) ?? 0) + 1);
+      return acc;
+    },
+    new Map<string, number>()
+  );
+  const topScale = Array.from(dominantScale.entries()).sort((a, b) => b[1] - a[1])[0]?.[0] ?? "n/a";
+
   return (
-    <section style={{ border: "1px solid #1f2937", borderRadius: 12, padding: "1rem", background: "#111319" }}>
-      <h3 style={{ marginTop: 0 }}>Film Timeline</h3>
-      {filmsQuery.isLoading ? <p style={{ color: "#9ca3af" }}>Loading films...</p> : null}
-      {!filmsQuery.isLoading && !latestFilm ? <p style={{ color: "#9ca3af" }}>No films found yet.</p> : null}
+    <section className="panel">
+      <h3 className="section-title" style={{ fontSize: "var(--text-xl)", marginBottom: "6px" }}>
+        Film Timeline
+      </h3>
+      {filmsQuery.isLoading ? <p className="muted">Loading films...</p> : null}
+      {!filmsQuery.isLoading && !latestFilm ? <p className="muted">No films found yet.</p> : null}
       {latestFilm ? (
-        <p style={{ color: "#9ca3af", marginTop: 0 }}>
-          Showing latest film: <strong style={{ color: "#e5e7eb" }}>{latestFilm.title}</strong> ({latestFilm.year})
+        <p style={{ marginTop: 0 }}>
+          <span className="film-title-inline">{latestFilm.title}</span> <span className="film-year">({latestFilm.year})</span>{" "}
+          <span className="section-subtitle">by {latestFilm.director}</span>
         </p>
       ) : null}
-      {shotsQuery.data?.data?.length ? (
+      {shots.length ? (
         <div style={{ display: "grid", gap: "0.55rem" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "0.5rem" }}>
-            <span style={{ color: "#9ca3af", fontSize: "0.82rem" }}>Use mouse wheel/trackpad or drag to scrub timeline.</span>
-            <div style={{ display: "flex", gap: "0.4rem" }}>
-              <button
-                onClick={() => scrollByAmount(-360)}
-                style={{
-                  border: "1px solid #2d3748",
-                  background: "#0b1220",
-                  color: "#e5e7eb",
-                  borderRadius: 8,
-                  padding: "0.3rem 0.55rem",
-                  cursor: "pointer",
-                }}
-              >
+            <span className="meta-line">Use wheel/trackpad or drag to scrub timeline.</span>
+            <div style={{ display: "flex", gap: "0.4rem", alignItems: "center" }}>
+              <button onClick={() => scrollByAmount(-360)} className="tag">
                 ◀
               </button>
-              <button
-                onClick={() => scrollByAmount(360)}
-                style={{
-                  border: "1px solid #2d3748",
-                  background: "#0b1220",
-                  color: "#e5e7eb",
-                  borderRadius: 8,
-                  padding: "0.3rem 0.55rem",
-                  cursor: "pointer",
-                }}
-              >
+              <button onClick={() => scrollByAmount(360)} className="tag">
                 ▶
               </button>
             </div>
@@ -98,39 +97,24 @@ export function FilmTimeline() {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseUp}
             onMouseUp={handleMouseUp}
-            style={{
-              display: "grid",
-              gridAutoFlow: "column",
-              gridAutoColumns: "minmax(220px, 260px)",
-              gap: "0.65rem",
-              overflowX: "auto",
-              overflowY: "hidden",
-              maxWidth: "100%",
-              overscrollBehaviorX: "contain",
-              paddingBottom: "0.35rem",
-              cursor: dragging ? "grabbing" : "grab",
-              userSelect: "none",
-            }}
+            className="timeline-strip"
+            style={{ cursor: dragging ? "grabbing" : "grab", userSelect: "none" }}
           >
-            {shotsQuery.data.data.map((shot: FilmShotRow) => (
-              <article
-                key={shot.id}
-                style={{ border: "1px solid #1f2937", borderRadius: 10, overflow: "hidden", background: "#0b1220" }}
-              >
+            {shots.map((shot: FilmShotRow) => (
+              <article key={shot.id} className="timeline-segment" style={{ width: `${Math.max(12, (shot.duration_seconds / totalDuration) * 1800)}px` }}>
                 <img
                   src={shot.thumbnail_url}
-                  alt={`Shot ${shot.shot_index}`}
+                  alt={`Shot ${toDisplayShotNumber(shot.shot_index)}`}
                   draggable={false}
-                  style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", display: "block" }}
                 />
-                <div style={{ padding: "0.55rem 0.65rem", fontSize: "0.8rem" }}>
-                  <div style={{ color: "#e5e7eb" }}>Shot {shot.shot_index}</div>
-                  <div style={{ color: "#9ca3af" }}>
-                    {shot.shot_scale} · {shot.setting}
-                  </div>
-                </div>
+                <span className="meta">{shot.duration_seconds.toFixed(1)}s</span>
               </article>
             ))}
+          </div>
+          <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+            <span className="meta-mono">avg shot {averageDuration.toFixed(2)}s</span>
+            <span className="meta-mono">total {totalDuration.toFixed(1)}s</span>
+            <span className="meta-mono">dominant scale {topScale}</span>
           </div>
         </div>
       ) : null}

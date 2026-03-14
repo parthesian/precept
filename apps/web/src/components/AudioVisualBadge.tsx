@@ -3,18 +3,24 @@ interface Props {
 }
 
 export function AudioVisualBadge({ value }: Props) {
+  const normalized = value.replaceAll("_", " ").toUpperCase();
   const notable = value === "contrasting" || value === "mickey_mousing";
   return (
     <span
       style={{
-        fontSize: "0.75rem",
-        borderRadius: 999,
-        padding: "0.2rem 0.55rem",
-        border: "1px solid #374151",
-        background: notable ? "#1f2937" : "#111827",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "5px",
+        fontSize: "var(--text-xs)",
+        fontFamily: "var(--font-mono)",
+        color: notable ? "var(--text-primary)" : "var(--text-secondary)",
+        padding: "2px 6px",
+        borderLeft: `1px solid ${notable ? "var(--accent-dim)" : "var(--border-hover)"}`,
+        background: "rgba(255,255,255,0.03)",
       }}
     >
-      {value}
+      <span aria-hidden="true">⟷</span>
+      {normalized}
     </span>
   );
 }

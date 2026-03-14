@@ -6,30 +6,31 @@ interface ShotLike {
   year: number;
   tags: string[];
   thumbnail?: string;
+  timecodeStart?: number;
+  shotScale?: string;
   audioVisualRelationship?: string;
 }
 
 interface Props {
   readonly shots: readonly ShotLike[];
+  readonly onSelect?: (shotId: string) => void;
 }
 
-export function ShotGrid({ shots }: Props) {
+export function ShotGrid({ shots, onSelect }: Props) {
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-        gap: "0.75rem",
-      }}
-    >
+    <div className="contact-sheet">
       {shots.map((shot) => (
         <ShotCard
           key={shot.id}
+          id={shot.id}
           title={shot.title}
           year={shot.year}
           tags={shot.tags}
           thumbnail={shot.thumbnail}
+          timecodeStart={shot.timecodeStart}
+          shotScale={shot.shotScale}
           audioVisualRelationship={shot.audioVisualRelationship}
+          onSelect={onSelect}
         />
       ))}
     </div>
