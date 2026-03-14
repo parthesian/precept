@@ -13,6 +13,7 @@ import { detectScenes } from "./scene-detect.js";
 import { tagShotsWithVisionModel } from "./tagger.js";
 import { uploadIngestPayload } from "./uploader.js";
 import { readJson, writeJson } from "./utils.js";
+import { assertIngestConfig, loadPipelineConfig } from "./config/pipeline-config.js";
 import mime from "mime-types";
 
 function contentTypeFromPath(path: string, fallback: string): string {
@@ -164,11 +165,8 @@ program
   .requiredOption("--runtime <minutes>")
   .option("--cinematographer <name>")
   .action(async (opts) => {
-    const apiUrl = process.env.PRECEPT_API_URL;
-    const apiKey = process.env.PRECEPT_API_KEY;
-    if (!apiUrl || !apiKey) {
-      throw new Error("Set PRECEPT_API_URL and PRECEPT_API_KEY in environment.");
-    }
+    const config = loadPipelineConfig();
+    assertIngestConfig(config);
 
     const tags = await readJson<any[]>(opts.tags);
     const vectors = await readJson<number[][]>(opts.embeddings);
@@ -185,7 +183,7 @@ program
       shots: await buildUploadShots(tags, vectors, opts.director, opts.title),
     };
 
-    const result = await uploadIngestPayload(apiUrl, apiKey, payload);
+    const result = await uploadIngestPayload(config.api.preceptApiUrl, config.api.preceptApiKey, payload);
     spinner.succeed(`Upload completed (film_id=${result.film_id}, shots=${result.shots_ingested})`);
   });
 
@@ -200,6 +198,7 @@ program
   .option("--max-shots <number>", "Limit shots for faster local testing")
   .option("--scene-threshold <number>", "Scene threshold (default 0.3)", "0.3")
   .action(async (opts) => {
+    const config = loadPipelineConfig();
     const slug = toSlugFromInputPath(opts.input);
     const workspace = `workspace/${slug}-${ulid()}`;
     const scenesPath = `${workspace}/scenes.json`;
@@ -226,11 +225,7 @@ program
     const vectors = await Promise.all(tags.map(async (shot) => embedThumbnail(shot.thumbnail)));
     await writeJson(vectorsPath, vectors);
 
-    const apiUrl = process.env.PRECEPT_API_URL;
-    const apiKey = process.env.PRECEPT_API_KEY;
-    if (!apiUrl || !apiKey) {
-      throw new Error("Set PRECEPT_API_URL and PRECEPT_API_KEY in environment.");
-    }
+    assertIngestConfig(config);
 
     const payload: ShotIngestPayload = {
       film: {
@@ -243,7 +238,7 @@ program
       },
       shots: await buildUploadShots(tags, vectors, opts.director, opts.title),
     };
-    const result = await uploadIngestPayload(apiUrl, apiKey, payload);
+    const result = await uploadIngestPayload(config.api.preceptApiUrl, config.api.preceptApiKey, payload);
     console.log(`Uploaded film_id=${result.film_id} shots=${result.shots_ingested}`);
   });
 

@@ -249,3 +249,9 @@ export enum ConnectionConfidence {
   POSSIBLE = "possible",
   AI_SUGGESTED = "ai_suggested",
 }
+
+export enum AnalysisTier {
+  TIER_0 = "tier_0",
+  TIER_1 = "tier_1",
+  TIER_2 = "tier_2",
+}

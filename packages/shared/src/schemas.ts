@@ -1,5 +1,6 @@
 import { z } from "zod";
 import {
+  AnalysisTier,
   AudioVisualRelationship,
   CameraAngle,
   CameraMovement,
@@ -65,6 +66,20 @@ export const shotSchema = z.object({
   dialogue_present: z.boolean(),
   specific_song: z.string().optional(),
   llm_description: z.string().min(1),
+  analysis_tier: z.nativeEnum(AnalysisTier).optional(),
+  analysis_provider: z.string().min(1).optional(),
+  analysis_model: z.string().min(1).optional(),
+  analysis_confidence: z.number().min(0).max(1).optional(),
+  keyframe_diagnostics: z
+    .object({
+      candidate_count: z.number().int().nonnegative().optional(),
+      selected_count: z.number().int().nonnegative().optional(),
+      rejected_dedup: z.number().int().nonnegative().optional(),
+      rejected_blur: z.number().int().nonnegative().optional(),
+      avg_motion: z.number().nonnegative().optional(),
+      avg_entropy: z.number().nonnegative().optional(),
+    })
+    .optional(),
 });
 
 export const connectionSchema = z.object({

@@ -8,3 +8,6 @@ dist
 **/.dev.vars
 *.log
 workspace
+.venv
+__pycache__
+*.pyc

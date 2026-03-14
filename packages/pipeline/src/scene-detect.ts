@@ -1,4 +1,6 @@
 import { getFfmpegBinary, getFfprobeBinary, runCommand } from "./ffmpeg.js";
+import { loadPipelineConfig } from "./config/pipeline-config.js";
+import { detectShotsWithVisionService } from "./vision-service.js";
 
 export interface DetectedShot {
   shot_index: number;
@@ -13,6 +15,24 @@ export async function detectScenes(
   approxShotDurationSeconds = 4,
   threshold = 0.3
 ): Promise<DetectedShot[]> {
+  const config = loadPipelineConfig();
+  if (config.features.enablePythonVisionService && config.endpoints.visionServiceUrl) {
+    try {
+      const shots = await detectShotsWithVisionService(
+        config.endpoints.visionServiceUrl,
+        inputPath,
+        config.shot.detector,
+        threshold
+      );
+      if (shots.length > 0) {
+        return shots;
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn(`Vision service shot detection failed, falling back to FFmpeg detector: ${message}`);
+    }
+  }
+
   const ffmpeg = getFfmpegBinary();
   const ffprobe = getFfprobeBinary();
   const probe = await runCommand(ffprobe, [

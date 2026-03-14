@@ -70,7 +70,7 @@ ingestRouter.post("/ingest/shots", async (c) => {
     }
 
     await c.env.DB.prepare(
-      "INSERT INTO shots (id, film_id, shot_index, timecode_start, timecode_end, duration_seconds, frames, thumbnail, audio_clip, shot_scale, camera_angle, camera_movement, composition, lighting, color_palette, dominant_colors, location_type, setting, time_of_day, subject_count, subject_actions, emotional_register, narrative_function, props_or_motifs, music_present, music_type, music_mood, music_diegetic, audio_visual_relationship, sound_design, dialogue_present, specific_song, llm_description, embedding_id, created_at, updated_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31, ?32, ?33, ?34, ?35, ?36)"
+      "INSERT INTO shots (id, film_id, shot_index, timecode_start, timecode_end, duration_seconds, frames, thumbnail, audio_clip, shot_scale, camera_angle, camera_movement, composition, lighting, color_palette, dominant_colors, location_type, setting, time_of_day, subject_count, subject_actions, emotional_register, narrative_function, props_or_motifs, music_present, music_type, music_mood, music_diegetic, audio_visual_relationship, sound_design, dialogue_present, specific_song, llm_description, analysis_tier, analysis_provider, analysis_model, analysis_confidence, keyframe_diagnostics, embedding_id, created_at, updated_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31, ?32, ?33, ?34, ?35, ?36, ?37, ?38, ?39, ?40, ?41)"
     )
       .bind(
         shotId,
@@ -106,6 +106,11 @@ ingestRouter.post("/ingest/shots", async (c) => {
         toSqliteBool(shot.dialogue_present),
         shot.specific_song ?? null,
         shot.llm_description,
+        shot.analysis_tier ?? null,
+        shot.analysis_provider ?? null,
+        shot.analysis_model ?? null,
+        shot.analysis_confidence ?? null,
+        JSON.stringify(shot.keyframe_diagnostics ?? {}),
         embeddingId,
         nowIsoString(),
         nowIsoString()

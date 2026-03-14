@@ -1,4 +1,5 @@
 import type {
+  AnalysisTier,
   AudioVisualRelationship,
   CameraAngle,
   CameraMovement,
@@ -68,6 +69,18 @@ export interface Shot {
   dialogue_present: boolean;
   specific_song?: string;
   llm_description: string;
+  analysis_tier?: AnalysisTier;
+  analysis_provider?: string;
+  analysis_model?: string;
+  analysis_confidence?: number;
+  keyframe_diagnostics?: {
+    candidate_count?: number;
+    selected_count?: number;
+    rejected_dedup?: number;
+    rejected_blur?: number;
+    avg_motion?: number;
+    avg_entropy?: number;
+  };
   embedding_id?: string;
   created_at: string;
   updated_at: string;

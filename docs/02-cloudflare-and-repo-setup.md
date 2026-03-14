@@ -85,9 +85,28 @@ Use a strong value and keep it consistent with pipeline env.
 ### `packages/pipeline/.env`
 
 ```env
-ANTHROPIC_API_KEY=sk-ant-...
 PRECEPT_API_URL=https://precept-api.<your-subdomain>.workers.dev
 PRECEPT_API_KEY=<same-value-as-worker-secret>
+
+ENABLE_PYTHON_VISION_SERVICE=true
+VISION_SERVICE_URL=http://localhost:8010
+ENABLE_ADAPTIVE_KEYFRAMES=true
+
+PIPELINE_SHOT_DETECTOR=ffmpeg_scdet
+PIPELINE_SCENE_THRESHOLD=0.3
+PIPELINE_MAX_CANDIDATE_FRAMES=24
+PIPELINE_MAX_FRAMES_PER_SHOT=7
+
+PIPELINE_DEFAULT_TIER=tier_1
+PIPELINE_TIER1_PROVIDER=gemini
+PIPELINE_TIER1_MODEL=gemini-2.5-flash-lite
+PIPELINE_TIER2_PROVIDER=anthropic
+PIPELINE_TIER2_MODEL=claude-sonnet-4-6
+PIPELINE_SUMMARY_COMPRESS_EVERY=15
+
+GEMINI_API_KEY=...
+ANTHROPIC_API_KEY=...
+QWEN_BASE_URL=http://localhost:8000
 ```
 
 ### `apps/web/.env`
@@ -165,6 +184,7 @@ Verify:
 - `/api/films` contains new film
 - `/api/search/tags` returns rows with `thumbnail_url`
 - opening `thumbnail_url` returns image data
+- rows include `analysis_tier`, `analysis_provider`, and `analysis_model`
 
 ## 11) Recommended Deploy Order
 
@@ -182,6 +202,8 @@ Verify:
 
 - Keep migrations append-only in `packages/db/migrations`
 - Keep shared enums/types in `packages/shared` as single source of truth
+- Keep provider/model routing in `packages/pipeline/src/config/pipeline-config.ts` as single source of truth
+- Keep Python local analysis logic isolated in `services/vision-pipeline`
 - Run `npm run typecheck` before every push
 - Ingest short clips first, then full films once pipeline confidence is high
 - Track ingest runs under `workspace/` and clean old runs regularly
