@@ -101,6 +101,7 @@ async function writeEvidence(
       excerpt: item.excerpt ?? null,
       pageOrTimestamp: item.page_or_timestamp ?? null,
       submittedBy,
+      createdAt: Date.now(),
     });
   }
 }
@@ -108,7 +109,7 @@ async function writeEvidence(
 async function bumpFilmConnectionCounts(db: Db, filmIds: string[]): Promise<void> {
   for (const filmId of [...new Set(filmIds)]) {
     const [{ count }] = await db
-      .select({ count: sql<number>`count(*)::int` })
+      .select({ count: sql<number>`count(*)` })
       .from(connections)
       .where(
         and(
@@ -118,7 +119,7 @@ async function bumpFilmConnectionCounts(db: Db, filmIds: string[]): Promise<void
       );
     await db
       .update(films)
-      .set({ connectionCount: count, updatedAt: new Date() })
+      .set({ connectionCount: count, updatedAt: Date.now() })
       .where(eq(films.id, filmId));
   }
 }
@@ -130,7 +131,7 @@ async function applyCreate(
   actorId: string,
   evidenceItems: EvidenceInput[] | undefined
 ): Promise<string> {
-  const now = new Date();
+  const now = Date.now();
 
   switch (targetType) {
     case "film": {
@@ -176,6 +177,7 @@ async function applyCreate(
         aspectRatio: (payload.aspect_ratio as string | undefined) ?? null,
         colorFormat: (payload.color_format as (typeof films.$inferInsert)["colorFormat"]) ?? null,
         popularityScore: Number(payload.popularity_score ?? 0),
+        createdAt: now,
         updatedAt: now,
       });
       return id;
@@ -194,6 +196,7 @@ async function applyCreate(
         deathYear: (payload.death_year as number | undefined) ?? null,
         bioSnippet: (payload.bio_snippet as string | undefined) ?? null,
         photoUrl: (payload.photo_url as string | undefined) ?? null,
+        createdAt: now,
         updatedAt: now,
       });
       return id;
@@ -221,6 +224,7 @@ async function applyCreate(
         createdBy: actorId,
         approvedBy: actorId,
         approvedAt: now,
+        createdAt: now,
         updatedAt: now,
       });
       return id;
@@ -256,6 +260,7 @@ async function applyCreate(
         createdBy: actorId,
         approvedBy: actorId,
         approvedAt: now,
+        createdAt: now,
         updatedAt: now,
       });
       await writeEvidence(db, "connection", id, ev, actorId);
@@ -282,6 +287,7 @@ async function applyCreate(
         createdBy: actorId,
         approvedBy: actorId,
         approvedAt: now,
+        createdAt: now,
         updatedAt: now,
       });
       await writeEvidence(
@@ -310,6 +316,7 @@ async function applyCreate(
         createdBy: actorId,
         approvedBy: actorId,
         approvedAt: now,
+        createdAt: now,
         updatedAt: now,
       });
       return id;
@@ -325,6 +332,7 @@ async function applyCreate(
         createdBy: actorId,
         approvedBy: actorId,
         approvedAt: now,
+        createdAt: now,
       });
       return id;
     }
@@ -342,6 +350,7 @@ async function applyCreate(
         createdBy: actorId,
         approvedBy: actorId,
         approvedAt: now,
+        createdAt: now,
         updatedAt: now,
       });
       await writeEvidence(
@@ -362,6 +371,7 @@ async function applyCreate(
         name,
         description: (payload.description as string | undefined) ?? null,
         kind: payload.kind as (typeof collections.$inferInsert)["kind"],
+        createdAt: now,
         updatedAt: now,
       });
       const filmIds = asStringArray(payload.film_ids);
@@ -386,10 +396,11 @@ async function applyCreate(
         headline,
         bodyMarkdown: String(payload.body_markdown),
         featuredConnectionIds: asStringArray(payload.featured_connection_ids),
-        publishedAt: payload.published_at ? new Date(String(payload.published_at)) : now,
+        publishedAt: payload.published_at ? Date.parse(String(payload.published_at)) || now : now,
         status: "approved",
         createdBy: actorId,
         approvedBy: actorId,
+        createdAt: now,
         updatedAt: now,
       });
       return id;
@@ -405,7 +416,7 @@ async function applyUpdate(
   targetId: string,
   payload: Record<string, unknown>
 ): Promise<void> {
-  const now = new Date();
+  const now = Date.now();
   switch (targetType) {
     case "film":
       await db
@@ -573,6 +584,7 @@ export async function createSuggestion(db: Db, input: CreateSuggestionInput) {
   if (!actor) throw new Error("Unknown submitter");
 
   const suggestionId = newId();
+  const createdAt = Date.now();
   await db.insert(suggestions).values({
     id: suggestionId,
     targetType: input.target_type,
@@ -587,6 +599,8 @@ export async function createSuggestion(db: Db, input: CreateSuggestionInput) {
     submitterNote: input.submitter_note ?? null,
     status: "pending",
     submittedBy: input.submitted_by,
+    createdAt,
+    updatedAt: createdAt,
   });
 
   const roleAllowsSelfApprove =
@@ -635,36 +649,41 @@ export async function approveSuggestion(
   const evidenceItems = (payload.evidence as EvidenceInput[] | undefined) ?? [];
   validateEvidenceList(evidenceItems);
 
-  return db.transaction(async (tx) => {
-    const dbTx = tx as unknown as Db;
-    let targetId = suggestion.targetId;
+  // D1 has no interactive transactions. Apply domain mutations, then atomically
+  // batch revision + suggestion status + contribution bump via db.batch().
+  // TMDB film import (HTTP) runs inside applyCreate before the batch bookkeeping.
+  let targetId = suggestion.targetId;
+  const now = Date.now();
 
-    if (suggestion.operation === "create") {
-      targetId = await applyCreate(
-        dbTx,
-        suggestion.targetType,
-        payload,
-        args.reviewerId,
-        evidenceItems
-      );
-    } else if (suggestion.operation === "update") {
-      if (!targetId) throw new Error("update requires target_id");
-      await applyUpdate(dbTx, suggestion.targetType, targetId, payload);
-      if (evidenceItems.length) {
-        await writeEvidence(dbTx, suggestion.targetType, targetId, evidenceItems, args.reviewerId);
-      }
-    } else if (suggestion.operation === "delete") {
-      if (!targetId) throw new Error("delete requires target_id");
-      await applyDelete(dbTx, suggestion.targetType, targetId);
-    } else if (suggestion.operation === "merge") {
-      throw new Error("merge operation not implemented in v1 apply path");
+  if (suggestion.operation === "create") {
+    targetId = await applyCreate(
+      db,
+      suggestion.targetType,
+      payload,
+      args.reviewerId,
+      evidenceItems
+    );
+  } else if (suggestion.operation === "update") {
+    if (!targetId) throw new Error("update requires target_id");
+    await applyUpdate(db, suggestion.targetType, targetId, payload);
+    if (evidenceItems.length) {
+      await writeEvidence(db, suggestion.targetType, targetId, evidenceItems, args.reviewerId);
     }
+  } else if (suggestion.operation === "delete") {
+    if (!targetId) throw new Error("delete requires target_id");
+    await applyDelete(db, suggestion.targetType, targetId);
+  } else if (suggestion.operation === "merge") {
+    throw new Error("merge operation not implemented in v1 apply path");
+  }
 
-    if (!targetId) throw new Error("Missing target id after apply");
+  if (!targetId) throw new Error("Missing target id after apply");
 
-    const revisionNumber = await nextRevisionNumber(dbTx, suggestion.targetType, targetId);
-    await dbTx.insert(revisions).values({
-      id: newId(),
+  const revisionNumber = await nextRevisionNumber(db, suggestion.targetType, targetId);
+  const revisionId = newId();
+
+  const batchStmts: any[] = [
+    db.insert(revisions).values({
+      id: revisionId,
       targetType: suggestion.targetType,
       targetId,
       revisionNumber,
@@ -675,47 +694,51 @@ export async function approveSuggestion(
       },
       suggestionId: suggestion.id,
       actorId: args.reviewerId,
-    });
-
-    await dbTx
+      createdAt: now,
+    }),
+    db
       .update(suggestions)
       .set({
         status: "approved",
         targetId,
         reviewedBy: args.reviewerId,
-        reviewedAt: new Date(),
+        reviewedAt: now,
         reviewNote: args.reviewNote ?? null,
-        updatedAt: new Date(),
+        updatedAt: now,
       })
-      .where(eq(suggestions.id, suggestion.id));
+      .where(eq(suggestions.id, suggestion.id)),
+  ];
 
-    if (suggestion.submittedBy) {
-      const [submitter] = await dbTx
-        .select()
-        .from(users)
-        .where(eq(users.id, suggestion.submittedBy));
-      if (submitter) {
-        const counts = {
-          ...(submitter.contributionCounts as Record<string, number>),
-        };
-        counts.approved = Number(counts.approved ?? 0) + 1;
-        const nextRole =
-          submitter.role === "contributor" && counts.approved >= TRUSTED_THRESHOLD
-            ? "trusted"
-            : submitter.role;
-        await dbTx
+  if (suggestion.submittedBy) {
+    const [submitter] = await db
+      .select()
+      .from(users)
+      .where(eq(users.id, suggestion.submittedBy));
+    if (submitter) {
+      const counts = {
+        ...(submitter.contributionCounts as Record<string, number>),
+      };
+      counts.approved = Number(counts.approved ?? 0) + 1;
+      const nextRole =
+        submitter.role === "contributor" && counts.approved >= TRUSTED_THRESHOLD
+          ? "trusted"
+          : submitter.role;
+      batchStmts.push(
+        db
           .update(users)
           .set({
             contributionCounts: counts,
             role: nextRole,
             reputation: submitter.reputation + 1,
           })
-          .where(eq(users.id, submitter.id));
-      }
+          .where(eq(users.id, submitter.id))
+      );
     }
+  }
 
-    return { suggestionId: suggestion.id, status: "approved" as const, targetId };
-  });
+  await db.batch(batchStmts as any);
+
+  return { suggestionId: suggestion.id, status: "approved" as const, targetId };
 }
 
 export async function rejectSuggestion(
@@ -738,9 +761,9 @@ export async function rejectSuggestion(
       status: "rejected",
       rejectionReason: args.rejection_reason,
       reviewedBy: args.reviewerId,
-      reviewedAt: new Date(),
+      reviewedAt: Date.now(),
       reviewNote: args.review_note ?? null,
-      updatedAt: new Date(),
+      updatedAt: Date.now(),
     })
     .where(eq(suggestions.id, args.suggestionId));
   return { suggestionId: args.suggestionId, status: "rejected" as const };
@@ -756,7 +779,7 @@ export async function withdrawSuggestion(db: Db, args: { suggestionId: string; u
   if (suggestion.status !== "pending") throw new Error("Only pending suggestions can be withdrawn");
   await db
     .update(suggestions)
-    .set({ status: "withdrawn", updatedAt: new Date() })
+    .set({ status: "withdrawn", updatedAt: Date.now() })
     .where(eq(suggestions.id, args.suggestionId));
   return { suggestionId: args.suggestionId, status: "withdrawn" as const };
 }

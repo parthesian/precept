@@ -1,164 +1,16 @@
 import {
-  boolean,
-  doublePrecision,
   index,
   integer,
-  jsonb,
-  pgEnum,
-  pgTable,
   real,
+  sqliteTable,
   text,
-  timestamp,
   uniqueIndex,
-} from "drizzle-orm/pg-core";
+} from "drizzle-orm/sqlite-core";
 
-export const userRoleEnum = pgEnum("user_role", [
-  "anon",
-  "contributor",
-  "trusted",
-  "moderator",
-  "admin",
-]);
+/** Milliseconds since epoch (Workers-friendly). */
+export type EpochMs = number;
 
-export const collectionKindEnum = pgEnum("collection_kind", [
-  "franchise",
-  "trilogy",
-  "thematic",
-  "shared_universe",
-]);
-
-export const roleTypeEnum = pgEnum("role_type", [
-  "director",
-  "cinematographer",
-  "editor",
-  "composer",
-  "production_designer",
-  "writer",
-  "actor",
-  "other",
-]);
-
-export const connectionTypeEnum = pgEnum("connection_type", [
-  "homage",
-  "shot_for_shot_quotation",
-  "visual_motif",
-  "shared_technique",
-  "subversion_parody",
-  "narrative_structure",
-  "remake_adaptation",
-  "audiovisual_parallel",
-  "stated_influence",
-  "crew_lineage",
-  "soundtrack_reference",
-]);
-
-export const confidenceTierEnum = pgEnum("confidence_tier", [
-  "confirmed",
-  "highly_likely",
-  "proposed",
-  "ai_suggested",
-]);
-
-export const evidenceTypeEnum = pgEnum("evidence_type", [
-  "interview",
-  "commentary",
-  "video_essay",
-  "book",
-  "article",
-  "screenshot_link",
-  "timecode_pair",
-  "wiki",
-  "other",
-]);
-
-export const contentStatusEnum = pgEnum("content_status", [
-  "pending",
-  "approved",
-  "rejected",
-  "withdrawn",
-]);
-
-export const placeKindEnum = pgEnum("place_kind", [
-  "building",
-  "street",
-  "landmark",
-  "natural",
-  "studio_backlot",
-  "neighborhood",
-  "region",
-]);
-
-export const locationRelationshipEnum = pgEnum("location_relationship", [
-  "filmed_at",
-  "set_in",
-  "both",
-]);
-
-export const preceptCategoryEnum = pgEnum("precept_category", [
-  "shot_type",
-  "camera_movement",
-  "lens_optics",
-  "lighting",
-  "editing",
-  "sound_audiovisual",
-  "color",
-  "staging_blocking",
-  "narrative_device",
-  "genre_convention",
-  "vfx",
-]);
-
-export const preceptRelationTypeEnum = pgEnum("precept_relation_type", [
-  "broader",
-  "narrower",
-  "opposite_of",
-  "commonly_paired_with",
-  "see_also",
-]);
-
-export const suggestionTargetTypeEnum = pgEnum("suggestion_target_type", [
-  "connection",
-  "film_location",
-  "place",
-  "precept",
-  "precept_relation",
-  "precept_example",
-  "film",
-  "person",
-  "collection",
-  "spotlight",
-]);
-
-export const suggestionOperationEnum = pgEnum("suggestion_operation", [
-  "create",
-  "update",
-  "delete",
-  "merge",
-]);
-
-export const suggestionSourceEnum = pgEnum("suggestion_source", ["user", "ai", "import"]);
-
-export const suggestionStatusEnum = pgEnum("suggestion_status", [
-  "pending",
-  "approved",
-  "rejected",
-  "needs_evidence",
-  "withdrawn",
-  "superseded",
-]);
-
-export const rejectionReasonEnum = pgEnum("rejection_reason", [
-  "insufficient_evidence",
-  "duplicate",
-  "factually_wrong",
-  "out_of_scope",
-  "low_quality",
-  "spam",
-]);
-
-export const colorFormatEnum = pgEnum("color_format", ["color", "bw", "mixed"]);
-
-export const users = pgTable(
+export const users = sqliteTable(
   "users",
   {
     id: text("id").primaryKey(),
@@ -167,11 +19,14 @@ export const users = pgTable(
     email: text("email").notNull(),
     passwordHash: text("password_hash"),
     avatarUrl: text("avatar_url"),
-    role: userRoleEnum("role").notNull().default("contributor"),
+    role: text("role").notNull().default("contributor"),
     reputation: integer("reputation").notNull().default(0),
-    contributionCounts: jsonb("contribution_counts").notNull().default({}),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    contributionCounts: text("contribution_counts", { mode: "json" })
+      .$type<Record<string, number>>()
+      .notNull()
+      .default({}),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
   },
   (t) => [
     uniqueIndex("users_handle_uidx").on(t.handle),
@@ -179,17 +34,17 @@ export const users = pgTable(
   ]
 );
 
-export const sessions = pgTable("sessions", {
+export const sessions = sqliteTable("sessions", {
   id: text("id").primaryKey(),
   userId: text("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
   token: text("token").notNull(),
-  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
-  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  expiresAt: integer("expires_at", { mode: "number" }).notNull(),
+  createdAt: integer("created_at", { mode: "number" }).notNull(),
 });
 
-export const films = pgTable(
+export const films = sqliteTable(
   "films",
   {
     id: text("id").primaryKey(),
@@ -201,19 +56,19 @@ export const films = pgTable(
     releaseYear: integer("release_year").notNull(),
     releaseDate: text("release_date"),
     runtimeMinutes: integer("runtime_minutes"),
-    country: jsonb("country").notNull().default([]),
+    country: text("country", { mode: "json" }).$type<string[]>().notNull().default([]),
     originalLanguage: text("original_language"),
-    genres: jsonb("genres").notNull().default([]),
+    genres: text("genres", { mode: "json" }).$type<string[]>().notNull().default([]),
     synopsis: text("synopsis"),
     posterUrl: text("poster_url"),
     backdropUrl: text("backdrop_url"),
     aspectRatio: text("aspect_ratio"),
-    colorFormat: colorFormatEnum("color_format"),
+    colorFormat: text("color_format"),
     popularityScore: real("popularity_score").notNull().default(0),
     connectionCount: integer("connection_count").notNull().default(0),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [
     uniqueIndex("films_slug_uidx").on(t.slug),
@@ -223,22 +78,22 @@ export const films = pgTable(
   ]
 );
 
-export const collections = pgTable(
+export const collections = sqliteTable(
   "collections",
   {
     id: text("id").primaryKey(),
     slug: text("slug").notNull(),
     name: text("name").notNull(),
     description: text("description"),
-    kind: collectionKindEnum("kind").notNull(),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    kind: text("kind").notNull(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [uniqueIndex("collections_slug_uidx").on(t.slug)]
 );
 
-export const collectionFilms = pgTable(
+export const collectionFilms = sqliteTable(
   "collection_films",
   {
     id: text("id").primaryKey(),
@@ -249,7 +104,7 @@ export const collectionFilms = pgTable(
       .notNull()
       .references(() => films.id, { onDelete: "cascade" }),
     position: integer("position").notNull().default(0),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
   },
   (t) => [
     uniqueIndex("collection_films_uidx").on(t.collectionId, t.filmId),
@@ -257,22 +112,22 @@ export const collectionFilms = pgTable(
   ]
 );
 
-export const people = pgTable(
+export const people = sqliteTable(
   "people",
   {
     id: text("id").primaryKey(),
     slug: text("slug").notNull(),
     tmdbPersonId: integer("tmdb_person_id"),
     name: text("name").notNull(),
-    alsoKnownAs: jsonb("also_known_as").notNull().default([]),
+    alsoKnownAs: text("also_known_as", { mode: "json" }).$type<string[]>().notNull().default([]),
     primaryDepartment: text("primary_department"),
     birthYear: integer("birth_year"),
     deathYear: integer("death_year"),
     bioSnippet: text("bio_snippet"),
     photoUrl: text("photo_url"),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [
     uniqueIndex("people_slug_uidx").on(t.slug),
@@ -280,7 +135,7 @@ export const people = pgTable(
   ]
 );
 
-export const credits = pgTable(
+export const credits = sqliteTable(
   "credits",
   {
     id: text("id").primaryKey(),
@@ -290,11 +145,11 @@ export const credits = pgTable(
     filmId: text("film_id")
       .notNull()
       .references(() => films.id, { onDelete: "cascade" }),
-    roleType: roleTypeEnum("role_type").notNull(),
+    roleType: text("role_type").notNull(),
     characterName: text("character_name"),
     billingOrder: integer("billing_order"),
     department: text("department"),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
   },
   (t) => [
     index("credits_person_idx").on(t.personId),
@@ -303,7 +158,7 @@ export const credits = pgTable(
   ]
 );
 
-export const connections = pgTable(
+export const connections = sqliteTable(
   "connections",
   {
     id: text("id").primaryKey(),
@@ -313,24 +168,24 @@ export const connections = pgTable(
     targetFilmId: text("target_film_id")
       .notNull()
       .references(() => films.id, { onDelete: "cascade" }),
-    isDirected: boolean("is_directed").notNull().default(true),
-    connectionType: connectionTypeEnum("connection_type").notNull(),
-    confidenceTier: confidenceTierEnum("confidence_tier").notNull().default("proposed"),
+    isDirected: integer("is_directed", { mode: "boolean" }).notNull().default(true),
+    connectionType: text("connection_type").notNull(),
+    confidenceTier: text("confidence_tier").notNull().default("proposed"),
     title: text("title").notNull(),
     rationale: text("rationale").notNull(),
-    sourceAnchor: jsonb("source_anchor"),
-    targetAnchor: jsonb("target_anchor"),
-    tags: jsonb("tags").notNull().default([]),
+    sourceAnchor: text("source_anchor", { mode: "json" }).$type<Record<string, unknown> | null>(),
+    targetAnchor: text("target_anchor", { mode: "json" }).$type<Record<string, unknown> | null>(),
+    tags: text("tags", { mode: "json" }).$type<string[]>().notNull().default([]),
     upvotes: integer("upvotes").notNull().default(0),
     downvotes: integer("downvotes").notNull().default(0),
     communityScore: integer("community_score").notNull().default(0),
-    status: contentStatusEnum("status").notNull().default("approved"),
+    status: text("status").notNull().default("approved"),
     createdBy: text("created_by").references(() => users.id),
     approvedBy: text("approved_by").references(() => users.id),
-    approvedAt: timestamp("approved_at", { withTimezone: true }),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    approvedAt: integer("approved_at", { mode: "number" }),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [
     index("connections_source_idx").on(t.sourceFilmId),
@@ -341,49 +196,52 @@ export const connections = pgTable(
   ]
 );
 
-export const evidence = pgTable(
+export const evidence = sqliteTable(
   "evidence",
   {
     id: text("id").primaryKey(),
     targetType: text("target_type").notNull(),
     targetId: text("target_id").notNull(),
-    evidenceType: evidenceTypeEnum("evidence_type").notNull(),
+    evidenceType: text("evidence_type").notNull(),
     url: text("url"),
     citationText: text("citation_text").notNull(),
     excerpt: text("excerpt"),
     pageOrTimestamp: text("page_or_timestamp"),
     submittedBy: text("submitted_by").references(() => users.id),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
   },
   (t) => [index("evidence_target_idx").on(t.targetType, t.targetId)]
 );
 
-export const places = pgTable(
+export const places = sqliteTable(
   "places",
   {
     id: text("id").primaryKey(),
     slug: text("slug").notNull(),
     name: text("name").notNull(),
-    altNames: jsonb("alt_names").notNull().default([]),
+    altNames: text("alt_names", { mode: "json" }).$type<string[]>().notNull().default([]),
     address: text("address"),
     locality: text("locality"),
     region: text("region"),
     country: text("country"),
-    lat: doublePrecision("lat").notNull(),
-    lng: doublePrecision("lng").notNull(),
+    lat: real("lat").notNull(),
+    lng: real("lng").notNull(),
     geohash: text("geohash"),
-    placeKind: placeKindEnum("place_kind").notNull(),
-    stillExtant: boolean("still_extant").notNull().default(true),
+    placeKind: text("place_kind").notNull(),
+    stillExtant: integer("still_extant", { mode: "boolean" }).notNull().default(true),
     notes: text("notes"),
-    externalIds: jsonb("external_ids").notNull().default({}),
-    status: contentStatusEnum("status").notNull().default("approved"),
+    externalIds: text("external_ids", { mode: "json" })
+      .$type<Record<string, unknown>>()
+      .notNull()
+      .default({}),
+    status: text("status").notNull().default("approved"),
     createdBy: text("created_by").references(() => users.id),
     approvedBy: text("approved_by").references(() => users.id),
-    approvedAt: timestamp("approved_at", { withTimezone: true }),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    approvedAt: integer("approved_at", { mode: "number" }),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [
     uniqueIndex("places_slug_uidx").on(t.slug),
@@ -391,7 +249,7 @@ export const places = pgTable(
   ]
 );
 
-export const filmLocations = pgTable(
+export const filmLocations = sqliteTable(
   "film_locations",
   {
     id: text("id").primaryKey(),
@@ -401,7 +259,7 @@ export const filmLocations = pgTable(
     placeId: text("place_id")
       .notNull()
       .references(() => places.id, { onDelete: "cascade" }),
-    relationship: locationRelationshipEnum("relationship").notNull(),
+    relationship: text("relationship").notNull(),
     sceneDescription: text("scene_description"),
     timecodeStart: text("timecode_start"),
     timecodeEnd: text("timecode_end"),
@@ -409,13 +267,13 @@ export const filmLocations = pgTable(
     upvotes: integer("upvotes").notNull().default(0),
     downvotes: integer("downvotes").notNull().default(0),
     communityScore: integer("community_score").notNull().default(0),
-    status: contentStatusEnum("status").notNull().default("approved"),
+    status: text("status").notNull().default("approved"),
     createdBy: text("created_by").references(() => users.id),
     approvedBy: text("approved_by").references(() => users.id),
-    approvedAt: timestamp("approved_at", { withTimezone: true }),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    approvedAt: integer("approved_at", { mode: "number" }),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [
     index("film_locations_film_idx").on(t.filmId),
@@ -423,25 +281,28 @@ export const filmLocations = pgTable(
   ]
 );
 
-export const precepts = pgTable(
+export const precepts = sqliteTable(
   "precepts",
   {
     id: text("id").primaryKey(),
     slug: text("slug").notNull(),
     name: text("name").notNull(),
-    aliases: jsonb("aliases").notNull().default([]),
-    category: preceptCategoryEnum("category").notNull(),
+    aliases: text("aliases", { mode: "json" }).$type<string[]>().notNull().default([]),
+    category: text("category").notNull(),
     shortDefinition: text("short_definition").notNull(),
     description: text("description").notNull(),
-    originClaim: jsonb("origin_claim"),
-    popularizedByFilmIds: jsonb("popularized_by_film_ids").notNull().default([]),
-    status: contentStatusEnum("status").notNull().default("approved"),
+    originClaim: text("origin_claim", { mode: "json" }).$type<Record<string, unknown> | null>(),
+    popularizedByFilmIds: text("popularized_by_film_ids", { mode: "json" })
+      .$type<string[]>()
+      .notNull()
+      .default([]),
+    status: text("status").notNull().default("approved"),
     createdBy: text("created_by").references(() => users.id),
     approvedBy: text("approved_by").references(() => users.id),
-    approvedAt: timestamp("approved_at", { withTimezone: true }),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    approvedAt: integer("approved_at", { mode: "number" }),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [
     uniqueIndex("precepts_slug_uidx").on(t.slug),
@@ -449,7 +310,7 @@ export const precepts = pgTable(
   ]
 );
 
-export const preceptRelations = pgTable(
+export const preceptRelations = sqliteTable(
   "precept_relations",
   {
     id: text("id").primaryKey(),
@@ -459,13 +320,13 @@ export const preceptRelations = pgTable(
     targetPreceptId: text("target_precept_id")
       .notNull()
       .references(() => precepts.id, { onDelete: "cascade" }),
-    relationType: preceptRelationTypeEnum("relation_type").notNull(),
-    status: contentStatusEnum("status").notNull().default("approved"),
+    relationType: text("relation_type").notNull(),
+    status: text("status").notNull().default("approved"),
     createdBy: text("created_by").references(() => users.id),
     approvedBy: text("approved_by").references(() => users.id),
-    approvedAt: timestamp("approved_at", { withTimezone: true }),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    approvedAt: integer("approved_at", { mode: "number" }),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
   },
   (t) => [
     index("precept_relations_source_idx").on(t.sourcePreceptId),
@@ -473,7 +334,7 @@ export const preceptRelations = pgTable(
   ]
 );
 
-export const preceptExamples = pgTable(
+export const preceptExamples = sqliteTable(
   "precept_examples",
   {
     id: text("id").primaryKey(),
@@ -486,17 +347,17 @@ export const preceptExamples = pgTable(
     timecodeStart: text("timecode_start"),
     timecodeEnd: text("timecode_end"),
     description: text("description").notNull(),
-    isCanonicalExample: boolean("is_canonical_example").notNull().default(false),
+    isCanonicalExample: integer("is_canonical_example", { mode: "boolean" }).notNull().default(false),
     upvotes: integer("upvotes").notNull().default(0),
     downvotes: integer("downvotes").notNull().default(0),
     communityScore: integer("community_score").notNull().default(0),
-    status: contentStatusEnum("status").notNull().default("approved"),
+    status: text("status").notNull().default("approved"),
     createdBy: text("created_by").references(() => users.id),
     approvedBy: text("approved_by").references(() => users.id),
-    approvedAt: timestamp("approved_at", { withTimezone: true }),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    approvedAt: integer("approved_at", { mode: "number" }),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [
     index("precept_examples_precept_idx").on(t.preceptId),
@@ -505,28 +366,28 @@ export const preceptExamples = pgTable(
   ]
 );
 
-export const suggestions = pgTable(
+export const suggestions = sqliteTable(
   "suggestions",
   {
     id: text("id").primaryKey(),
-    targetType: suggestionTargetTypeEnum("target_type").notNull(),
+    targetType: text("target_type").notNull(),
     targetId: text("target_id"),
-    operation: suggestionOperationEnum("operation").notNull(),
-    payload: jsonb("payload").notNull(),
-    source: suggestionSourceEnum("source").notNull().default("user"),
-    aiMetadata: jsonb("ai_metadata"),
+    operation: text("operation").notNull(),
+    payload: text("payload", { mode: "json" }).$type<Record<string, unknown>>().notNull(),
+    source: text("source").notNull().default("user"),
+    aiMetadata: text("ai_metadata", { mode: "json" }).$type<Record<string, unknown> | null>(),
     submitterNote: text("submitter_note"),
-    status: suggestionStatusEnum("status").notNull().default("pending"),
+    status: text("status").notNull().default("pending"),
     submittedBy: text("submitted_by").references(() => users.id),
     reviewedBy: text("reviewed_by").references(() => users.id),
-    reviewedAt: timestamp("reviewed_at", { withTimezone: true }),
+    reviewedAt: integer("reviewed_at", { mode: "number" }),
     reviewNote: text("review_note"),
-    rejectionReason: rejectionReasonEnum("rejection_reason"),
+    rejectionReason: text("rejection_reason"),
     duplicateOfId: text("duplicate_of_id"),
     communityScore: integer("community_score").notNull().default(0),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [
     index("suggestions_status_idx").on(t.status),
@@ -535,18 +396,18 @@ export const suggestions = pgTable(
   ]
 );
 
-export const revisions = pgTable(
+export const revisions = sqliteTable(
   "revisions",
   {
     id: text("id").primaryKey(),
     targetType: text("target_type").notNull(),
     targetId: text("target_id").notNull(),
     revisionNumber: integer("revision_number").notNull(),
-    diff: jsonb("diff").notNull(),
+    diff: text("diff", { mode: "json" }).$type<Record<string, unknown>>().notNull(),
     suggestionId: text("suggestion_id").references(() => suggestions.id),
     actorId: text("actor_id").references(() => users.id),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
   },
   (t) => [
     index("revisions_target_idx").on(t.targetType, t.targetId),
@@ -554,7 +415,7 @@ export const revisions = pgTable(
   ]
 );
 
-export const votes = pgTable(
+export const votes = sqliteTable(
   "votes",
   {
     id: text("id").primaryKey(),
@@ -564,13 +425,13 @@ export const votes = pgTable(
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     value: integer("value").notNull(),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
   },
   (t) => [uniqueIndex("votes_unique_uidx").on(t.targetType, t.targetId, t.userId)]
 );
 
-export const flags = pgTable(
+export const flags = sqliteTable(
   "flags",
   {
     id: text("id").primaryKey(),
@@ -580,13 +441,13 @@ export const flags = pgTable(
     note: text("note"),
     status: text("status").notNull().default("open"),
     submittedBy: text("submitted_by").references(() => users.id),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
   },
   (t) => [index("flags_target_idx").on(t.targetType, t.targetId)]
 );
 
-export const spotlights = pgTable(
+export const spotlights = sqliteTable(
   "spotlights",
   {
     id: text("id").primaryKey(),
@@ -596,14 +457,17 @@ export const spotlights = pgTable(
       .references(() => films.id),
     headline: text("headline").notNull(),
     bodyMarkdown: text("body_markdown").notNull(),
-    featuredConnectionIds: jsonb("featured_connection_ids").notNull().default([]),
-    publishedAt: timestamp("published_at", { withTimezone: true }),
-    status: contentStatusEnum("status").notNull().default("approved"),
+    featuredConnectionIds: text("featured_connection_ids", { mode: "json" })
+      .$type<string[]>()
+      .notNull()
+      .default([]),
+    publishedAt: integer("published_at", { mode: "number" }),
+    status: text("status").notNull().default("approved"),
     createdBy: text("created_by").references(() => users.id),
     approvedBy: text("approved_by").references(() => users.id),
-    isSeedData: boolean("is_seed_data").notNull().default(false),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+    isSeedData: integer("is_seed_data", { mode: "boolean" }).notNull().default(false),
+    createdAt: integer("created_at", { mode: "number" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "number" }).notNull(),
   },
   (t) => [uniqueIndex("spotlights_slug_uidx").on(t.slug)]
 );
