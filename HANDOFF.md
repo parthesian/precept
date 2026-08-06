@@ -8,25 +8,24 @@ For you (Parth), not another agent. Order of operations to get from a clean chec
 
 - Node.js 22+
 - npm 10+
-- PostgreSQL 16 (Docker or local)
+- Wrangler (via repo `npm install`) — local D1/KV/Queues; **no Postgres required** for the Workers path
 
-**From a clean checkout**
+**From a clean checkout (Cloudflare Workers path — preferred)**
 
 ```bash
-cp .env.example .env
-# edit DATABASE_URL / AUTH_SECRET if needed
-
-# Postgres via Docker:
-docker compose up -d postgres
-
-# Or apt/local Postgres with user/db `precept` / password `precept`
+cp .dev.vars.example .dev.vars
+cp apps/web/.dev.vars.example apps/web/.dev.vars 2>/dev/null || cp .dev.vars apps/web/.dev.vars
+# edit AUTH_SECRET / TMDB_API_KEY in .dev.vars
 
 npm install
-npm run db:migrate
+npm run db:migrate   # wrangler d1 migrations apply --local
 npm run db:seed
-npm run dev:api    # http://localhost:8787
-npm run dev:web    # http://localhost:3000
+npm run dev          # Vite + Cloudflare plugin — UI + /api on one origin
 ```
+
+Open the Vite URL (typically http://localhost:5173). Same origin serves React Router SSR and Hono `/api/*`.
+
+> **Transitional:** the previous Next.js + Node API + Postgres path still exists (`npm run dev:next` / `npm run dev:api` with `PRECEPT_NODE_SERVER=1`) but is being retired. Prefer Wrangler.
 
 Seed loads ~40 films, ~150 connections, places, precepts, pending suggestions, and a Spotlight on *The Dark Knight*.
 

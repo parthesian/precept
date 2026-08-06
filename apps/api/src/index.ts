@@ -72,10 +72,13 @@ app.route("/api", aiRoutes(db));
 
 const port = Number(process.env.API_PORT ?? 8787);
 
-if (process.env.NODE_ENV !== "test") {
+// Node server is opt-in during the Workers migration (idle by default).
+if (process.env.NODE_ENV !== "test" && process.env.PRECEPT_NODE_SERVER === "1") {
   serve({ fetch: app.fetch, port }, () => {
     console.log(`precept-api listening on http://localhost:${port}`);
   });
 }
 
 export { app };
+export { createApp } from "./create-app.js";
+export type { ApiBindings } from "./env.js";

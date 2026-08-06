@@ -1,0 +1,45 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "precept",
+  "main": "./workers/app.ts",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "ENVIRONMENT": "development",
+    "TRUSTED_APPROVALS_THRESHOLD": "10",
+    "RATE_LIMIT_SUGGESTIONS_PER_HOUR": "60",
+    "RATE_LIMIT_VOTES_PER_HOUR": "120",
+    "RATE_LIMIT_TMDB_SEARCH_PER_HOUR": "120",
+    "RATE_LIMIT_TMDB_IMPORT_PER_HOUR": "30"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "precept",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "../../packages/db/migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "RATE_LIMIT",
+      "id": "00000000-0000-0000-0000-000000000002",
+      "preview_id": "00000000-0000-0000-0000-000000000002"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "TMDB_IMPORT_QUEUE",
+        "queue": "tmdb-import"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "tmdb-import",
+        "max_batch_size": 1,
+        "max_retries": 3
+      }
+    ]
+  }
+}

@@ -7,9 +7,10 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "turbo dev",
-    "dev:api": "turbo dev --filter=@precept/api",
-    "dev:web": "turbo dev --filter=@precept/web",
+    "dev": "npm run dev -w @precept/web",
+    "dev:web": "npm run dev -w @precept/web",
+    "dev:api": "npm run dev -w @precept/api",
+    "dev:node": "turbo dev --filter=@precept/api --filter=@precept/web",
     "build": "turbo build",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint",
@@ -20,11 +21,14 @@
     "import:tmdb": "npm run import --workspace=@precept/importer",
     "import:bootstrap": "npm run bootstrap --workspace=@precept/importer",
     "admin:create": "npm run admin:create -w @precept/api --",
-    "pipeline": "turbo pipeline --filter=@precept/pipeline"
+    "pipeline": "turbo pipeline --filter=@precept/pipeline",
+    "deploy": "npm run build -w @precept/web && wrangler deploy"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260804.1",
     "turbo": "^2",
-    "typescript": "^5.5"
+    "typescript": "^5.5",
+    "wrangler": "4.88.0"
   },
   "overrides": {
     "react": "^18.3.1",
