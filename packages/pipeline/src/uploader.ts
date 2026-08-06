@@ -1,4 +1,4 @@
-import type { ShotIngestPayload } from "@precept/shared";
+import type { ShotIngestPayload } from "./shared-types/index.js";
 
 export async function uploadIngestPayload(
   apiUrl: string,

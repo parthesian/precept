@@ -1,0 +1,442 @@
+[
+  {
+    "id": "credit_1",
+    "person_id": "person_sergei_eisenstein",
+    "film_id": "film_battleship_potemkin",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 1,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_2",
+    "person_id": "person_dziga_vertov",
+    "film_id": "film_man_with_a_movie_camera",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 2,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_3",
+    "person_id": "person_orson_welles",
+    "film_id": "film_citizen_kane",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 3,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_4",
+    "person_id": "person_gregg_toland",
+    "film_id": "film_citizen_kane",
+    "role_type": "cinematographer",
+    "character_name": null,
+    "billing_order": 4,
+    "department": "Camera",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_5",
+    "person_id": "person_akira_kurosawa",
+    "film_id": "film_rashomon",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 5,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_6",
+    "person_id": "person_akira_kurosawa",
+    "film_id": "film_seven_samurai",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 6,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_7",
+    "person_id": "person_akira_kurosawa",
+    "film_id": "film_yojimbo",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 7,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_8",
+    "person_id": "person_alfred_hitchcock",
+    "film_id": "film_rear_window",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 8,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_9",
+    "person_id": "person_alfred_hitchcock",
+    "film_id": "film_vertigo",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 9,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_10",
+    "person_id": "person_alfred_hitchcock",
+    "film_id": "film_north_by_northwest",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 10,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_11",
+    "person_id": "person_alfred_hitchcock",
+    "film_id": "film_psycho",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 11,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_12",
+    "person_id": "person_robert_burks",
+    "film_id": "film_vertigo",
+    "role_type": "cinematographer",
+    "character_name": null,
+    "billing_order": 12,
+    "department": "Camera",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_13",
+    "person_id": "person_robert_burks",
+    "film_id": "film_rear_window",
+    "role_type": "cinematographer",
+    "character_name": null,
+    "billing_order": 13,
+    "department": "Camera",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_14",
+    "person_id": "person_bernard_herrmann",
+    "film_id": "film_vertigo",
+    "role_type": "composer",
+    "character_name": null,
+    "billing_order": 14,
+    "department": "Sound",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_15",
+    "person_id": "person_bernard_herrmann",
+    "film_id": "film_psycho",
+    "role_type": "composer",
+    "character_name": null,
+    "billing_order": 15,
+    "department": "Sound",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_16",
+    "person_id": "person_bernard_herrmann",
+    "film_id": "film_citizen_kane",
+    "role_type": "composer",
+    "character_name": null,
+    "billing_order": 16,
+    "department": "Sound",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_17",
+    "person_id": "person_john_ford",
+    "film_id": "film_the_searchers",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 17,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_18",
+    "person_id": "person_ingmar_bergman",
+    "film_id": "film_the_seventh_seal",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 18,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_19",
+    "person_id": "person_sergio_leone",
+    "film_id": "film_a_fistful_of_dollars",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 19,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_20",
+    "person_id": "person_sergio_leone",
+    "film_id": "film_the_good_the_bad_and_the_ugly",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 20,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_21",
+    "person_id": "person_sergio_leone",
+    "film_id": "film_once_upon_a_time_in_the_west",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 21,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_22",
+    "person_id": "person_ennio_morricone",
+    "film_id": "film_the_good_the_bad_and_the_ugly",
+    "role_type": "composer",
+    "character_name": null,
+    "billing_order": 22,
+    "department": "Sound",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_23",
+    "person_id": "person_ennio_morricone",
+    "film_id": "film_once_upon_a_time_in_the_west",
+    "role_type": "composer",
+    "character_name": null,
+    "billing_order": 23,
+    "department": "Sound",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_24",
+    "person_id": "person_stanley_kubrick",
+    "film_id": "film_dr_strangelove",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 24,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_25",
+    "person_id": "person_stanley_kubrick",
+    "film_id": "film_2001_a_space_odyssey",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 25,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_26",
+    "person_id": "person_stanley_kubrick",
+    "film_id": "film_a_clockwork_orange",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 26,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_27",
+    "person_id": "person_stanley_kubrick",
+    "film_id": "film_the_shining",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 27,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_28",
+    "person_id": "person_francis_ford_coppola",
+    "film_id": "film_the_godfather",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 28,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_29",
+    "person_id": "person_francis_ford_coppola",
+    "film_id": "film_the_conversation",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 29,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_30",
+    "person_id": "person_francis_ford_coppola",
+    "film_id": "film_apocalypse_now",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 30,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_31",
+    "person_id": "person_gordon_willis",
+    "film_id": "film_the_godfather",
+    "role_type": "cinematographer",
+    "character_name": null,
+    "billing_order": 31,
+    "department": "Camera",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_32",
+    "person_id": "person_vittorio_storaro",
+    "film_id": "film_apocalypse_now",
+    "role_type": "cinematographer",
+    "character_name": null,
+    "billing_order": 32,
+    "department": "Camera",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_33",
+    "person_id": "person_martin_scorsese",
+    "film_id": "film_taxi_driver",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 33,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_34",
+    "person_id": "person_martin_scorsese",
+    "film_id": "film_raging_bull",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 34,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_35",
+    "person_id": "person_martin_scorsese",
+    "film_id": "film_goodfellas",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 35,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_36",
+    "person_id": "person_ridley_scott",
+    "film_id": "film_blade_runner",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 36,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_37",
+    "person_id": "person_brian_de_palma",
+    "film_id": "film_the_untouchables",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 37,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_38",
+    "person_id": "person_david_fincher",
+    "film_id": "film_se7en",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 38,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_39",
+    "person_id": "person_christopher_nolan",
+    "film_id": "film_the_dark_knight",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 39,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_40",
+    "person_id": "person_christopher_nolan",
+    "film_id": "film_inception",
+    "role_type": "director",
+    "character_name": null,
+    "billing_order": 40,
+    "department": "Directing",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_41",
+    "person_id": "person_wally_pfister",
+    "film_id": "film_the_dark_knight",
+    "role_type": "cinematographer",
+    "character_name": null,
+    "billing_order": 41,
+    "department": "Camera",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_42",
+    "person_id": "person_wally_pfister",
+    "film_id": "film_inception",
+    "role_type": "cinematographer",
+    "character_name": null,
+    "billing_order": 42,
+    "department": "Camera",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_43",
+    "person_id": "person_hans_zimmer",
+    "film_id": "film_the_dark_knight",
+    "role_type": "composer",
+    "character_name": null,
+    "billing_order": 43,
+    "department": "Sound",
+    "is_seed_data": true
+  },
+  {
+    "id": "credit_44",
+    "person_id": "person_hans_zimmer",
+    "film_id": "film_inception",
+    "role_type": "composer",
+    "character_name": null,
+    "billing_order": 44,
+    "department": "Sound",
+    "is_seed_data": true
+  }
+]

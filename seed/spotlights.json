@@ -1,0 +1,21 @@
+[
+  {
+    "id": "spot_dark_knight",
+    "slug": "the-dark-knight",
+    "film_id": "film_the_dark_knight",
+    "headline": "The Dark Knight and the grammar of the city thriller",
+    "body_markdown": "## Why this film\n\n*The Dark Knight* sits at a crossroads of crime-epic professionalism (*Heat*), comic-book myth, and urban location doubling (Chicago as Gotham).\n\n### Follow the edges\n\nStart with the confirmed *Heat* homage, then step into Vista for the Wacker Drive → Gotham doubling, then Focus for night-city precepts.\n",
+    "featured_connection_ids": [
+      "conn_2",
+      "conn_3",
+      "conn_142",
+      "conn_143",
+      "conn_144"
+    ],
+    "published_at": "2026-01-15T12:00:00.000Z",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  }
+]

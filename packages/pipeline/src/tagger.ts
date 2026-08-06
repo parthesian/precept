@@ -19,7 +19,7 @@ import {
   SubjectAction,
   TimeOfDay,
   shotSchema,
-} from "@precept/shared";
+} from "./shared-types/index.js";
 import type { AudioMetadata } from "./audio-extract.js";
 import { loadPipelineConfig, type PipelineConfig, type VlmProvider } from "./config/pipeline-config.js";
 

@@ -1,20 +1,39 @@
 {
   "name": "@precept/db",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
-  "main": "./dist/queries.js",
-  "types": "./dist/queries.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "echo \"No lint configured for @precept/db\"",
-    "db:migrate": "echo \"Run wrangler d1 migrations apply from apps/api\""
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/migrate.ts",
+    "db:seed": "tsx src/seed/load.ts",
+    "db:reset": "tsx src/reset.ts",
+    "test": "vitest run"
   },
   "dependencies": {
-    "@precept/shared": "file:../shared"
+    "@precept/shared": "file:../shared",
+    "dotenv": "^16",
+    "drizzle-orm": "^0.39",
+    "postgres": "^3.4",
+    "ulid": "^2.3",
+    "zod": "^3.23"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250320.0"
+    "@types/node": "^22",
+    "drizzle-kit": "^0.30",
+    "tsx": "^4",
+    "typescript": "^5.5",
+    "vitest": "^3"
   }
 }

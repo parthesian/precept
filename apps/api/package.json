@@ -1,23 +1,33 @@
 {
   "name": "@precept/api",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "tsx watch src/index.ts",
     "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo \"No lint configured for @precept/api\""
+    "lint": "echo \"No lint configured for @precept/api\"",
+    "test": "vitest run",
+    "admin:create": "tsx src/cli/admin-create.ts"
   },
   "dependencies": {
+    "@hono/node-server": "^1.13",
     "@precept/db": "file:../../packages/db",
     "@precept/shared": "file:../../packages/shared",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16",
+    "drizzle-orm": "^0.39",
     "hono": "^4.6",
     "ulid": "^2.3",
     "zod": "^3.23"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250320.0",
-    "wrangler": "^4"
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22",
+    "tsx": "^4",
+    "typescript": "^5.5",
+    "vitest": "^3"
   }
 }

@@ -5,7 +5,7 @@ import { basename } from "node:path";
 import { Command } from "commander";
 import ora from "ora";
 import { ulid } from "ulid";
-import type { ShotIngestPayload } from "@precept/shared";
+import type { ShotIngestPayload } from "./shared-types/index.js";
 import { analyzeShotAudio } from "./audio-extract.js";
 import { embedThumbnail } from "./embedder.js";
 import { extractFrames } from "./frame-extract.js";

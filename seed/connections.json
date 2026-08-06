@@ -1,0 +1,4952 @@
+[
+  {
+    "id": "conn_1",
+    "source_film_id": "film_the_untouchables",
+    "target_film_id": "film_battleship_potemkin",
+    "is_directed": true,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "confirmed",
+    "title": "Odessa Steps station shootout",
+    "rationale": "Odessa Steps station shootout. Seeded rationale linking The Untouchables and Battleship Potemkin.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Untouchables",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_2",
+    "source_film_id": "film_the_dark_knight",
+    "target_film_id": "film_heat",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "confirmed",
+    "title": "Downtown professionalism",
+    "rationale": "Downtown professionalism. Seeded rationale linking The Dark Knight and Heat.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Dark Knight",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Heat",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_3",
+    "source_film_id": "film_the_dark_knight",
+    "target_film_id": "film_blade_runner",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "highly_likely",
+    "title": "Nocturnal city weather",
+    "rationale": "Nocturnal city weather. Seeded rationale linking The Dark Knight and Blade Runner.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Dark Knight",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Blade Runner",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_4",
+    "source_film_id": "film_inception",
+    "target_film_id": "film_2001_a_space_odyssey",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "highly_likely",
+    "title": "Corridor liminality",
+    "rationale": "Corridor liminality. Seeded rationale linking Inception and 2001: A Space Odyssey.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Inception",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_5",
+    "source_film_id": "film_inception",
+    "target_film_id": "film_blade_runner",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "confirmed",
+    "title": "World-building density",
+    "rationale": "World-building density. Seeded rationale linking Inception and Blade Runner.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Inception",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Blade Runner",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_6",
+    "source_film_id": "film_a_fistful_of_dollars",
+    "target_film_id": "film_yojimbo",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "confirmed",
+    "title": "Ronin-to-gunfighter remake",
+    "rationale": "Ronin-to-gunfighter remake. Seeded rationale linking A Fistful of Dollars and Yojimbo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in A Fistful of Dollars",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Yojimbo",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_7",
+    "source_film_id": "film_star_wars",
+    "target_film_id": "film_seven_samurai",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "confirmed",
+    "title": "Team assembly before raid",
+    "rationale": "Team assembly before raid. Seeded rationale linking Star Wars and Seven Samurai.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Star Wars",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Seven Samurai",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_8",
+    "source_film_id": "film_psycho",
+    "target_film_id": "film_battleship_potemkin",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "proposed",
+    "title": "Shock montage",
+    "rationale": "Shock montage. Seeded rationale linking Psycho and Battleship Potemkin.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Psycho",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_9",
+    "source_film_id": "film_goodfellas",
+    "target_film_id": "film_the_godfather",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "highly_likely",
+    "title": "American crime epic lineage",
+    "rationale": "American crime epic lineage. Seeded rationale linking Goodfellas and The Godfather.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Goodfellas",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Godfather",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_10",
+    "source_film_id": "film_apocalypse_now",
+    "target_film_id": "film_2001_a_space_odyssey",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "proposed",
+    "title": "Classical music against machinery",
+    "rationale": "Classical music against machinery. Seeded rationale linking Apocalypse Now and 2001: A Space Odyssey.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Apocalypse Now",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_11",
+    "source_film_id": "film_the_shining",
+    "target_film_id": "film_vertigo",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "highly_likely",
+    "title": "Spiral architecture of dread",
+    "rationale": "Spiral architecture of dread. Seeded rationale linking The Shining and Vertigo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Shining",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Vertigo",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_12",
+    "source_film_id": "film_mulholland_drive",
+    "target_film_id": "film_vertigo",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "confirmed",
+    "title": "Identity doubles",
+    "rationale": "Identity doubles. Seeded rationale linking Mulholland Drive and Vertigo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Mulholland Drive",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Vertigo",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_13",
+    "source_film_id": "film_se7en",
+    "target_film_id": "film_psycho",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "proposed",
+    "title": "Rain and moral freefall",
+    "rationale": "Rain and moral freefall. Seeded rationale linking Se7en and Psycho.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Se7en",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Psycho",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_14",
+    "source_film_id": "film_taxi_driver",
+    "target_film_id": "film_the_searchers",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "confirmed",
+    "title": "Obsessive rescuer",
+    "rationale": "Obsessive rescuer. Seeded rationale linking Taxi Driver and The Searchers.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Taxi Driver",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Searchers",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_15",
+    "source_film_id": "film_raging_bull",
+    "target_film_id": "film_citizen_kane",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "highly_likely",
+    "title": "Expressionist B&W rooms",
+    "rationale": "Expressionist B&W rooms. Seeded rationale linking Raging Bull and Citizen Kane.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Raging Bull",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Citizen Kane",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_16",
+    "source_film_id": "film_drive",
+    "target_film_id": "film_taxi_driver",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "highly_likely",
+    "title": "Night driver knight",
+    "rationale": "Night driver knight. Seeded rationale linking Drive and Taxi Driver.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Drive",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Taxi Driver",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_17",
+    "source_film_id": "film_the_matrix",
+    "target_film_id": "film_blade_runner",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "confirmed",
+    "title": "Neon noir ontology",
+    "rationale": "Neon noir ontology. Seeded rationale linking The Matrix and Blade Runner.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Matrix",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Blade Runner",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_18",
+    "source_film_id": "film_once_upon_a_time_in_the_west",
+    "target_film_id": "film_the_searchers",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "proposed",
+    "title": "Monument myth revision",
+    "rationale": "Monument myth revision. Seeded rationale linking Once Upon a Time in the West and The Searchers.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Once Upon a Time in the West",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Searchers",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_19",
+    "source_film_id": "film_the_good_the_bad_and_the_ugly",
+    "target_film_id": "film_yojimbo",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "confirmed",
+    "title": "Triangulation of antiheroes",
+    "rationale": "Triangulation of antiheroes. Seeded rationale linking The Good, the Bad and the Ugly and Yojimbo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Good, the Bad and the Ugly",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Yojimbo",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_20",
+    "source_film_id": "film_a_clockwork_orange",
+    "target_film_id": "film_battleship_potemkin",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "proposed",
+    "title": "Political stylized violence",
+    "rationale": "Political stylized violence. Seeded rationale linking A Clockwork Orange and Battleship Potemkin.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in A Clockwork Orange",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_21",
+    "source_film_id": "film_citizen_kane",
+    "target_film_id": "film_the_godfather",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "highly_likely",
+    "title": "Deep-focus dynasty",
+    "rationale": "Deep-focus dynasty. Seeded rationale linking Citizen Kane and The Godfather.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Citizen Kane",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Godfather",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_22",
+    "source_film_id": "film_jaws",
+    "target_film_id": "film_psycho",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "confirmed",
+    "title": "Suspense economy",
+    "rationale": "Suspense economy. Seeded rationale linking Jaws and Psycho.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Jaws",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Psycho",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_23",
+    "source_film_id": "film_blade_runner",
+    "target_film_id": "film_2001_a_space_odyssey",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "highly_likely",
+    "title": "Corporate future spaces",
+    "rationale": "Corporate future spaces. Seeded rationale linking Blade Runner and 2001: A Space Odyssey.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Blade Runner",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_24",
+    "source_film_id": "film_inception",
+    "target_film_id": "film_the_matrix",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "highly_likely",
+    "title": "Rules of a constructed world",
+    "rationale": "Rules of a constructed world. Seeded rationale linking Inception and The Matrix.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Inception",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Matrix",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_25",
+    "source_film_id": "film_battleship_potemkin",
+    "target_film_id": "film_singin_in_the_rain",
+    "is_directed": true,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "highly_likely",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking Battleship Potemkin and Singin' in the Rain.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Singin' in the Rain",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_26",
+    "source_film_id": "film_battleship_potemkin",
+    "target_film_id": "film_the_seventh_seal",
+    "is_directed": false,
+    "connection_type": "visual_motif",
+    "confidence_tier": "proposed",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking Battleship Potemkin and The Seventh Seal.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Seventh Seal",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_27",
+    "source_film_id": "film_battleship_potemkin",
+    "target_film_id": "film_lawrence_of_arabia",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "ai_suggested",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking Battleship Potemkin and Lawrence of Arabia.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Lawrence of Arabia",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_28",
+    "source_film_id": "film_man_with_a_movie_camera",
+    "target_film_id": "film_tokyo_story",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "proposed",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking Man with a Movie Camera and Tokyo Story.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Man with a Movie Camera",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Tokyo Story",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_29",
+    "source_film_id": "film_man_with_a_movie_camera",
+    "target_film_id": "film_vertigo",
+    "is_directed": false,
+    "connection_type": "shared_technique",
+    "confidence_tier": "ai_suggested",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking Man with a Movie Camera and Vertigo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Man with a Movie Camera",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Vertigo",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_30",
+    "source_film_id": "film_man_with_a_movie_camera",
+    "target_film_id": "film_8",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "confirmed",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Man with a Movie Camera and 8½.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Man with a Movie Camera",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 8½",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_31",
+    "source_film_id": "film_citizen_kane",
+    "target_film_id": "film_seven_samurai",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "ai_suggested",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking Citizen Kane and Seven Samurai.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Citizen Kane",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Seven Samurai",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_32",
+    "source_film_id": "film_citizen_kane",
+    "target_film_id": "film_north_by_northwest",
+    "is_directed": false,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "confirmed",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Citizen Kane and North by Northwest.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Citizen Kane",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in North by Northwest",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_33",
+    "source_film_id": "film_citizen_kane",
+    "target_film_id": "film_dr_strangelove",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "highly_likely",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Citizen Kane and Dr. Strangelove.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Citizen Kane",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Dr. Strangelove",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_34",
+    "source_film_id": "film_bicycle_thieves",
+    "target_film_id": "film_rear_window",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "confirmed",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Bicycle Thieves and Rear Window.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Bicycle Thieves",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Rear Window",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_35",
+    "source_film_id": "film_bicycle_thieves",
+    "target_film_id": "film_psycho",
+    "is_directed": false,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "highly_likely",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Bicycle Thieves and Psycho.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Bicycle Thieves",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Psycho",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_36",
+    "source_film_id": "film_bicycle_thieves",
+    "target_film_id": "film_a_fistful_of_dollars",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "proposed",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Bicycle Thieves and A Fistful of Dollars.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Bicycle Thieves",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in A Fistful of Dollars",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_37",
+    "source_film_id": "film_rashomon",
+    "target_film_id": "film_the_searchers",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "highly_likely",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Rashomon and The Searchers.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Rashomon",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Searchers",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_38",
+    "source_film_id": "film_rashomon",
+    "target_film_id": "film_yojimbo",
+    "is_directed": false,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "proposed",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Rashomon and Yojimbo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Rashomon",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Yojimbo",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_39",
+    "source_film_id": "film_rashomon",
+    "target_film_id": "film_the_good_the_bad_and_the_ugly",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "ai_suggested",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Rashomon and The Good, the Bad and the Ugly.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Rashomon",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Good, the Bad and the Ugly",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_40",
+    "source_film_id": "film_singin_in_the_rain",
+    "target_film_id": "film_the_seventh_seal",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "proposed",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Singin' in the Rain and The Seventh Seal.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Singin' in the Rain",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Seventh Seal",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_41",
+    "source_film_id": "film_singin_in_the_rain",
+    "target_film_id": "film_lawrence_of_arabia",
+    "is_directed": false,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "ai_suggested",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Singin' in the Rain and Lawrence of Arabia.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Singin' in the Rain",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Lawrence of Arabia",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_42",
+    "source_film_id": "film_singin_in_the_rain",
+    "target_film_id": "film_2001_a_space_odyssey",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "confirmed",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Singin' in the Rain and 2001: A Space Odyssey.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Singin' in the Rain",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_43",
+    "source_film_id": "film_tokyo_story",
+    "target_film_id": "film_vertigo",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "ai_suggested",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Tokyo Story and Vertigo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Tokyo Story",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Vertigo",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_44",
+    "source_film_id": "film_tokyo_story",
+    "target_film_id": "film_8",
+    "is_directed": false,
+    "connection_type": "stated_influence",
+    "confidence_tier": "confirmed",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Tokyo Story and 8½.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Tokyo Story",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 8½",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_45",
+    "source_film_id": "film_tokyo_story",
+    "target_film_id": "film_once_upon_a_time_in_the_west",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "highly_likely",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking Tokyo Story and Once Upon a Time in the West.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Tokyo Story",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Once Upon a Time in the West",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_46",
+    "source_film_id": "film_seven_samurai",
+    "target_film_id": "film_north_by_northwest",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "confirmed",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Seven Samurai and North by Northwest.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Seven Samurai",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in North by Northwest",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_47",
+    "source_film_id": "film_seven_samurai",
+    "target_film_id": "film_dr_strangelove",
+    "is_directed": false,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "highly_likely",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking Seven Samurai and Dr. Strangelove.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Seven Samurai",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Dr. Strangelove",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_48",
+    "source_film_id": "film_seven_samurai",
+    "target_film_id": "film_a_clockwork_orange",
+    "is_directed": true,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "proposed",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking Seven Samurai and A Clockwork Orange.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Seven Samurai",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in A Clockwork Orange",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_49",
+    "source_film_id": "film_rear_window",
+    "target_film_id": "film_psycho",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "highly_likely",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking Rear Window and Psycho.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Rear Window",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Psycho",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_50",
+    "source_film_id": "film_rear_window",
+    "target_film_id": "film_a_fistful_of_dollars",
+    "is_directed": false,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "proposed",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking Rear Window and A Fistful of Dollars.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Rear Window",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in A Fistful of Dollars",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_51",
+    "source_film_id": "film_rear_window",
+    "target_film_id": "film_the_godfather",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "ai_suggested",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking Rear Window and The Godfather.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Rear Window",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Godfather",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_52",
+    "source_film_id": "film_the_searchers",
+    "target_film_id": "film_yojimbo",
+    "is_directed": true,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "proposed",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking The Searchers and Yojimbo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Searchers",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Yojimbo",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_53",
+    "source_film_id": "film_the_searchers",
+    "target_film_id": "film_the_good_the_bad_and_the_ugly",
+    "is_directed": false,
+    "connection_type": "homage",
+    "confidence_tier": "ai_suggested",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking The Searchers and The Good, the Bad and the Ugly.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Searchers",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Good, the Bad and the Ugly",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_54",
+    "source_film_id": "film_the_searchers",
+    "target_film_id": "film_chinatown",
+    "is_directed": true,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "confirmed",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking The Searchers and Chinatown.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Searchers",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Chinatown",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_55",
+    "source_film_id": "film_the_seventh_seal",
+    "target_film_id": "film_lawrence_of_arabia",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "ai_suggested",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking The Seventh Seal and Lawrence of Arabia.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Seventh Seal",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Lawrence of Arabia",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_56",
+    "source_film_id": "film_the_seventh_seal",
+    "target_film_id": "film_2001_a_space_odyssey",
+    "is_directed": false,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "confirmed",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking The Seventh Seal and 2001: A Space Odyssey.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Seventh Seal",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_57",
+    "source_film_id": "film_the_seventh_seal",
+    "target_film_id": "film_the_conversation",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "highly_likely",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking The Seventh Seal and The Conversation.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Seventh Seal",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Conversation",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_58",
+    "source_film_id": "film_vertigo",
+    "target_film_id": "film_8",
+    "is_directed": true,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "confirmed",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking Vertigo and 8½.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Vertigo",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 8½",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_59",
+    "source_film_id": "film_vertigo",
+    "target_film_id": "film_once_upon_a_time_in_the_west",
+    "is_directed": false,
+    "connection_type": "visual_motif",
+    "confidence_tier": "highly_likely",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking Vertigo and Once Upon a Time in the West.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Vertigo",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Once Upon a Time in the West",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_60",
+    "source_film_id": "film_vertigo",
+    "target_film_id": "film_jaws",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "proposed",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking Vertigo and Jaws.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Vertigo",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Jaws",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_61",
+    "source_film_id": "film_north_by_northwest",
+    "target_film_id": "film_dr_strangelove",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "highly_likely",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking North by Northwest and Dr. Strangelove.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in North by Northwest",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Dr. Strangelove",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_62",
+    "source_film_id": "film_north_by_northwest",
+    "target_film_id": "film_a_clockwork_orange",
+    "is_directed": false,
+    "connection_type": "shared_technique",
+    "confidence_tier": "proposed",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking North by Northwest and A Clockwork Orange.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in North by Northwest",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in A Clockwork Orange",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_63",
+    "source_film_id": "film_north_by_northwest",
+    "target_film_id": "film_taxi_driver",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "ai_suggested",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking North by Northwest and Taxi Driver.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in North by Northwest",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Taxi Driver",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_64",
+    "source_film_id": "film_psycho",
+    "target_film_id": "film_a_fistful_of_dollars",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "proposed",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking Psycho and A Fistful of Dollars.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Psycho",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in A Fistful of Dollars",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_65",
+    "source_film_id": "film_psycho",
+    "target_film_id": "film_the_godfather",
+    "is_directed": false,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "ai_suggested",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Psycho and The Godfather.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Psycho",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Godfather",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_66",
+    "source_film_id": "film_psycho",
+    "target_film_id": "film_star_wars",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "confirmed",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Psycho and Star Wars.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Psycho",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Star Wars",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_67",
+    "source_film_id": "film_yojimbo",
+    "target_film_id": "film_the_good_the_bad_and_the_ugly",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "ai_suggested",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Yojimbo and The Good, the Bad and the Ugly.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Yojimbo",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Good, the Bad and the Ugly",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_68",
+    "source_film_id": "film_yojimbo",
+    "target_film_id": "film_chinatown",
+    "is_directed": false,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "confirmed",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Yojimbo and Chinatown.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Yojimbo",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Chinatown",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_69",
+    "source_film_id": "film_yojimbo",
+    "target_film_id": "film_apocalypse_now",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "highly_likely",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Yojimbo and Apocalypse Now.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Yojimbo",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Apocalypse Now",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_70",
+    "source_film_id": "film_lawrence_of_arabia",
+    "target_film_id": "film_2001_a_space_odyssey",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "confirmed",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Lawrence of Arabia and 2001: A Space Odyssey.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Lawrence of Arabia",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_71",
+    "source_film_id": "film_lawrence_of_arabia",
+    "target_film_id": "film_the_conversation",
+    "is_directed": false,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "highly_likely",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Lawrence of Arabia and The Conversation.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Lawrence of Arabia",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Conversation",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_72",
+    "source_film_id": "film_lawrence_of_arabia",
+    "target_film_id": "film_the_shining",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "proposed",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Lawrence of Arabia and The Shining.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Lawrence of Arabia",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Shining",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_73",
+    "source_film_id": "film_8",
+    "target_film_id": "film_once_upon_a_time_in_the_west",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "highly_likely",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking 8½ and Once Upon a Time in the West.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in 8½",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Once Upon a Time in the West",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_74",
+    "source_film_id": "film_8",
+    "target_film_id": "film_jaws",
+    "is_directed": false,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "proposed",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking 8½ and Jaws.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in 8½",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Jaws",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_75",
+    "source_film_id": "film_8",
+    "target_film_id": "film_raging_bull",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "ai_suggested",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking 8½ and Raging Bull.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in 8½",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Raging Bull",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_76",
+    "source_film_id": "film_dr_strangelove",
+    "target_film_id": "film_a_clockwork_orange",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "proposed",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Dr. Strangelove and A Clockwork Orange.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Dr. Strangelove",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in A Clockwork Orange",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_77",
+    "source_film_id": "film_dr_strangelove",
+    "target_film_id": "film_taxi_driver",
+    "is_directed": false,
+    "connection_type": "stated_influence",
+    "confidence_tier": "ai_suggested",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Dr. Strangelove and Taxi Driver.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Dr. Strangelove",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Taxi Driver",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_78",
+    "source_film_id": "film_dr_strangelove",
+    "target_film_id": "film_blade_runner",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "confirmed",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking Dr. Strangelove and Blade Runner.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Dr. Strangelove",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Blade Runner",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_79",
+    "source_film_id": "film_a_fistful_of_dollars",
+    "target_film_id": "film_the_godfather",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "ai_suggested",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking A Fistful of Dollars and The Godfather.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in A Fistful of Dollars",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Godfather",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_80",
+    "source_film_id": "film_a_fistful_of_dollars",
+    "target_film_id": "film_star_wars",
+    "is_directed": false,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "confirmed",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking A Fistful of Dollars and Star Wars.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in A Fistful of Dollars",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Star Wars",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_81",
+    "source_film_id": "film_a_fistful_of_dollars",
+    "target_film_id": "film_the_untouchables",
+    "is_directed": true,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "highly_likely",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking A Fistful of Dollars and The Untouchables.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in A Fistful of Dollars",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Untouchables",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_82",
+    "source_film_id": "film_the_good_the_bad_and_the_ugly",
+    "target_film_id": "film_chinatown",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "confirmed",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking The Good, the Bad and the Ugly and Chinatown.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Good, the Bad and the Ugly",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Chinatown",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_83",
+    "source_film_id": "film_the_good_the_bad_and_the_ugly",
+    "target_film_id": "film_apocalypse_now",
+    "is_directed": false,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "highly_likely",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking The Good, the Bad and the Ugly and Apocalypse Now.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Good, the Bad and the Ugly",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Apocalypse Now",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_84",
+    "source_film_id": "film_the_good_the_bad_and_the_ugly",
+    "target_film_id": "film_goodfellas",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "proposed",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking The Good, the Bad and the Ugly and Goodfellas.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Good, the Bad and the Ugly",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Goodfellas",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_85",
+    "source_film_id": "film_2001_a_space_odyssey",
+    "target_film_id": "film_the_conversation",
+    "is_directed": true,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "highly_likely",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking 2001: A Space Odyssey and The Conversation.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Conversation",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_86",
+    "source_film_id": "film_2001_a_space_odyssey",
+    "target_film_id": "film_the_shining",
+    "is_directed": false,
+    "connection_type": "homage",
+    "confidence_tier": "proposed",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking 2001: A Space Odyssey and The Shining.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Shining",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_87",
+    "source_film_id": "film_2001_a_space_odyssey",
+    "target_film_id": "film_se7en",
+    "is_directed": true,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "ai_suggested",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking 2001: A Space Odyssey and Se7en.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in 2001: A Space Odyssey",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Se7en",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_88",
+    "source_film_id": "film_once_upon_a_time_in_the_west",
+    "target_film_id": "film_jaws",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "proposed",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking Once Upon a Time in the West and Jaws.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Once Upon a Time in the West",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Jaws",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_89",
+    "source_film_id": "film_once_upon_a_time_in_the_west",
+    "target_film_id": "film_raging_bull",
+    "is_directed": false,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "ai_suggested",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking Once Upon a Time in the West and Raging Bull.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Once Upon a Time in the West",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Raging Bull",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_90",
+    "source_film_id": "film_once_upon_a_time_in_the_west",
+    "target_film_id": "film_heat",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "confirmed",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking Once Upon a Time in the West and Heat.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Once Upon a Time in the West",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Heat",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_91",
+    "source_film_id": "film_a_clockwork_orange",
+    "target_film_id": "film_taxi_driver",
+    "is_directed": true,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "ai_suggested",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking A Clockwork Orange and Taxi Driver.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in A Clockwork Orange",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Taxi Driver",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_92",
+    "source_film_id": "film_a_clockwork_orange",
+    "target_film_id": "film_blade_runner",
+    "is_directed": false,
+    "connection_type": "visual_motif",
+    "confidence_tier": "confirmed",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking A Clockwork Orange and Blade Runner.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in A Clockwork Orange",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Blade Runner",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_93",
+    "source_film_id": "film_a_clockwork_orange",
+    "target_film_id": "film_the_matrix",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "highly_likely",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking A Clockwork Orange and The Matrix.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in A Clockwork Orange",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Matrix",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_94",
+    "source_film_id": "film_the_godfather",
+    "target_film_id": "film_star_wars",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "confirmed",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking The Godfather and Star Wars.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Godfather",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Star Wars",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_95",
+    "source_film_id": "film_the_godfather",
+    "target_film_id": "film_the_untouchables",
+    "is_directed": false,
+    "connection_type": "shared_technique",
+    "confidence_tier": "highly_likely",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking The Godfather and The Untouchables.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Godfather",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Untouchables",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_96",
+    "source_film_id": "film_the_godfather",
+    "target_film_id": "film_mulholland_drive",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "proposed",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking The Godfather and Mulholland Drive.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Godfather",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Mulholland Drive",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_97",
+    "source_film_id": "film_chinatown",
+    "target_film_id": "film_apocalypse_now",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "highly_likely",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking Chinatown and Apocalypse Now.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Chinatown",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Apocalypse Now",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_98",
+    "source_film_id": "film_chinatown",
+    "target_film_id": "film_goodfellas",
+    "is_directed": false,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "proposed",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Chinatown and Goodfellas.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Chinatown",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Goodfellas",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_99",
+    "source_film_id": "film_chinatown",
+    "target_film_id": "film_the_dark_knight",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "ai_suggested",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Chinatown and The Dark Knight.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Chinatown",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Dark Knight",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_100",
+    "source_film_id": "film_the_conversation",
+    "target_film_id": "film_the_shining",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "proposed",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking The Conversation and The Shining.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Conversation",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Shining",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_101",
+    "source_film_id": "film_the_conversation",
+    "target_film_id": "film_se7en",
+    "is_directed": false,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "ai_suggested",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking The Conversation and Se7en.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Conversation",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Se7en",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_102",
+    "source_film_id": "film_the_conversation",
+    "target_film_id": "film_inception",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "confirmed",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking The Conversation and Inception.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Conversation",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Inception",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_103",
+    "source_film_id": "film_jaws",
+    "target_film_id": "film_raging_bull",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "ai_suggested",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Jaws and Raging Bull.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Jaws",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Raging Bull",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_104",
+    "source_film_id": "film_jaws",
+    "target_film_id": "film_heat",
+    "is_directed": false,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "confirmed",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Jaws and Heat.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Jaws",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Heat",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_105",
+    "source_film_id": "film_jaws",
+    "target_film_id": "film_drive",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "highly_likely",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Jaws and Drive.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Jaws",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Drive",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_106",
+    "source_film_id": "film_taxi_driver",
+    "target_film_id": "film_blade_runner",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "confirmed",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Taxi Driver and Blade Runner.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Taxi Driver",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Blade Runner",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_107",
+    "source_film_id": "film_taxi_driver",
+    "target_film_id": "film_the_matrix",
+    "is_directed": false,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "highly_likely",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Taxi Driver and The Matrix.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Taxi Driver",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Matrix",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_108",
+    "source_film_id": "film_taxi_driver",
+    "target_film_id": "film_battleship_potemkin",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "proposed",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Taxi Driver and Battleship Potemkin.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Taxi Driver",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_109",
+    "source_film_id": "film_star_wars",
+    "target_film_id": "film_the_untouchables",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "highly_likely",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Star Wars and The Untouchables.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Star Wars",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Untouchables",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_110",
+    "source_film_id": "film_star_wars",
+    "target_film_id": "film_mulholland_drive",
+    "is_directed": false,
+    "connection_type": "stated_influence",
+    "confidence_tier": "proposed",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Star Wars and Mulholland Drive.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Star Wars",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Mulholland Drive",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_111",
+    "source_film_id": "film_star_wars",
+    "target_film_id": "film_man_with_a_movie_camera",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "ai_suggested",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking Star Wars and Man with a Movie Camera.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Star Wars",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Man with a Movie Camera",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_112",
+    "source_film_id": "film_apocalypse_now",
+    "target_film_id": "film_goodfellas",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "proposed",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Apocalypse Now and Goodfellas.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Apocalypse Now",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Goodfellas",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_113",
+    "source_film_id": "film_apocalypse_now",
+    "target_film_id": "film_the_dark_knight",
+    "is_directed": false,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "ai_suggested",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking Apocalypse Now and The Dark Knight.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Apocalypse Now",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Dark Knight",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_114",
+    "source_film_id": "film_apocalypse_now",
+    "target_film_id": "film_citizen_kane",
+    "is_directed": true,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "confirmed",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking Apocalypse Now and Citizen Kane.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Apocalypse Now",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Citizen Kane",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_115",
+    "source_film_id": "film_the_shining",
+    "target_film_id": "film_se7en",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "ai_suggested",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking The Shining and Se7en.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Shining",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Se7en",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_116",
+    "source_film_id": "film_the_shining",
+    "target_film_id": "film_inception",
+    "is_directed": false,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "confirmed",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking The Shining and Inception.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Shining",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Inception",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_117",
+    "source_film_id": "film_the_shining",
+    "target_film_id": "film_bicycle_thieves",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "highly_likely",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking The Shining and Bicycle Thieves.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Shining",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Bicycle Thieves",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_118",
+    "source_film_id": "film_raging_bull",
+    "target_film_id": "film_heat",
+    "is_directed": true,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "confirmed",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking Raging Bull and Heat.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Raging Bull",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Heat",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_119",
+    "source_film_id": "film_raging_bull",
+    "target_film_id": "film_drive",
+    "is_directed": false,
+    "connection_type": "homage",
+    "confidence_tier": "highly_likely",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking Raging Bull and Drive.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Raging Bull",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Drive",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_120",
+    "source_film_id": "film_raging_bull",
+    "target_film_id": "film_rashomon",
+    "is_directed": true,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "proposed",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking Raging Bull and Rashomon.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Raging Bull",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Rashomon",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_121",
+    "source_film_id": "film_blade_runner",
+    "target_film_id": "film_the_matrix",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "highly_likely",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking Blade Runner and The Matrix.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Blade Runner",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Matrix",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_122",
+    "source_film_id": "film_blade_runner",
+    "target_film_id": "film_battleship_potemkin",
+    "is_directed": false,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "proposed",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking Blade Runner and Battleship Potemkin.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Blade Runner",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_123",
+    "source_film_id": "film_blade_runner",
+    "target_film_id": "film_singin_in_the_rain",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "ai_suggested",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking Blade Runner and Singin' in the Rain.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Blade Runner",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Singin' in the Rain",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_124",
+    "source_film_id": "film_the_untouchables",
+    "target_film_id": "film_mulholland_drive",
+    "is_directed": true,
+    "connection_type": "shot_for_shot_quotation",
+    "confidence_tier": "proposed",
+    "title": "shot for shot quotation link",
+    "rationale": "shot for shot quotation link. Seeded rationale linking The Untouchables and Mulholland Drive.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Untouchables",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Mulholland Drive",
+      "frame_ref": null
+    },
+    "tags": [
+      "shot_for_shot_quotation",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_125",
+    "source_film_id": "film_the_untouchables",
+    "target_film_id": "film_man_with_a_movie_camera",
+    "is_directed": false,
+    "connection_type": "visual_motif",
+    "confidence_tier": "ai_suggested",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking The Untouchables and Man with a Movie Camera.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Untouchables",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Man with a Movie Camera",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_126",
+    "source_film_id": "film_the_untouchables",
+    "target_film_id": "film_tokyo_story",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "confirmed",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking The Untouchables and Tokyo Story.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Untouchables",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Tokyo Story",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_127",
+    "source_film_id": "film_goodfellas",
+    "target_film_id": "film_the_dark_knight",
+    "is_directed": true,
+    "connection_type": "visual_motif",
+    "confidence_tier": "ai_suggested",
+    "title": "visual motif link",
+    "rationale": "visual motif link. Seeded rationale linking Goodfellas and The Dark Knight.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Goodfellas",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Dark Knight",
+      "frame_ref": null
+    },
+    "tags": [
+      "visual_motif",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_128",
+    "source_film_id": "film_goodfellas",
+    "target_film_id": "film_citizen_kane",
+    "is_directed": false,
+    "connection_type": "shared_technique",
+    "confidence_tier": "confirmed",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking Goodfellas and Citizen Kane.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Goodfellas",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Citizen Kane",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_129",
+    "source_film_id": "film_goodfellas",
+    "target_film_id": "film_seven_samurai",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "highly_likely",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Goodfellas and Seven Samurai.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Goodfellas",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Seven Samurai",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_130",
+    "source_film_id": "film_se7en",
+    "target_film_id": "film_inception",
+    "is_directed": true,
+    "connection_type": "shared_technique",
+    "confidence_tier": "confirmed",
+    "title": "shared technique link",
+    "rationale": "shared technique link. Seeded rationale linking Se7en and Inception.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Se7en",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Inception",
+      "frame_ref": null
+    },
+    "tags": [
+      "shared_technique",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_131",
+    "source_film_id": "film_se7en",
+    "target_film_id": "film_bicycle_thieves",
+    "is_directed": false,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "highly_likely",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Se7en and Bicycle Thieves.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Se7en",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Bicycle Thieves",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_132",
+    "source_film_id": "film_se7en",
+    "target_film_id": "film_rear_window",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "proposed",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Se7en and Rear Window.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Se7en",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Rear Window",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_133",
+    "source_film_id": "film_heat",
+    "target_film_id": "film_drive",
+    "is_directed": true,
+    "connection_type": "subversion_parody",
+    "confidence_tier": "highly_likely",
+    "title": "subversion parody link",
+    "rationale": "subversion parody link. Seeded rationale linking Heat and Drive.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Heat",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Drive",
+      "frame_ref": null
+    },
+    "tags": [
+      "subversion_parody",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_134",
+    "source_film_id": "film_heat",
+    "target_film_id": "film_rashomon",
+    "is_directed": false,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "proposed",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking Heat and Rashomon.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Heat",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Rashomon",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_135",
+    "source_film_id": "film_heat",
+    "target_film_id": "film_the_searchers",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "ai_suggested",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Heat and The Searchers.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Heat",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Searchers",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_136",
+    "source_film_id": "film_the_matrix",
+    "target_film_id": "film_battleship_potemkin",
+    "is_directed": true,
+    "connection_type": "narrative_structure",
+    "confidence_tier": "proposed",
+    "title": "narrative structure link",
+    "rationale": "narrative structure link. Seeded rationale linking The Matrix and Battleship Potemkin.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Matrix",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Battleship Potemkin",
+      "frame_ref": null
+    },
+    "tags": [
+      "narrative_structure",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_137",
+    "source_film_id": "film_the_matrix",
+    "target_film_id": "film_singin_in_the_rain",
+    "is_directed": false,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "ai_suggested",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking The Matrix and Singin' in the Rain.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Matrix",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Singin' in the Rain",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_138",
+    "source_film_id": "film_the_matrix",
+    "target_film_id": "film_the_seventh_seal",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "confirmed",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking The Matrix and The Seventh Seal.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Matrix",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Seventh Seal",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_139",
+    "source_film_id": "film_mulholland_drive",
+    "target_film_id": "film_man_with_a_movie_camera",
+    "is_directed": true,
+    "connection_type": "remake_adaptation",
+    "confidence_tier": "ai_suggested",
+    "title": "remake adaptation link",
+    "rationale": "remake adaptation link. Seeded rationale linking Mulholland Drive and Man with a Movie Camera.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Mulholland Drive",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Man with a Movie Camera",
+      "frame_ref": null
+    },
+    "tags": [
+      "remake_adaptation",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_140",
+    "source_film_id": "film_mulholland_drive",
+    "target_film_id": "film_tokyo_story",
+    "is_directed": false,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "confirmed",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking Mulholland Drive and Tokyo Story.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Mulholland Drive",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Tokyo Story",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_141",
+    "source_film_id": "film_mulholland_drive",
+    "target_film_id": "film_vertigo",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "highly_likely",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Mulholland Drive and Vertigo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Mulholland Drive",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Vertigo",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_142",
+    "source_film_id": "film_the_dark_knight",
+    "target_film_id": "film_citizen_kane",
+    "is_directed": true,
+    "connection_type": "audiovisual_parallel",
+    "confidence_tier": "confirmed",
+    "title": "audiovisual parallel link",
+    "rationale": "audiovisual parallel link. Seeded rationale linking The Dark Knight and Citizen Kane.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Dark Knight",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Citizen Kane",
+      "frame_ref": null
+    },
+    "tags": [
+      "audiovisual_parallel",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_143",
+    "source_film_id": "film_the_dark_knight",
+    "target_film_id": "film_seven_samurai",
+    "is_directed": false,
+    "connection_type": "stated_influence",
+    "confidence_tier": "highly_likely",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking The Dark Knight and Seven Samurai.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Dark Knight",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Seven Samurai",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_144",
+    "source_film_id": "film_the_dark_knight",
+    "target_film_id": "film_north_by_northwest",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "proposed",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking The Dark Knight and North by Northwest.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in The Dark Knight",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in North by Northwest",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_145",
+    "source_film_id": "film_inception",
+    "target_film_id": "film_bicycle_thieves",
+    "is_directed": true,
+    "connection_type": "stated_influence",
+    "confidence_tier": "highly_likely",
+    "title": "stated influence link",
+    "rationale": "stated influence link. Seeded rationale linking Inception and Bicycle Thieves.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Inception",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Bicycle Thieves",
+      "frame_ref": null
+    },
+    "tags": [
+      "stated_influence",
+      "highly_likely"
+    ],
+    "upvotes": 7,
+    "downvotes": 0,
+    "community_score": 7,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_146",
+    "source_film_id": "film_inception",
+    "target_film_id": "film_rear_window",
+    "is_directed": false,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "proposed",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking Inception and Rear Window.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Inception",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Rear Window",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_147",
+    "source_film_id": "film_inception",
+    "target_film_id": "film_psycho",
+    "is_directed": true,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "ai_suggested",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking Inception and Psycho.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Inception",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Psycho",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_148",
+    "source_film_id": "film_drive",
+    "target_film_id": "film_rashomon",
+    "is_directed": true,
+    "connection_type": "crew_lineage",
+    "confidence_tier": "proposed",
+    "title": "crew lineage link",
+    "rationale": "crew lineage link. Seeded rationale linking Drive and Rashomon.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Drive",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Rashomon",
+      "frame_ref": null
+    },
+    "tags": [
+      "crew_lineage",
+      "proposed"
+    ],
+    "upvotes": 2,
+    "downvotes": 0,
+    "community_score": 2,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_149",
+    "source_film_id": "film_drive",
+    "target_film_id": "film_the_searchers",
+    "is_directed": false,
+    "connection_type": "soundtrack_reference",
+    "confidence_tier": "ai_suggested",
+    "title": "soundtrack reference link",
+    "rationale": "soundtrack reference link. Seeded rationale linking Drive and The Searchers.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Drive",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in The Searchers",
+      "frame_ref": null
+    },
+    "tags": [
+      "soundtrack_reference",
+      "ai_suggested"
+    ],
+    "upvotes": 2,
+    "downvotes": 3,
+    "community_score": -1,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "conn_150",
+    "source_film_id": "film_drive",
+    "target_film_id": "film_yojimbo",
+    "is_directed": true,
+    "connection_type": "homage",
+    "confidence_tier": "confirmed",
+    "title": "homage link",
+    "rationale": "homage link. Seeded rationale linking Drive and Yojimbo.",
+    "source_anchor": {
+      "timecode_start": "00:12:00",
+      "timecode_end": "00:12:45",
+      "shot_description": "Key moment in Drive",
+      "frame_ref": null
+    },
+    "target_anchor": {
+      "timecode_start": "00:08:10",
+      "timecode_end": "00:08:40",
+      "shot_description": "Referenced moment in Yojimbo",
+      "frame_ref": null
+    },
+    "tags": [
+      "homage",
+      "confirmed"
+    ],
+    "upvotes": 12,
+    "downvotes": 0,
+    "community_score": 12,
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  }
+]

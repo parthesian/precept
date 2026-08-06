@@ -1,4 +1,4 @@
-import { AnalysisTier } from "@precept/shared";
+import { AnalysisTier } from "../shared-types/index.js";
 
 export type VlmProvider = "gemini" | "anthropic" | "qwen_local";
 export type VisionServiceShotDetector = "ffmpeg_scdet" | "pyscenedetect" | "transnetv2";

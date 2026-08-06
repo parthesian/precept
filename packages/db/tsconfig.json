@@ -3,10 +3,11 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
-    "declaration": true,
-    "emitDeclarationOnly": false,
     "noEmit": false,
-    "types": ["@cloudflare/workers-types"]
+    "declaration": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts", "src/seed/generate.ts", "vitest.config.ts"]
 }

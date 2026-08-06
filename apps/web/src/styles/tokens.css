@@ -1,0 +1,108 @@
+:root {
+  /* Surfaces */
+  --surface-0: #0a0a0b;
+  --surface-1: #111113;
+  --surface-2: #1a1a1e;
+  --surface-3: #222228;
+  --surface-elevated: #2a2a30;
+
+  /* Text */
+  --text-primary: #e8e6e3;
+  --text-secondary: #8a8885;
+  --text-tertiary: #5a5856;
+  --text-inverse: #0a0a0b;
+
+  /* Accent */
+  --accent: #c4943a;
+  --accent-dim: #8b6a2f;
+  --accent-muted: rgba(196, 148, 58, 0.15);
+
+  /* Entity colors */
+  --entity-film: #c4943a;
+  --entity-person: #7b93ad;
+  --entity-place: #6b8f71;
+  --entity-precept: #8b7bad;
+  --entity-collection: #ad6b7b;
+
+  /* Confidence */
+  --confidence-confirmed: #6b8f71;
+  --confidence-highly-likely: #7b93ad;
+  --confidence-proposed: #8a8885;
+  --confidence-ai: #5a5856;
+
+  /* Functional */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --focus-ring: rgba(196, 148, 58, 0.45);
+  --danger: #ad6b7b;
+  --success: #6b8f71;
+
+  /* Type */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-ui: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2.25rem;
+
+  /* Space / radius */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Motion */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  line-height: 1.4;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}

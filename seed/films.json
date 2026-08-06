@@ -1,0 +1,853 @@
+[
+  {
+    "title": "Battleship Potemkin",
+    "release_year": 1925,
+    "runtime_minutes": 75,
+    "country": [
+      "SU"
+    ],
+    "original_language": "ru",
+    "genres": [
+      "Drama",
+      "History"
+    ],
+    "popularity_score": 78,
+    "color_format": "bw",
+    "tmdb_id": 643,
+    "id": "film_battleship_potemkin",
+    "slug": "battleship-potemkin",
+    "synopsis": "Battleship Potemkin (1925) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Man with a Movie Camera",
+    "release_year": 1929,
+    "runtime_minutes": 68,
+    "country": [
+      "SU"
+    ],
+    "original_language": "ru",
+    "genres": [
+      "Documentary"
+    ],
+    "popularity_score": 70,
+    "color_format": "bw",
+    "tmdb_id": 2224,
+    "id": "film_man_with_a_movie_camera",
+    "slug": "man-with-a-movie-camera",
+    "synopsis": "Man with a Movie Camera (1929) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Citizen Kane",
+    "release_year": 1941,
+    "runtime_minutes": 119,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Drama",
+      "Mystery"
+    ],
+    "popularity_score": 92,
+    "color_format": "bw",
+    "tmdb_id": 15,
+    "id": "film_citizen_kane",
+    "slug": "citizen-kane",
+    "synopsis": "Citizen Kane (1941) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Bicycle Thieves",
+    "release_year": 1948,
+    "runtime_minutes": 89,
+    "country": [
+      "IT"
+    ],
+    "original_language": "it",
+    "genres": [
+      "Drama"
+    ],
+    "popularity_score": 84,
+    "color_format": "bw",
+    "tmdb_id": 374,
+    "id": "film_bicycle_thieves",
+    "slug": "bicycle-thieves",
+    "synopsis": "Bicycle Thieves (1948) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Rashomon",
+    "release_year": 1950,
+    "runtime_minutes": 88,
+    "country": [
+      "JP"
+    ],
+    "original_language": "ja",
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "popularity_score": 86,
+    "color_format": "bw",
+    "tmdb_id": 548,
+    "id": "film_rashomon",
+    "slug": "rashomon",
+    "synopsis": "Rashomon (1950) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Singin' in the Rain",
+    "release_year": 1952,
+    "runtime_minutes": 103,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Comedy",
+      "Music"
+    ],
+    "popularity_score": 88,
+    "color_format": "color",
+    "tmdb_id": 872,
+    "id": "film_singin_in_the_rain",
+    "slug": "singin-in-the-rain",
+    "synopsis": "Singin' in the Rain (1952) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Tokyo Story",
+    "release_year": 1953,
+    "runtime_minutes": 136,
+    "country": [
+      "JP"
+    ],
+    "original_language": "ja",
+    "genres": [
+      "Drama"
+    ],
+    "popularity_score": 85,
+    "color_format": "bw",
+    "tmdb_id": 18148,
+    "id": "film_tokyo_story",
+    "slug": "tokyo-story",
+    "synopsis": "Tokyo Story (1953) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Seven Samurai",
+    "release_year": 1954,
+    "runtime_minutes": 207,
+    "country": [
+      "JP"
+    ],
+    "original_language": "ja",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "popularity_score": 95,
+    "color_format": "bw",
+    "tmdb_id": 346,
+    "id": "film_seven_samurai",
+    "slug": "seven-samurai",
+    "synopsis": "Seven Samurai (1954) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Rear Window",
+    "release_year": 1954,
+    "runtime_minutes": 112,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Thriller",
+      "Mystery"
+    ],
+    "popularity_score": 91,
+    "color_format": "color",
+    "tmdb_id": 567,
+    "id": "film_rear_window",
+    "slug": "rear-window",
+    "synopsis": "Rear Window (1954) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Searchers",
+    "release_year": 1956,
+    "runtime_minutes": 119,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Western"
+    ],
+    "popularity_score": 82,
+    "color_format": "color",
+    "tmdb_id": 3114,
+    "id": "film_the_searchers",
+    "slug": "the-searchers",
+    "synopsis": "The Searchers (1956) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Seventh Seal",
+    "release_year": 1957,
+    "runtime_minutes": 96,
+    "country": [
+      "SE"
+    ],
+    "original_language": "sv",
+    "genres": [
+      "Drama",
+      "Fantasy"
+    ],
+    "popularity_score": 87,
+    "color_format": "bw",
+    "tmdb_id": 490,
+    "id": "film_the_seventh_seal",
+    "slug": "the-seventh-seal",
+    "synopsis": "The Seventh Seal (1957) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Vertigo",
+    "release_year": 1958,
+    "runtime_minutes": 128,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Mystery",
+      "Romance",
+      "Thriller"
+    ],
+    "popularity_score": 94,
+    "color_format": "color",
+    "tmdb_id": 1949,
+    "id": "film_vertigo",
+    "slug": "vertigo",
+    "synopsis": "Vertigo (1958) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "North by Northwest",
+    "release_year": 1959,
+    "runtime_minutes": 136,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Adventure",
+      "Thriller"
+    ],
+    "popularity_score": 90,
+    "color_format": "color",
+    "tmdb_id": 213,
+    "id": "film_north_by_northwest",
+    "slug": "north-by-northwest",
+    "synopsis": "North by Northwest (1959) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Psycho",
+    "release_year": 1960,
+    "runtime_minutes": 109,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "popularity_score": 93,
+    "color_format": "bw",
+    "tmdb_id": 539,
+    "id": "film_psycho",
+    "slug": "psycho",
+    "synopsis": "Psycho (1960) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Yojimbo",
+    "release_year": 1961,
+    "runtime_minutes": 110,
+    "country": [
+      "JP"
+    ],
+    "original_language": "ja",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "popularity_score": 84,
+    "color_format": "bw",
+    "tmdb_id": 11878,
+    "id": "film_yojimbo",
+    "slug": "yojimbo",
+    "synopsis": "Yojimbo (1961) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Lawrence of Arabia",
+    "release_year": 1962,
+    "runtime_minutes": 227,
+    "country": [
+      "GB"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Adventure",
+      "Drama",
+      "History"
+    ],
+    "popularity_score": 89,
+    "color_format": "color",
+    "tmdb_id": 947,
+    "id": "film_lawrence_of_arabia",
+    "slug": "lawrence-of-arabia",
+    "synopsis": "Lawrence of Arabia (1962) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "8½",
+    "release_year": 1963,
+    "runtime_minutes": 138,
+    "country": [
+      "IT"
+    ],
+    "original_language": "it",
+    "genres": [
+      "Drama",
+      "Fantasy"
+    ],
+    "popularity_score": 86,
+    "color_format": "bw",
+    "tmdb_id": 422,
+    "id": "film_8",
+    "slug": "8",
+    "synopsis": "8½ (1963) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Dr. Strangelove",
+    "release_year": 1964,
+    "runtime_minutes": 95,
+    "country": [
+      "GB",
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Comedy",
+      "War"
+    ],
+    "popularity_score": 88,
+    "color_format": "bw",
+    "tmdb_id": 935,
+    "id": "film_dr_strangelove",
+    "slug": "dr-strangelove",
+    "synopsis": "Dr. Strangelove (1964) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "A Fistful of Dollars",
+    "release_year": 1964,
+    "runtime_minutes": 99,
+    "country": [
+      "IT",
+      "ES",
+      "DE"
+    ],
+    "original_language": "it",
+    "genres": [
+      "Western"
+    ],
+    "popularity_score": 83,
+    "color_format": "color",
+    "tmdb_id": 1157,
+    "id": "film_a_fistful_of_dollars",
+    "slug": "a-fistful-of-dollars",
+    "synopsis": "A Fistful of Dollars (1964) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Good, the Bad and the Ugly",
+    "release_year": 1966,
+    "runtime_minutes": 161,
+    "country": [
+      "IT",
+      "ES",
+      "DE"
+    ],
+    "original_language": "it",
+    "genres": [
+      "Western"
+    ],
+    "popularity_score": 92,
+    "color_format": "color",
+    "tmdb_id": 429,
+    "id": "film_the_good_the_bad_and_the_ugly",
+    "slug": "the-good-the-bad-and-the-ugly",
+    "synopsis": "The Good, the Bad and the Ugly (1966) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "2001: A Space Odyssey",
+    "release_year": 1968,
+    "runtime_minutes": 149,
+    "country": [
+      "GB",
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Science Fiction"
+    ],
+    "popularity_score": 96,
+    "color_format": "color",
+    "tmdb_id": 62,
+    "id": "film_2001_a_space_odyssey",
+    "slug": "2001-a-space-odyssey",
+    "synopsis": "2001: A Space Odyssey (1968) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Once Upon a Time in the West",
+    "release_year": 1968,
+    "runtime_minutes": 165,
+    "country": [
+      "IT",
+      "US"
+    ],
+    "original_language": "it",
+    "genres": [
+      "Western"
+    ],
+    "popularity_score": 88,
+    "color_format": "color",
+    "tmdb_id": 335,
+    "id": "film_once_upon_a_time_in_the_west",
+    "slug": "once-upon-a-time-in-the-west",
+    "synopsis": "Once Upon a Time in the West (1968) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "A Clockwork Orange",
+    "release_year": 1971,
+    "runtime_minutes": 136,
+    "country": [
+      "GB",
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Crime",
+      "Science Fiction"
+    ],
+    "popularity_score": 90,
+    "color_format": "color",
+    "tmdb_id": 185,
+    "id": "film_a_clockwork_orange",
+    "slug": "a-clockwork-orange",
+    "synopsis": "A Clockwork Orange (1971) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Godfather",
+    "release_year": 1972,
+    "runtime_minutes": 175,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "popularity_score": 98,
+    "color_format": "color",
+    "tmdb_id": 238,
+    "id": "film_the_godfather",
+    "slug": "the-godfather",
+    "synopsis": "The Godfather (1972) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Chinatown",
+    "release_year": 1974,
+    "runtime_minutes": 130,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Crime",
+      "Drama",
+      "Mystery"
+    ],
+    "popularity_score": 89,
+    "color_format": "color",
+    "tmdb_id": 829,
+    "id": "film_chinatown",
+    "slug": "chinatown",
+    "synopsis": "Chinatown (1974) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Conversation",
+    "release_year": 1974,
+    "runtime_minutes": 113,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "popularity_score": 80,
+    "color_format": "color",
+    "tmdb_id": 945,
+    "id": "film_the_conversation",
+    "slug": "the-conversation",
+    "synopsis": "The Conversation (1974) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Jaws",
+    "release_year": 1975,
+    "runtime_minutes": 124,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Adventure",
+      "Thriller"
+    ],
+    "popularity_score": 91,
+    "color_format": "color",
+    "tmdb_id": 578,
+    "id": "film_jaws",
+    "slug": "jaws",
+    "synopsis": "Jaws (1975) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Taxi Driver",
+    "release_year": 1976,
+    "runtime_minutes": 114,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "popularity_score": 92,
+    "color_format": "color",
+    "tmdb_id": 103,
+    "id": "film_taxi_driver",
+    "slug": "taxi-driver",
+    "synopsis": "Taxi Driver (1976) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Star Wars",
+    "release_year": 1977,
+    "runtime_minutes": 121,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Adventure",
+      "Science Fiction"
+    ],
+    "popularity_score": 99,
+    "color_format": "color",
+    "tmdb_id": 11,
+    "id": "film_star_wars",
+    "slug": "star-wars",
+    "synopsis": "Star Wars (1977) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Apocalypse Now",
+    "release_year": 1979,
+    "runtime_minutes": 153,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "War",
+      "Drama"
+    ],
+    "popularity_score": 93,
+    "color_format": "color",
+    "tmdb_id": 28,
+    "id": "film_apocalypse_now",
+    "slug": "apocalypse-now",
+    "synopsis": "Apocalypse Now (1979) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Shining",
+    "release_year": 1980,
+    "runtime_minutes": 146,
+    "country": [
+      "GB",
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Horror"
+    ],
+    "popularity_score": 94,
+    "color_format": "color",
+    "tmdb_id": 694,
+    "id": "film_the_shining",
+    "slug": "the-shining",
+    "synopsis": "The Shining (1980) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Raging Bull",
+    "release_year": 1980,
+    "runtime_minutes": 129,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Drama"
+    ],
+    "popularity_score": 85,
+    "color_format": "bw",
+    "tmdb_id": 1578,
+    "id": "film_raging_bull",
+    "slug": "raging-bull",
+    "synopsis": "Raging Bull (1980) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Blade Runner",
+    "release_year": 1982,
+    "runtime_minutes": 117,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Science Fiction",
+      "Thriller"
+    ],
+    "popularity_score": 95,
+    "color_format": "color",
+    "tmdb_id": 78,
+    "id": "film_blade_runner",
+    "slug": "blade-runner",
+    "synopsis": "Blade Runner (1982) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Untouchables",
+    "release_year": 1987,
+    "runtime_minutes": 119,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Crime",
+      "Drama",
+      "History"
+    ],
+    "popularity_score": 81,
+    "color_format": "color",
+    "tmdb_id": 11778,
+    "id": "film_the_untouchables",
+    "slug": "the-untouchables",
+    "synopsis": "The Untouchables (1987) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Goodfellas",
+    "release_year": 1990,
+    "runtime_minutes": 145,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "popularity_score": 94,
+    "color_format": "color",
+    "tmdb_id": 769,
+    "id": "film_goodfellas",
+    "slug": "goodfellas",
+    "synopsis": "Goodfellas (1990) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Se7en",
+    "release_year": 1995,
+    "runtime_minutes": 127,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Crime",
+      "Mystery",
+      "Thriller"
+    ],
+    "popularity_score": 93,
+    "color_format": "color",
+    "tmdb_id": 807,
+    "id": "film_se7en",
+    "slug": "se7en",
+    "synopsis": "Se7en (1995) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Heat",
+    "release_year": 1995,
+    "runtime_minutes": 170,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "popularity_score": 90,
+    "color_format": "color",
+    "tmdb_id": 949,
+    "id": "film_heat",
+    "slug": "heat",
+    "synopsis": "Heat (1995) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Matrix",
+    "release_year": 1999,
+    "runtime_minutes": 136,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Action",
+      "Science Fiction"
+    ],
+    "popularity_score": 97,
+    "color_format": "color",
+    "tmdb_id": 603,
+    "id": "film_the_matrix",
+    "slug": "the-matrix",
+    "synopsis": "The Matrix (1999) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Mulholland Drive",
+    "release_year": 2001,
+    "runtime_minutes": 147,
+    "country": [
+      "US",
+      "FR"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ],
+    "popularity_score": 88,
+    "color_format": "color",
+    "tmdb_id": 1018,
+    "id": "film_mulholland_drive",
+    "slug": "mulholland-drive",
+    "synopsis": "Mulholland Drive (2001) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "The Dark Knight",
+    "release_year": 2008,
+    "runtime_minutes": 152,
+    "country": [
+      "US",
+      "GB"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "popularity_score": 100,
+    "color_format": "color",
+    "tmdb_id": 155,
+    "id": "film_the_dark_knight",
+    "slug": "the-dark-knight",
+    "synopsis": "The Dark Knight (2008) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Inception",
+    "release_year": 2010,
+    "runtime_minutes": 148,
+    "country": [
+      "US",
+      "GB"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "popularity_score": 98,
+    "color_format": "color",
+    "tmdb_id": 27205,
+    "id": "film_inception",
+    "slug": "inception",
+    "synopsis": "Inception (2010) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  },
+  {
+    "title": "Drive",
+    "release_year": 2011,
+    "runtime_minutes": 100,
+    "country": [
+      "US"
+    ],
+    "original_language": "en",
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "popularity_score": 86,
+    "color_format": "color",
+    "tmdb_id": 64690,
+    "id": "film_drive",
+    "slug": "drive",
+    "synopsis": "Drive (2011) — seed fixture used to densify the influence graph neighborhood.",
+    "is_seed_data": true
+  }
+]

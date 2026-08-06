@@ -11,14 +11,24 @@
     "dev:api": "turbo dev --filter=@precept/api",
     "dev:web": "turbo dev --filter=@precept/web",
     "build": "turbo build",
-    "pipeline": "turbo pipeline --filter=@precept/pipeline",
-    "db:migrate": "turbo db:migrate --filter=@precept/db",
-    "db:reset:local": "powershell -ExecutionPolicy Bypass -File ./scripts/clear-local-db.ps1",
     "typecheck": "turbo typecheck",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "db:migrate": "npm run db:migrate --workspace=@precept/db",
+    "db:seed": "npm run db:seed --workspace=@precept/db",
+    "db:reset": "npm run db:reset --workspace=@precept/db",
+    "import:tmdb": "npm run import --workspace=@precept/importer",
+    "admin:create": "npm run admin:create -w @precept/api --",
+    "pipeline": "turbo pipeline --filter=@precept/pipeline"
   },
   "devDependencies": {
     "turbo": "^2",
     "typescript": "^5.5"
+  },
+  "overrides": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5"
   }
 }

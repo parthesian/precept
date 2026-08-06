@@ -1,83 +1,109 @@
 import { Hono } from "hono";
-import { querySimilar } from "../services/vectorize";
+import { ilike, or, sql } from "drizzle-orm";
+import type { Db } from "@precept/db";
+import { collections, films, people, places, precepts } from "@precept/db";
+import { fail, ok } from "../lib/envelope.js";
 
-type Bindings = {
-  DB: D1Database;
-  VECTORS: VectorizeIndex;
-};
+export function searchRoutes(db: Db) {
+  const app = new Hono();
 
-export const searchRouter = new Hono<{ Bindings: Bindings }>();
+  app.get("/search", async (c) => {
+    const q = (c.req.query("q") ?? "").trim();
+    const limit = Math.min(Number(c.req.query("limit") ?? "8"), 20);
+    const types = (c.req.query("types") ?? "film,person,collection,place,precept").split(",");
 
-searchRouter.get("/search/tags", async (c) => {
-  const shotScale = c.req.query("shot_scale");
-  const setting = c.req.query("setting");
-  const lighting = c.req.query("lighting");
-  const audioVisualRelationship = c.req.query("audio_visual_relationship");
-  const q = c.req.query("q");
-  const limit = Number(c.req.query("limit") ?? "50");
-  const offset = Number(c.req.query("offset") ?? "0");
+    if (!q) {
+      return ok(c, { film: [], person: [], collection: [], place: [], precept: [] }, { q, limit });
+    }
 
-  const filters: string[] = [];
-  const args: unknown[] = [];
-  if (shotScale) {
-    filters.push(`shot_scale = ?${args.length + 1}`);
-    args.push(shotScale);
-  }
-  if (setting) {
-    filters.push(`setting = ?${args.length + 1}`);
-    args.push(setting);
-  }
-  if (lighting) {
-    filters.push(`lighting = ?${args.length + 1}`);
-    args.push(lighting);
-  }
-  if (audioVisualRelationship) {
-    filters.push(`audio_visual_relationship = ?${args.length + 1}`);
-    args.push(audioVisualRelationship);
-  }
-  if (q) {
-    filters.push(`llm_description LIKE ?${args.length + 1}`);
-    args.push(`%${q}%`);
-  }
+    const pattern = `%${q}%`;
+    const result: Record<string, unknown[]> = {
+      film: [],
+      person: [],
+      collection: [],
+      place: [],
+      precept: [],
+    };
 
-  const where = filters.length ? `WHERE ${filters.join(" AND ")}` : "";
-  const sql = `SELECT s.*, f.title AS film_title, f.year AS film_year, f.director AS film_director FROM shots s JOIN films f ON s.film_id = f.id ${where} ORDER BY s.created_at DESC LIMIT ?${
-    args.length + 1
-  } OFFSET ?${args.length + 2}`;
-  const rows = await c.env.DB.prepare(sql)
-    .bind(...args, limit, offset)
-    .all();
+    if (types.includes("film")) {
+      const rows = await db
+        .select()
+        .from(films)
+        .where(or(ilike(films.title, pattern), ilike(films.originalTitle, pattern)))
+        .orderBy(sql`${films.popularityScore} desc`)
+        .limit(limit);
+      result.film = rows.map((r) => ({
+        id: r.id,
+        type: "film",
+        slug: r.slug,
+        label: r.title,
+        sublabel: String(r.releaseYear),
+        thumb: r.posterUrl,
+      }));
+    }
 
-  const data = (rows.results ?? []).map((row: any) => ({
-    ...row,
-    thumbnail_url: `/api/assets?key=${encodeURIComponent(row.thumbnail)}`,
-  }));
-  return c.json({ data, limit, offset });
-});
+    if (types.includes("person")) {
+      const rows = await db
+        .select()
+        .from(people)
+        .where(ilike(people.name, pattern))
+        .limit(limit);
+      result.person = rows.map((r) => ({
+        id: r.id,
+        type: "person",
+        slug: r.slug,
+        label: r.name,
+        sublabel: r.primaryDepartment,
+        thumb: r.photoUrl,
+      }));
+    }
 
-searchRouter.post("/search/similar", async (c) => {
-  const body = await c.req.json<{ embedding?: number[]; shot_id?: string }>();
-  let vector = body.embedding;
-  if (!vector && body.shot_id) {
-    const row = await c.env.DB.prepare("SELECT embedding_id FROM shots WHERE id = ?1")
-      .bind(body.shot_id)
-      .first<{ embedding_id?: string }>();
-    if (!row?.embedding_id) return c.json({ error: "Embedding not found for shot" }, 404);
-    // API expects vector input; caller can provide embedding directly for now.
-    return c.json({ error: "Provide embedding vector directly for this scaffold route." }, 400);
-  }
-  if (!vector) return c.json({ error: "Provide shot_id or embedding" }, 400);
+    if (types.includes("collection")) {
+      const rows = await db
+        .select()
+        .from(collections)
+        .where(ilike(collections.name, pattern))
+        .limit(limit);
+      result.collection = rows.map((r) => ({
+        id: r.id,
+        type: "collection",
+        slug: r.slug,
+        label: r.name,
+        sublabel: r.kind,
+        thumb: null,
+      }));
+    }
 
-  const matches = await querySimilar(c.env.VECTORS, vector, 12);
-  return c.json({ data: matches.matches ?? [] });
-});
+    if (types.includes("place")) {
+      const rows = await db.select().from(places).where(ilike(places.name, pattern)).limit(limit);
+      result.place = rows.map((r) => ({
+        id: r.id,
+        type: "place",
+        slug: r.slug,
+        label: r.name,
+        sublabel: [r.locality, r.country].filter(Boolean).join(", "),
+        thumb: null,
+      }));
+    }
 
-searchRouter.get("/search/text", async (c) => {
-  const q = c.req.query("q") ?? "";
-  const rows = await c.env.DB.prepare(
-    "SELECT * FROM shots WHERE llm_description LIKE ?1 ORDER BY created_at DESC LIMIT 50"
-  )
-    .bind(`%${q}%`)
-    .all();
-  return c.json({ data: rows.results ?? [] });
-});
+    if (types.includes("precept")) {
+      const rows = await db
+        .select()
+        .from(precepts)
+        .where(or(ilike(precepts.name, pattern), sql`${precepts.aliases}::text ilike ${pattern}`))
+        .limit(limit);
+      result.precept = rows.map((r) => ({
+        id: r.id,
+        type: "precept",
+        slug: r.slug,
+        label: r.name,
+        sublabel: r.shortDefinition,
+        thumb: null,
+      }));
+    }
+
+    return ok(c, result, { q, limit });
+  });
+
+  return app;
+}

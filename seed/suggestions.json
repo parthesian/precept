@@ -1,0 +1,669 @@
+[
+  {
+    "id": "sug_1",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_battleship_potemkin",
+      "target_film_id": "film_bicycle_thieves",
+      "is_directed": true,
+      "connection_type": "homage",
+      "confidence_tier": "ai_suggested",
+      "title": "Pending suggestion 1",
+      "rationale": "Queued ai suggestion between Battleship Potemkin and Bicycle Thieves.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": []
+    },
+    "source": "ai",
+    "ai_metadata": {
+      "model": "seed-mock-vlm",
+      "prompt_version": "v0",
+      "generated_at": "2026-01-01T00:00:00.000Z",
+      "raw_response": {
+        "note": "seed"
+      },
+      "token_cost": 0.01
+    },
+    "submitter_note": "AI proposal",
+    "status": "pending",
+    "submitted_by": "user_admin",
+    "community_score": 20,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_2",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_man_with_a_movie_camera",
+      "target_film_id": "film_rashomon",
+      "is_directed": true,
+      "connection_type": "shot_for_shot_quotation",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 2",
+      "rationale": "Queued user suggestion between Man with a Movie Camera and Rashomon.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 19,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_3",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_citizen_kane",
+      "target_film_id": "film_singin_in_the_rain",
+      "is_directed": true,
+      "connection_type": "visual_motif",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 3",
+      "rationale": "Queued user suggestion between Citizen Kane and Singin' in the Rain.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 18,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_4",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_bicycle_thieves",
+      "target_film_id": "film_tokyo_story",
+      "is_directed": true,
+      "connection_type": "shared_technique",
+      "confidence_tier": "ai_suggested",
+      "title": "Pending suggestion 4",
+      "rationale": "Queued ai suggestion between Bicycle Thieves and Tokyo Story.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": []
+    },
+    "source": "ai",
+    "ai_metadata": {
+      "model": "seed-mock-vlm",
+      "prompt_version": "v0",
+      "generated_at": "2026-01-01T00:00:00.000Z",
+      "raw_response": {
+        "note": "seed"
+      },
+      "token_cost": 0.01
+    },
+    "submitter_note": "AI proposal",
+    "status": "pending",
+    "submitted_by": "user_admin",
+    "community_score": 17,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_5",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_rashomon",
+      "target_film_id": "film_seven_samurai",
+      "is_directed": true,
+      "connection_type": "subversion_parody",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 5",
+      "rationale": "Queued user suggestion between Rashomon and Seven Samurai.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 16,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_6",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_singin_in_the_rain",
+      "target_film_id": "film_rear_window",
+      "is_directed": true,
+      "connection_type": "narrative_structure",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 6",
+      "rationale": "Queued user suggestion between Singin' in the Rain and Rear Window.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 15,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_7",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_tokyo_story",
+      "target_film_id": "film_the_searchers",
+      "is_directed": true,
+      "connection_type": "remake_adaptation",
+      "confidence_tier": "ai_suggested",
+      "title": "Pending suggestion 7",
+      "rationale": "Queued ai suggestion between Tokyo Story and The Searchers.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": []
+    },
+    "source": "ai",
+    "ai_metadata": {
+      "model": "seed-mock-vlm",
+      "prompt_version": "v0",
+      "generated_at": "2026-01-01T00:00:00.000Z",
+      "raw_response": {
+        "note": "seed"
+      },
+      "token_cost": 0.01
+    },
+    "submitter_note": "AI proposal",
+    "status": "pending",
+    "submitted_by": "user_admin",
+    "community_score": 14,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_8",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_seven_samurai",
+      "target_film_id": "film_the_seventh_seal",
+      "is_directed": true,
+      "connection_type": "audiovisual_parallel",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 8",
+      "rationale": "Queued user suggestion between Seven Samurai and The Seventh Seal.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 13,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_9",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_rear_window",
+      "target_film_id": "film_vertigo",
+      "is_directed": true,
+      "connection_type": "stated_influence",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 9",
+      "rationale": "Queued user suggestion between Rear Window and Vertigo.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 12,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_10",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_the_searchers",
+      "target_film_id": "film_north_by_northwest",
+      "is_directed": true,
+      "connection_type": "crew_lineage",
+      "confidence_tier": "ai_suggested",
+      "title": "Pending suggestion 10",
+      "rationale": "Queued ai suggestion between The Searchers and North by Northwest.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": []
+    },
+    "source": "ai",
+    "ai_metadata": {
+      "model": "seed-mock-vlm",
+      "prompt_version": "v0",
+      "generated_at": "2026-01-01T00:00:00.000Z",
+      "raw_response": {
+        "note": "seed"
+      },
+      "token_cost": 0.01
+    },
+    "submitter_note": "AI proposal",
+    "status": "pending",
+    "submitted_by": "user_admin",
+    "community_score": 11,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_11",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_the_seventh_seal",
+      "target_film_id": "film_psycho",
+      "is_directed": true,
+      "connection_type": "soundtrack_reference",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 11",
+      "rationale": "Queued user suggestion between The Seventh Seal and Psycho.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 10,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_12",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_vertigo",
+      "target_film_id": "film_yojimbo",
+      "is_directed": true,
+      "connection_type": "homage",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 12",
+      "rationale": "Queued user suggestion between Vertigo and Yojimbo.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 9,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_13",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_north_by_northwest",
+      "target_film_id": "film_lawrence_of_arabia",
+      "is_directed": true,
+      "connection_type": "shot_for_shot_quotation",
+      "confidence_tier": "ai_suggested",
+      "title": "Pending suggestion 13",
+      "rationale": "Queued ai suggestion between North by Northwest and Lawrence of Arabia.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": []
+    },
+    "source": "ai",
+    "ai_metadata": {
+      "model": "seed-mock-vlm",
+      "prompt_version": "v0",
+      "generated_at": "2026-01-01T00:00:00.000Z",
+      "raw_response": {
+        "note": "seed"
+      },
+      "token_cost": 0.01
+    },
+    "submitter_note": "AI proposal",
+    "status": "pending",
+    "submitted_by": "user_admin",
+    "community_score": 8,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_14",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_psycho",
+      "target_film_id": "film_8",
+      "is_directed": true,
+      "connection_type": "visual_motif",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 14",
+      "rationale": "Queued user suggestion between Psycho and 8½.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 7,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_15",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_yojimbo",
+      "target_film_id": "film_dr_strangelove",
+      "is_directed": true,
+      "connection_type": "shared_technique",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 15",
+      "rationale": "Queued user suggestion between Yojimbo and Dr. Strangelove.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 6,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_16",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_lawrence_of_arabia",
+      "target_film_id": "film_a_fistful_of_dollars",
+      "is_directed": true,
+      "connection_type": "subversion_parody",
+      "confidence_tier": "ai_suggested",
+      "title": "Pending suggestion 16",
+      "rationale": "Queued ai suggestion between Lawrence of Arabia and A Fistful of Dollars.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": []
+    },
+    "source": "ai",
+    "ai_metadata": {
+      "model": "seed-mock-vlm",
+      "prompt_version": "v0",
+      "generated_at": "2026-01-01T00:00:00.000Z",
+      "raw_response": {
+        "note": "seed"
+      },
+      "token_cost": 0.01
+    },
+    "submitter_note": "AI proposal",
+    "status": "pending",
+    "submitted_by": "user_admin",
+    "community_score": 5,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_17",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_8",
+      "target_film_id": "film_the_good_the_bad_and_the_ugly",
+      "is_directed": true,
+      "connection_type": "narrative_structure",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 17",
+      "rationale": "Queued user suggestion between 8½ and The Good, the Bad and the Ugly.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 4,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_18",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_dr_strangelove",
+      "target_film_id": "film_2001_a_space_odyssey",
+      "is_directed": true,
+      "connection_type": "remake_adaptation",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 18",
+      "rationale": "Queued user suggestion between Dr. Strangelove and 2001: A Space Odyssey.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 3,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_19",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_a_fistful_of_dollars",
+      "target_film_id": "film_once_upon_a_time_in_the_west",
+      "is_directed": true,
+      "connection_type": "audiovisual_parallel",
+      "confidence_tier": "ai_suggested",
+      "title": "Pending suggestion 19",
+      "rationale": "Queued ai suggestion between A Fistful of Dollars and Once Upon a Time in the West.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": []
+    },
+    "source": "ai",
+    "ai_metadata": {
+      "model": "seed-mock-vlm",
+      "prompt_version": "v0",
+      "generated_at": "2026-01-01T00:00:00.000Z",
+      "raw_response": {
+        "note": "seed"
+      },
+      "token_cost": 0.01
+    },
+    "submitter_note": "AI proposal",
+    "status": "pending",
+    "submitted_by": "user_admin",
+    "community_score": 2,
+    "is_seed_data": true
+  },
+  {
+    "id": "sug_20",
+    "target_type": "connection",
+    "target_id": null,
+    "operation": "create",
+    "payload": {
+      "source_film_id": "film_the_good_the_bad_and_the_ugly",
+      "target_film_id": "film_a_clockwork_orange",
+      "is_directed": true,
+      "connection_type": "stated_influence",
+      "confidence_tier": "proposed",
+      "title": "Pending suggestion 20",
+      "rationale": "Queued user suggestion between The Good, the Bad and the Ugly and A Clockwork Orange.",
+      "tags": [
+        "pending"
+      ],
+      "evidence": [
+        {
+          "evidence_type": "video_essay",
+          "url": "https://example.com/pending",
+          "citation_text": "Pending citation",
+          "excerpt": "Fifteen words or fewer in this excerpt text now."
+        }
+      ]
+    },
+    "source": "user",
+    "ai_metadata": null,
+    "submitter_note": "Looks related",
+    "status": "pending",
+    "submitted_by": "user_contributor",
+    "community_score": 1,
+    "is_seed_data": true
+  }
+]

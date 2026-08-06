@@ -1,0 +1,62 @@
+[
+  {
+    "id": "user_anon",
+    "handle": "guest",
+    "display_name": "Guest",
+    "email": "guest@example.com",
+    "role": "anon",
+    "reputation": 0,
+    "contribution_counts": {},
+    "is_seed_data": true
+  },
+  {
+    "id": "user_contributor",
+    "handle": "cinephile",
+    "display_name": "Cinephile",
+    "email": "cinephile@example.com",
+    "role": "contributor",
+    "reputation": 3,
+    "contribution_counts": {
+      "approved": 3
+    },
+    "is_seed_data": true
+  },
+  {
+    "id": "user_trusted",
+    "handle": "archivist",
+    "display_name": "Archivist",
+    "email": "archivist@example.com",
+    "role": "trusted",
+    "reputation": 40,
+    "contribution_counts": {
+      "approved": 40
+    },
+    "is_seed_data": true
+  },
+  {
+    "id": "user_mod",
+    "handle": "moderator",
+    "display_name": "Moderator",
+    "email": "mod@example.com",
+    "role": "moderator",
+    "reputation": 100,
+    "contribution_counts": {
+      "approved": 120,
+      "reviewed": 200
+    },
+    "is_seed_data": true
+  },
+  {
+    "id": "user_admin",
+    "handle": "admin",
+    "display_name": "Admin",
+    "email": "admin@example.com",
+    "role": "admin",
+    "reputation": 999,
+    "contribution_counts": {
+      "approved": 500,
+      "reviewed": 500
+    },
+    "is_seed_data": true
+  }
+]
