@@ -13,6 +13,7 @@
     "@precept/db": "file:../db",
     "@precept/shared": "file:../shared",
     "dotenv": "^16",
+    "drizzle-orm": "^0.39",
     "ulid": "^2.3"
   },
   "devDependencies": {

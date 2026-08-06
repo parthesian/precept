@@ -18,15 +18,15 @@
     "graphology-layout-forceatlas2": "^0.10",
     "maplibre-gl": "^4",
     "next": "^15",
-    "react": "^19",
-    "react-dom": "^19",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "sigma": "^3",
     "zustand": "^5"
   },
   "devDependencies": {
     "@types/node": "^22",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
     "typescript": "^5.5"
   }
 }

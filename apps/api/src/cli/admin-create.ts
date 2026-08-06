@@ -12,7 +12,7 @@ async function main() {
     process.exit(1);
   }
 
-  const db = createDb();
+  const db = createDb(process.env.DATABASE_URL ?? "postgres://precept:precept@localhost:5432/precept");
   const existing = await db.select().from(users).where(eq(users.email, email));
   const passwordHash = await bcrypt.hash(password, 10);
 

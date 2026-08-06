@@ -18,11 +18,17 @@
     "db:seed": "npm run db:seed --workspace=@precept/db",
     "db:reset": "npm run db:reset --workspace=@precept/db",
     "import:tmdb": "npm run import --workspace=@precept/importer",
-    "admin:create": "npm run admin:create --workspace=@precept/api",
+    "admin:create": "npm run admin:create -w @precept/api --",
     "pipeline": "turbo pipeline --filter=@precept/pipeline"
   },
   "devDependencies": {
     "turbo": "^2",
     "typescript": "^5.5"
+  },
+  "overrides": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5"
   }
 }
