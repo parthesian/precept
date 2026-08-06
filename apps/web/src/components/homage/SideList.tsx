@@ -2,14 +2,14 @@
 
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router";
 import { useMemo, useRef } from "react";
 import { api } from "@/lib/api";
 import { useSelectionStore } from "@/stores/selection";
 
 export function SideList({ filmSlug }: { filmSlug: string }) {
   const parentRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
+  const navigate = useNavigate();
   const { filters, setFilters, highlightEdgeId, setHighlightEdgeId, suggestMode } =
     useSelectionStore();
 
@@ -93,7 +93,7 @@ export function SideList({ filmSlug }: { filmSlug: string }) {
                 onMouseEnter={() => setHighlightEdgeId(row.id)}
                 onMouseLeave={() => setHighlightEdgeId(null)}
                 onFocus={() => setHighlightEdgeId(row.id)}
-                onClick={() => router.push(`/connections/${row.id}`)}
+                onClick={() => navigate(`/connections/${row.id}`)}
               >
                 <span className="row-title">{row.title}</span>
                 <span className="row-meta">

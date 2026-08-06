@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { api, type TmdbSearchHit } from "@/lib/api";
 import { useSelectionStore } from "@/stores/selection";
@@ -50,7 +50,7 @@ export function TmdbFilmSearch({
   externalQuery,
   defaultAutoApprove = true,
 }: Props) {
-  const router = useRouter();
+  const navigate = useNavigate();
   const pane = useSelectionStore((s) => s.pane);
   const setSelection = useSelectionStore((s) => s.setSelection);
   const [q, setQ] = useState("");
@@ -92,7 +92,7 @@ export function TmdbFilmSearch({
           title: result.film.title,
         });
         const base = pane === "focus" ? "homage" : pane;
-        router.push(`/${base}/film/${result.film.slug}`);
+        navigate(`/${base}/film/${result.film.slug}`);
         setMessage(`Opened ${result.film.title}`);
       } else {
         setMessage(

@@ -1,16 +1,14 @@
-"use client";
-
 import { useQuery } from "@tanstack/react-query";
-import dynamic from "next/dynamic";
+import { lazy, Suspense } from "react";
 import { api } from "@/lib/api";
+import { ClientOnly } from "@/components/ClientOnly";
 import { SuggestConnectionForm } from "@/components/suggest/SuggestConnectionForm";
 import { SuggestFilmForm } from "@/components/suggest/SuggestFilmForm";
 import { SideList } from "./SideList";
 
-const HomageGraph = dynamic(() => import("./HomageGraph").then((m) => m.HomageGraph), {
-  ssr: false,
-  loading: () => <p className="muted">Loading graph…</p>,
-});
+const HomageGraph = lazy(() =>
+  import("./HomageGraph").then((m) => ({ default: m.HomageGraph }))
+);
 
 export function HomagePane({
   centerType = "film",
@@ -36,12 +34,14 @@ export function HomagePane({
         </p>
       </header>
       <div className="homage-body">
-        <HomageGraph centerType={centerType} centerSlug={centerSlug} />
+        <ClientOnly fallback={<p className="muted">Loading graph…</p>}>
+          <Suspense fallback={<p className="muted">Loading graph…</p>}>
+            <HomageGraph centerType={centerType} centerSlug={centerSlug} />
+          </Suspense>
+        </ClientOnly>
         <div className="homage-sidebar">
-          {centerType === "film" ? <SideList filmSlug={centerSlug} /> : null}
-          {centerType === "film" && filmQuery.data ? (
-            <SuggestConnectionForm sourceFilmId={filmQuery.data.id} />
-          ) : null}
+          <SideList centerType={centerType} centerSlug={centerSlug} />
+          <SuggestConnectionForm defaultSourceFilmId={filmQuery.data?.id} />
           <SuggestFilmForm />
         </div>
       </div>

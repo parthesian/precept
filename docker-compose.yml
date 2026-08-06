@@ -1,14 +1,4 @@
-services:
-  postgres:
-    image: postgres:16
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: precept
-      POSTGRES_PASSWORD: precept
-      POSTGRES_DB: precept
-    volumes:
-      - precept_pg:/var/lib/postgresql/data
-
-volumes:
-  precept_pg:
+# Retired for the live Precept app path (Workers + local D1).
+# Kept as a no-op stub so older docs/scripts fail loudly instead of
+# silently starting Postgres. Delete this file when convenient.
+services: {}

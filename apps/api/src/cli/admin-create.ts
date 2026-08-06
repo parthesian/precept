@@ -26,7 +26,8 @@ async function main() {
     process.exit(1);
   }
 
-  const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
+  // apps/api/src/cli → repo root is ../../../../
+  const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../..");
   const proxy = await getPlatformProxy({
     configPath: path.join(root, "apps/web/wrangler.jsonc"),
     persist: { path: path.join(root, "apps/web/.wrangler/state/v3") },

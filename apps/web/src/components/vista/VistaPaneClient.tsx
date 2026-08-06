@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import Link from "next/link";
+import { Link } from "react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SuggestLocationForm } from "@/components/suggest/SuggestLocationForm";
 import { api } from "@/lib/api";
@@ -211,7 +211,7 @@ export function VistaPaneClient({
               <ul>
                 {(placeDetail.data.films ?? []).map((f: any) => (
                   <li key={f.id}>
-                    <Link href={`/homage/film/${f.slug}`}>{f.title}</Link>
+                    <Link to={`/homage/film/${f.slug}`}>{f.title}</Link>
                     <span className="muted"> · {f.location.relationship}</span>
                     {f.location.is_doubling_for ? (
                       <span className="badge">doubling</span>
@@ -225,7 +225,7 @@ export function VistaPaneClient({
               <h2>{"name" in activePlace ? activePlace.name : "Place"}</h2>
               <p className="muted">{"scene" in activePlace ? activePlace.scene : null}</p>
               {"slug" in activePlace ? (
-                <Link href={`/vista/place/${activePlace.slug}`}>Open place</Link>
+                <Link to={`/vista/place/${activePlace.slug}`}>Open place</Link>
               ) : null}
             </>
           ) : (

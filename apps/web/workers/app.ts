@@ -1,5 +1,7 @@
 import { Hono } from "hono";
 import { createRequestHandler } from "react-router";
+import { createDb } from "@precept/db";
+import { importFilmFull } from "@precept/importer";
 import { createApp } from "../../api/src/create-app";
 import type { ApiBindings } from "../../api/src/env";
 
@@ -14,7 +16,6 @@ declare module "react-router" {
 
 const app = new Hono<{ Bindings: ApiBindings }>();
 
-// Mount Precept API (routes already prefixed with /api)
 app.route("/", createApp());
 
 app.get("*", (c) => {
@@ -27,4 +28,39 @@ app.get("*", (c) => {
   });
 });
 
-export default app;
+type TmdbImportMessage = {
+  tmdbId: number;
+  userId?: string;
+  autoApprove?: boolean;
+};
+
+export default {
+  fetch: app.fetch.bind(app),
+  async queue(batch, env) {
+    const db = createDb(env.DB);
+    const key = env.TMDB_API_KEY;
+    for (const msg of batch.messages) {
+      try {
+        const body = msg.body as TmdbImportMessage;
+        if (!key) {
+          console.error("tmdb-import: TMDB_API_KEY missing");
+          msg.retry();
+          continue;
+        }
+        if (!body?.tmdbId) {
+          msg.ack();
+          continue;
+        }
+        const result = await importFilmFull(db, body.tmdbId, key, { backfill: true });
+        console.log("tmdb-import ok", result.filmId, result.title, {
+          created: result.created,
+          credits: result.creditsImported,
+        });
+        msg.ack();
+      } catch (err) {
+        console.error("tmdb-import failed", err);
+        msg.retry();
+      }
+    }
+  },
+} satisfies ExportedHandler<ApiBindings>;

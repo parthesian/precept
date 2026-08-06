@@ -1,5 +1,13 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import {
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "react-router";
 import type { LinksFunction } from "react-router";
+import { Providers } from "../src/components/Providers";
 import tokensHref from "../src/styles/tokens.css?url";
 import globalsHref from "../src/styles/globals.css?url";
 
@@ -18,7 +26,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <div id="precept-root">{children}</div>
+        <Providers>
+          <div id="precept-root">{children}</div>
+        </Providers>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -28,4 +38,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function ErrorBoundary({ error }: { error: unknown }) {
+  let message = "Oops!";
+  let details = "An unexpected error occurred.";
+  if (isRouteErrorResponse(error)) {
+    message = error.status === 404 ? "404" : "Error";
+    details =
+      error.status === 404 ? "The requested page could not be found." : error.statusText || details;
+  } else if (import.meta.env.DEV && error instanceof Error) {
+    details = error.message;
+  }
+  return (
+    <main className="page">
+      <h1>{message}</h1>
+      <p>{details}</p>
+    </main>
+  );
 }

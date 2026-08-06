@@ -130,6 +130,41 @@ export function tmdbRoutes() {
     }
 
     const [existing] = await db.select().from(films).where(eq(films.tmdbId, tmdbId));
+
+    // Prefer Queue when bound (Workers) — avoids request timeouts on full imports.
+    const canSelfApprove =
+      body.auto_approve === true && (user.role === "admin" || user.role === "moderator");
+    if (!existing && c.env.TMDB_IMPORT_QUEUE && typeof c.env.TMDB_IMPORT_QUEUE.send === "function") {
+      await c.env.TMDB_IMPORT_QUEUE.send({
+        tmdbId,
+        userId: user.id,
+        autoApprove: canSelfApprove,
+      });
+      // Also record a pending import suggestion for attribution / moderation.
+      if (!canSelfApprove) {
+        const result = await createSuggestion(db, {
+          target_type: "film",
+          operation: "create",
+          source: "import",
+          payload: { tmdb_id: tmdbId },
+          submitted_by: user.id,
+          auto_approve: false,
+        });
+        return ok(
+          c,
+          { film: null, status: "queued", suggestionId: result.suggestionId },
+          { queued: true },
+          202
+        );
+      }
+      return ok(
+        c,
+        { film: null, status: "queued", suggestionId: null },
+        { queued: true },
+        202
+      );
+    }
+
     if (existing) {
       const [{ n }] = await db
         .select({ n: sql<number>`count(*)` })

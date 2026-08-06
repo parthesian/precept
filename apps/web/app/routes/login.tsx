@@ -1,8 +1,5 @@
 import { Link, useNavigate } from "react-router";
-"use client";
-
 import { useState } from "react";
-import { API_URL } from "@/lib/api";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -18,7 +15,7 @@ export default function LoginPage() {
     const path = mode === "login" ? "/api/auth/login" : "/api/auth/register";
     const body =
       mode === "login" ? { email, password } : { email, password, handle, display_name: handle };
-    const res = await fetch(`${API_URL}${path}`, {
+    const res = await fetch(path, {
       method: "POST",
       credentials: "include",
       headers: { "content-type": "application/json" },
@@ -46,7 +43,11 @@ export default function LoginPage() {
         {mode === "register" ? (
           <label>
             Handle
-            <input className="search-input" value={handle} onChange={(e) => setHandle(e.target.value)} />
+            <input
+              className="search-input"
+              value={handle}
+              onChange={(e) => setHandle(e.target.value)}
+            />
           </label>
         ) : null}
         <label>
@@ -63,7 +64,11 @@ export default function LoginPage() {
           {mode === "login" ? "Login" : "Create account"}
         </button>
       </form>
-      <button type="button" className="button ghost" onClick={() => setMode(mode === "login" ? "register" : "login")}>
+      <button
+        type="button"
+        className="button ghost"
+        onClick={() => setMode(mode === "login" ? "register" : "login")}
+      >
         Switch to {mode === "login" ? "register" : "login"}
       </button>
       <p className="muted">

@@ -1,7 +1,6 @@
+import { Link, useLocation, useNavigate } from "react-router";
 "use client";
 
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { GlobalSearch } from "@/components/GlobalSearch";
 import { useSelectionStore } from "@/stores/selection";
@@ -42,8 +41,8 @@ export function ThreePaneShell({
   homage: React.ReactNode;
   focus: React.ReactNode;
 }) {
-  const pathname = usePathname();
-  const router = useRouter();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
   const { selection, setPane, suggestMode, setSuggestMode, pane } = useSelectionStore();
   const active = useMemo(() => paneFromPath(pathname), [pathname]);
   const [mobileIndex, setMobileIndex] = useState(() => PANES.indexOf(active));
@@ -55,7 +54,7 @@ export function ThreePaneShell({
   }, [active, setPane]);
 
   function go(paneName: Pane) {
-    router.push(pathForPane(paneName, selection));
+    navigate(pathForPane(paneName, selection));
   }
 
   useEffect(() => {
@@ -81,7 +80,7 @@ export function ThreePaneShell({
   return (
     <div className="app-root shell">
       <header className="top-bar">
-        <Link href="/" className="wordmark">
+        <Link to="/" className="wordmark">
           PRECEPT
         </Link>
         <GlobalSearch />

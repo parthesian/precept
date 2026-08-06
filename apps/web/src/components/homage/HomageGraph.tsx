@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Graph from "graphology";
 import forceAtlas2 from "graphology-layout-forceatlas2";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router";
 import { useEffect, useMemo, useRef } from "react";
 import Sigma from "sigma";
 import { api } from "@/lib/api";
@@ -47,7 +47,7 @@ export function HomageGraph({
   centerSlug: string;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
+  const navigate = useNavigate();
   const { filters, suggestMode, highlightEdgeId, setHighlightEdgeId, setSelection, breadcrumb } =
     useSelectionStore();
 
@@ -134,15 +134,15 @@ export function HomageGraph({
       const attrs = graph.getNodeAttributes(node);
       if (attrs.nodeType === "film") {
         setSelection({ type: "film", id: node, slug: attrs.slug, label: attrs.label });
-        router.push(`/homage/film/${attrs.slug}`);
+        navigate(`/homage/film/${attrs.slug}`);
       } else if (attrs.nodeType === "person") {
         setSelection({ type: "person", id: node, slug: attrs.slug, label: attrs.label });
-        router.push(`/homage/person/${attrs.slug}`);
+        navigate(`/homage/person/${attrs.slug}`);
       }
     });
     sigma.on("clickEdge", ({ edge }) => {
       if (String(edge).startsWith("derived_") || String(edge).startsWith("computed_")) return;
-      router.push(`/connections/${edge}`);
+      navigate(`/connections/${edge}`);
     });
 
     return () => {
@@ -166,8 +166,8 @@ export function HomageGraph({
               type="button"
               onClick={() => {
                 setSelection(b, false);
-                if (b.type === "film") router.push(`/homage/film/${b.slug}`);
-                if (b.type === "person") router.push(`/homage/person/${b.slug}`);
+                if (b.type === "film") navigate(`/homage/film/${b.slug}`);
+                if (b.type === "person") navigate(`/homage/person/${b.slug}`);
               }}
             >
               {b.label ?? b.slug}

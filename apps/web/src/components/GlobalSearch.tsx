@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router";
 import { useEffect, useMemo, useState } from "react";
 import { TmdbFilmSearch } from "@/components/tmdb/TmdbFilmSearch";
 import { api } from "@/lib/api";
@@ -12,7 +12,7 @@ import { useSelectionStore } from "@/stores/selection";
  * local film hits are empty or &lt; 3, and the query is at least 3 characters.
  */
 export function GlobalSearch() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const { query, setQuery, setSelection, pane, suggestMode } = useSelectionStore();
   const [open, setOpen] = useState(false);
   const [local, setLocal] = useState(query);
@@ -53,11 +53,11 @@ export function GlobalSearch() {
       label: item.label,
     });
     setOpen(false);
-    if (item.type === "place") router.push(`/vista/place/${item.slug}`);
-    else if (item.type === "precept") router.push(`/focus/${item.slug}`);
-    else if (item.type === "person") router.push(`/${pane === "vista" ? "homage" : pane}/person/${item.slug}`);
-    else if (item.type === "collection") router.push(`/homage/collection/${item.slug}`);
-    else router.push(`/${pane === "focus" ? "homage" : pane}/film/${item.slug}`);
+    if (item.type === "place") navigate(`/vista/place/${item.slug}`);
+    else if (item.type === "precept") navigate(`/focus/${item.slug}`);
+    else if (item.type === "person") navigate(`/${pane === "vista" ? "homage" : pane}/person/${item.slug}`);
+    else if (item.type === "collection") navigate(`/homage/collection/${item.slug}`);
+    else navigate(`/${pane === "focus" ? "homage" : pane}/film/${item.slug}`);
   }
 
   return (
