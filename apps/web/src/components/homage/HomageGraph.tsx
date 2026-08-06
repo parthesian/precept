@@ -149,7 +149,7 @@ export function HomageGraph({
       sigma.kill();
       graph.clear();
     };
-  }, [data, suggestMode, filters.connectionTypes, router, setHighlightEdgeId, setSelection]);
+  }, [data, suggestMode, filters.connectionTypes, navigate, setHighlightEdgeId, setSelection]);
 
   useEffect(() => {
     // highlight handled via CSS overlay list; sigma edge state left simple for v1
