@@ -7,12 +7,8 @@ import {
   registerFilmImportByTmdbHandler,
   type Db,
 } from "@precept/db";
-import {
-  importFilmFull,
-  posterUrl,
-  tmdbFetch,
-  type TmdbSearchResponse,
-} from "@precept/importer";
+import { importFilmFull } from "@precept/importer/import-film";
+import { posterUrl, tmdbFetch, type TmdbSearchResponse } from "@precept/importer/tmdb-client";
 import { filmDto } from "../lib/serialize.js";
 import { fail, ok } from "../lib/envelope.js";
 import { rateLimit } from "../lib/rate-limit.js";

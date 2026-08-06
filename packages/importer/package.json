@@ -10,6 +10,16 @@
       "types": "./src/index.ts",
       "import": "./src/index.ts",
       "default": "./src/index.ts"
+    },
+    "./import-film": {
+      "types": "./src/import-film.ts",
+      "import": "./src/import-film.ts",
+      "default": "./src/import-film.ts"
+    },
+    "./tmdb-client": {
+      "types": "./src/tmdb-client.ts",
+      "import": "./src/tmdb-client.ts",
+      "default": "./src/tmdb-client.ts"
     }
   },
   "scripts": {
