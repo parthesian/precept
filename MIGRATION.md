@@ -24,15 +24,17 @@ How the shot-centric Precept product moves into the community-graph rebuild. Not
 
 ## Replace (new greenfield under original paths)
 
-| Path | New role |
+| Path | New role (2026 Workers cutover) |
 |---|---|
-| `apps/api` | Hono on Node + Postgres; read API + suggestion write API |
-| `apps/web` | Next.js App Router; three-pane shell, SSR entity URLs |
-| `packages/db` | Drizzle + Postgres schema, migrations, suggestion write path, seed loader |
+| `apps/api` | Hono fetch app mounted on Workers at `/api/*` (D1) |
+| `apps/web` | React Router v7 + Vite + `@cloudflare/vite-plugin` SSR |
+| `packages/db` | Drizzle sqlite-core + D1 migrations/seed/suggestion batch path |
 | `packages/shared` | Community-graph domain types, enums, Zod DTOs, API envelope |
-| `packages/importer` | TMDB baseline film/person/credit import CLI |
+| `packages/importer` | TMDB CLI/import logic against D1 (Queue for Worker imports) |
 | `seed/` | Deterministic JSON fixtures + import schema docs |
 | `docs/` | New product docs as needed (HANDOFF is root-level) |
+
+> Historical note: the community-graph rebuild briefly used Next.js + Hono/Node + Postgres. That path is retired; see `DECISIONS.md`.
 
 ## Move behind the new API
 
@@ -47,6 +49,11 @@ How the shot-centric Precept product moves into the community-graph rebuild. Not
 | Item | Status |
 |---|---|
 | *(none in Milestone 1)* | Prefer archive over delete. If anything is removed later, add a dated row here before deleting. |
+| `docker-compose.yml` Postgres service | **Deleted 2026-08-06** — local app path is Wrangler D1 only |
+| `@hono/node-server` | **Removed 2026-08-06** — API is Workers-only |
+| `postgres` driver in `@precept/db` | **Removed 2026-08-06** — D1 exclusively |
+| Next.js app tree (`apps/web/src/app`, `next.config.ts`) | **Deleted 2026-08-06** — replaced by RR7 `apps/web/app` |
+| `packages/db/drizzle/*.sql` (Postgres) | **Deleted 2026-08-06** — replaced by `packages/db/migrations` |
 
 ## Pipeline dependency change
 

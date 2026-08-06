@@ -1,13 +1,28 @@
-import { describe, expect, it } from "vitest";
-import { app } from "../index.js";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { openTestApp, type TestApp } from "../test/with-env.js";
 
-async function get(path: string) {
-  const res = await app.request(`http://localhost${path}`);
-  const json = await res.json();
-  return { res, json };
-}
+describe("read API smoke (Workers/D1)", () => {
+  let request: (path: string, init?: RequestInit) => Promise<Response>;
+  let dispose: () => Promise<void>;
 
-describe("read API smoke", () => {
+  beforeAll(async () => {
+    const ctx = await openTestApp();
+    request = ctx.request;
+    dispose = async () => {
+      await ctx.proxy.dispose();
+    };
+  }, 60_000);
+
+  afterAll(async () => {
+    await dispose?.();
+  });
+
+  async function get(path: string) {
+    const res = await request(path);
+    const json = await res.json();
+    return { res, json };
+  }
+
   it("search returns grouped results", async () => {
     const { res, json } = await get("/api/search?q=dark");
     expect(res.status).toBe(200);

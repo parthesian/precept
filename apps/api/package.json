@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "PRECEPT_NODE_SERVER=1 tsx watch src/index.ts",
+    "dev": "echo \"Use npm run dev (Workers). API is mounted by apps/web.\"",
     "build": "tsc -p tsconfig.json",
-    "start": "PRECEPT_NODE_SERVER=1 node dist/index.js",
+    "start": "echo \"Use wrangler deploy / npm run deploy\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "echo \"No lint configured for @precept/api\"",
     "test": "vitest run",
@@ -18,7 +18,6 @@
     "./env": "./src/env.ts"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13",
     "@precept/db": "file:../../packages/db",
     "@precept/importer": "file:../../packages/importer",
     "@precept/shared": "file:../../packages/shared",

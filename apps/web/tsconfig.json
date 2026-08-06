@@ -7,12 +7,27 @@
     "react-router.config.ts",
     "worker-configuration.d.ts"
   ],
-  "exclude": ["node_modules", "build", ".react-router", "src/app", "next.config.ts", "next-env.d.ts"],
+  "exclude": [
+    "node_modules",
+    "build",
+    ".react-router",
+    "dist"
+  ],
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["vite/client", "@cloudflare/workers-types"],
-    "rootDirs": [".", "./.react-router/types"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2022"
+    ],
+    "types": [
+      "vite/client",
+      "@cloudflare/workers-types"
+    ],
+    "rootDirs": [
+      ".",
+      "./.react-router/types"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -24,7 +39,9 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "verbatimModuleSyntax": false
   }

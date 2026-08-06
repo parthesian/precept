@@ -207,9 +207,6 @@ export function tmdbRoutes() {
       });
     }
 
-    const canSelfApprove =
-      body.auto_approve === true && (user.role === "admin" || user.role === "moderator");
-
     if (canSelfApprove) {
       try {
         // Direct full import for admin/mod self-approve; still recorded as import source via suggestion.
