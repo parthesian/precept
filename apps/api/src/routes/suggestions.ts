@@ -14,14 +14,15 @@ import { rateLimit } from "../lib/rate-limit.js";
 import type { AppEnv } from "../middleware/auth.js";
 import { forbidden, requireRole, requireUser, unauthorized } from "../middleware/auth.js";
 
-export function suggestionRoutes(db: Db) {
+export function suggestionRoutes() {
   const app = new Hono<AppEnv>();
-  const suggestionLimit = Number(process.env.RATE_LIMIT_SUGGESTIONS_PER_HOUR ?? "60");
 
   app.post("/suggestions", async (c) => {
+    const db = c.get("db");
     const user = requireUser(c);
     if (!user) return unauthorized(c);
-    if (!rateLimit(`suggest:${user.id}`, suggestionLimit)) {
+    const suggestionLimit = Number(c.env.RATE_LIMIT_SUGGESTIONS_PER_HOUR ?? "60");
+    if (!(await rateLimit(c.env.RATE_LIMIT, `suggest:${user.id}`, suggestionLimit))) {
       return fail(c, 429, "rate_limited", "Too many suggestions this hour");
     }
     const parsed = suggestionCreateSchema.safeParse(await c.req.json());
@@ -49,6 +50,7 @@ export function suggestionRoutes(db: Db) {
   });
 
   app.get("/suggestions", async (c) => {
+    const db = c.get("db");
     const user = requireRole(c, ["moderator", "admin"]);
     if (!user) return forbidden(c);
     const status = c.req.query("status") ?? "pending";
@@ -97,6 +99,7 @@ export function suggestionRoutes(db: Db) {
   });
 
   app.post("/suggestions/:id/approve", async (c) => {
+    const db = c.get("db");
     const user = requireRole(c, ["moderator", "admin"]);
     if (!user) return forbidden(c);
     const parsed = approveSuggestionSchema.safeParse(await c.req.json().catch(() => ({})));
@@ -115,6 +118,7 @@ export function suggestionRoutes(db: Db) {
   });
 
   app.post("/suggestions/:id/reject", async (c) => {
+    const db = c.get("db");
     const user = requireRole(c, ["moderator", "admin"]);
     if (!user) return forbidden(c);
     const parsed = rejectSuggestionSchema.safeParse(await c.req.json());
@@ -133,6 +137,7 @@ export function suggestionRoutes(db: Db) {
   });
 
   app.post("/suggestions/:id/withdraw", async (c) => {
+    const db = c.get("db");
     const user = requireUser(c);
     if (!user) return unauthorized(c);
     try {

@@ -42,14 +42,15 @@ async function recomputeScore(db: Db, targetType: string, targetId: string) {
   return { upvotes, downvotes, community_score: communityScore };
 }
 
-export function voteRoutes(db: Db) {
+export function voteRoutes() {
   const app = new Hono<AppEnv>();
-  const voteLimit = Number(process.env.RATE_LIMIT_VOTES_PER_HOUR ?? "120");
 
   app.post("/votes", async (c) => {
+    const db = c.get("db");
     const user = requireUser(c);
     if (!user) return unauthorized(c);
-    if (!rateLimit(`vote:${user.id}`, voteLimit)) {
+    const voteLimit = Number(c.env.RATE_LIMIT_VOTES_PER_HOUR ?? "120");
+    if (!(await rateLimit(c.env.RATE_LIMIT, `vote:${user.id}`, voteLimit))) {
       return fail(c, 429, "rate_limited", "Too many votes this hour");
     }
     const parsed = voteSchema.safeParse(await c.req.json());
@@ -75,6 +76,7 @@ export function voteRoutes(db: Db) {
         targetId: parsed.data.target_id,
         userId: user.id,
         value: parsed.data.value,
+        createdAt: Date.now(),
       });
     }
 

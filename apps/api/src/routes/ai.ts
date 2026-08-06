@@ -10,10 +10,11 @@ import { requireRole, unauthorized } from "../middleware/auth.js";
  * When the vision pipeline is unavailable, queues a clearly-labeled stub AI suggestion
  * so the product never depends on a running model.
  */
-export function aiRoutes(db: Db) {
+export function aiRoutes() {
   const app = new Hono<AppEnv>();
 
   app.post("/ai/propose", async (c) => {
+    const db = c.get("db");
     const user = requireRole(c, ["contributor", "trusted", "moderator", "admin"]);
     if (!user) return unauthorized(c);
 

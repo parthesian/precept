@@ -1,3 +1,4 @@
+import type { AppEnv } from "../middleware/auth.js";
 import { Hono } from "hono";
 import { and, eq, sql } from "drizzle-orm";
 import type { Db } from "@precept/db";
@@ -6,10 +7,11 @@ import { decodeCursor, encodeCursor } from "../lib/cursor.js";
 import { fail, ok } from "../lib/envelope.js";
 import { filmDto, placeDto } from "../lib/serialize.js";
 
-export function placeRoutes(db: Db) {
-  const app = new Hono();
+export function placeRoutes() {
+  const app = new Hono<AppEnv>();
 
   app.get("/places", async (c) => {
+    const db = c.get("db");
     const bbox = c.req.query("bbox"); // west,south,east,north
     const filmId = c.req.query("film_id");
     const limit = Math.min(Number(c.req.query("limit") ?? "100"), 200);
@@ -44,6 +46,7 @@ export function placeRoutes(db: Db) {
   });
 
   app.get("/places/:slug", async (c) => {
+    const db = c.get("db");
     const [place] = await db.select().from(places).where(eq(places.slug, c.req.param("slug")));
     if (!place) return fail(c, 404, "not_found", "Place not found");
     const rows = await db

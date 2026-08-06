@@ -1,13 +1,34 @@
 import { Hono } from "hono";
-import { ilike, or, sql } from "drizzle-orm";
-import type { Db } from "@precept/db";
+import { inArray, or, sql } from "drizzle-orm";
 import { collections, films, people, places, precepts } from "@precept/db";
-import { fail, ok } from "../lib/envelope.js";
+import { ok } from "../lib/envelope.js";
+import type { AppEnv } from "../middleware/auth.js";
 
-export function searchRoutes(db: Db) {
-  const app = new Hono();
+async function ftsIds(
+  d1: D1Database,
+  table: "films_fts" | "people_fts" | "precepts_fts",
+  idColumn: "film_id" | "person_id" | "precept_id",
+  q: string,
+  limit: number
+): Promise<string[]> {
+  const safe = q.replace(/"/g, " ").trim();
+  if (!safe) return [];
+  try {
+    const res = await d1
+      .prepare(`SELECT ${idColumn} as id FROM ${table} WHERE ${table} MATCH ? LIMIT ?`)
+      .bind(safe, limit)
+      .all<{ id: string }>();
+    return (res.results ?? []).map((r) => r.id);
+  } catch {
+    return [];
+  }
+}
+
+export function searchRoutes() {
+  const app = new Hono<AppEnv>();
 
   app.get("/search", async (c) => {
+    const db = c.get("db");
     const q = (c.req.query("q") ?? "").trim();
     const limit = Math.min(Number(c.req.query("limit") ?? "8"), 20);
     const types = (c.req.query("types") ?? "film,person,collection,place,precept").split(",");
@@ -16,7 +37,7 @@ export function searchRoutes(db: Db) {
       return ok(c, { film: [], person: [], collection: [], place: [], precept: [] }, { q, limit });
     }
 
-    const pattern = `%${q}%`;
+    const pattern = `%${q.toLowerCase()}%`;
     const result: Record<string, unknown[]> = {
       film: [],
       person: [],
@@ -26,12 +47,24 @@ export function searchRoutes(db: Db) {
     };
 
     if (types.includes("film")) {
-      const rows = await db
-        .select()
-        .from(films)
-        .where(or(ilike(films.title, pattern), ilike(films.originalTitle, pattern)))
-        .orderBy(sql`${films.popularityScore} desc`)
-        .limit(limit);
+      let rows: Array<typeof films.$inferSelect> = [];
+      const ids = await ftsIds(c.env.DB, "films_fts", "film_id", q, limit);
+      if (ids.length) {
+        rows = await db.select().from(films).where(inArray(films.id, ids)).limit(limit);
+      }
+      if (!rows.length) {
+        rows = await db
+          .select()
+          .from(films)
+          .where(
+            or(
+              sql`lower(${films.title}) like ${pattern}`,
+              sql`lower(coalesce(${films.originalTitle}, '')) like ${pattern}`
+            )
+          )
+          .orderBy(sql`${films.popularityScore} desc`)
+          .limit(limit);
+      }
       result.film = rows.map((r) => ({
         id: r.id,
         type: "film",
@@ -43,11 +76,18 @@ export function searchRoutes(db: Db) {
     }
 
     if (types.includes("person")) {
-      const rows = await db
-        .select()
-        .from(people)
-        .where(ilike(people.name, pattern))
-        .limit(limit);
+      let rows: Array<typeof people.$inferSelect> = [];
+      const ids = await ftsIds(c.env.DB, "people_fts", "person_id", q, limit);
+      if (ids.length) {
+        rows = await db.select().from(people).where(inArray(people.id, ids)).limit(limit);
+      }
+      if (!rows.length) {
+        rows = await db
+          .select()
+          .from(people)
+          .where(sql`lower(${people.name}) like ${pattern}`)
+          .limit(limit);
+      }
       result.person = rows.map((r) => ({
         id: r.id,
         type: "person",
@@ -62,7 +102,7 @@ export function searchRoutes(db: Db) {
       const rows = await db
         .select()
         .from(collections)
-        .where(ilike(collections.name, pattern))
+        .where(sql`lower(${collections.name}) like ${pattern}`)
         .limit(limit);
       result.collection = rows.map((r) => ({
         id: r.id,
@@ -75,7 +115,11 @@ export function searchRoutes(db: Db) {
     }
 
     if (types.includes("place")) {
-      const rows = await db.select().from(places).where(ilike(places.name, pattern)).limit(limit);
+      const rows = await db
+        .select()
+        .from(places)
+        .where(sql`lower(${places.name}) like ${pattern}`)
+        .limit(limit);
       result.place = rows.map((r) => ({
         id: r.id,
         type: "place",
@@ -87,11 +131,23 @@ export function searchRoutes(db: Db) {
     }
 
     if (types.includes("precept")) {
-      const rows = await db
-        .select()
-        .from(precepts)
-        .where(or(ilike(precepts.name, pattern), sql`${precepts.aliases}::text ilike ${pattern}`))
-        .limit(limit);
+      let rows: Array<typeof precepts.$inferSelect> = [];
+      const ids = await ftsIds(c.env.DB, "precepts_fts", "precept_id", q, limit);
+      if (ids.length) {
+        rows = await db.select().from(precepts).where(inArray(precepts.id, ids)).limit(limit);
+      }
+      if (!rows.length) {
+        rows = await db
+          .select()
+          .from(precepts)
+          .where(
+            or(
+              sql`lower(${precepts.name}) like ${pattern}`,
+              sql`lower(coalesce(${precepts.aliases}, '')) like ${pattern}`
+            )
+          )
+          .limit(limit);
+      }
       result.precept = rows.map((r) => ({
         id: r.id,
         type: "precept",

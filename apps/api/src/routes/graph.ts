@@ -1,3 +1,4 @@
+import type { AppEnv } from "../middleware/auth.js";
 import { Hono } from "hono";
 import { eq } from "drizzle-orm";
 import type { Db } from "@precept/db";
@@ -5,10 +6,11 @@ import { collections, films, people } from "@precept/db";
 import { fail, ok } from "../lib/envelope.js";
 import { buildGraph } from "../services/graph.js";
 
-export function graphRoutes(db: Db) {
-  const app = new Hono();
+export function graphRoutes() {
+  const app = new Hono<AppEnv>();
 
   app.get("/graph", async (c) => {
+    const db = c.get("db");
     const centerType = c.req.query("center_type") as "film" | "person" | "collection" | undefined;
     let centerId = c.req.query("center_id") ?? undefined;
     const centerSlug = c.req.query("center_slug");

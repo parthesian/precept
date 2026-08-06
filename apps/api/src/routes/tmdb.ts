@@ -19,11 +19,15 @@ import { rateLimit } from "../lib/rate-limit.js";
 import type { AppEnv } from "../middleware/auth.js";
 import { requireUser, unauthorized } from "../middleware/auth.js";
 
-const TMDB_SEARCH_LIMIT = Number(process.env.RATE_LIMIT_TMDB_SEARCH_PER_HOUR ?? "120");
-const TMDB_IMPORT_LIMIT = Number(process.env.RATE_LIMIT_TMDB_IMPORT_PER_HOUR ?? "30");
+function tmdbLimits(env: AppEnv["Bindings"]) {
+  return {
+    search: Number(env.RATE_LIMIT_TMDB_SEARCH_PER_HOUR ?? "120"),
+    import: Number(env.RATE_LIMIT_TMDB_IMPORT_PER_HOUR ?? "30"),
+  };
+}
 
-function requireTmdbKey(c: Parameters<typeof fail>[0]) {
-  const key = process.env.TMDB_API_KEY;
+function requireTmdbKey(c: { env: AppEnv["Bindings"] } & Parameters<typeof fail>[0]) {
+  const key = c.env.TMDB_API_KEY;
   if (!key) {
     return {
       key: null as string | null,
@@ -39,24 +43,28 @@ function requireTmdbKey(c: Parameters<typeof fail>[0]) {
 }
 
 /** Register once so suggestion approval can run full TMDB imports for payload.tmdb_id. */
-export function registerTmdbFilmImport(db: Db) {
+export function registerTmdbFilmImport() {
   registerFilmImportByTmdbHandler(async (tx, tmdbId) => {
-    const key = process.env.TMDB_API_KEY;
+    // TMDB key is read from globalThis shim set by createApp middleware when available.
+    const key =
+      (globalThis as unknown as { __PRECEPT_TMDB_KEY?: string }).__PRECEPT_TMDB_KEY ||
+      undefined;
     if (!key) throw new Error("TMDB_API_KEY is not configured");
     const result = await importFilmFull(tx, tmdbId, key, { backfill: true });
     return result.filmId;
   });
-  return db;
 }
 
-export function tmdbRoutes(db: Db) {
+export function tmdbRoutes() {
   const app = new Hono<AppEnv>();
 
   app.get("/tmdb/search", async (c) => {
+    const db = c.get("db");
     const user = requireUser(c);
     if (!user) return unauthorized(c);
 
-    if (!rateLimit(`tmdb-search:${user.id}`, TMDB_SEARCH_LIMIT)) {
+    const limits = tmdbLimits(c.env);
+    if (!(await rateLimit(c.env.RATE_LIMIT, `tmdb-search:${user.id}`, limits.search))) {
       return fail(c, 429, "rate_limited", "Too many TMDB searches this hour");
     }
 
@@ -100,10 +108,12 @@ export function tmdbRoutes(db: Db) {
   });
 
   app.post("/films/import", async (c) => {
+    const db = c.get("db");
     const user = requireUser(c);
     if (!user) return unauthorized(c);
 
-    if (!rateLimit(`tmdb-import:${user.id}`, TMDB_IMPORT_LIMIT)) {
+    const limits = tmdbLimits(c.env);
+    if (!(await rateLimit(c.env.RATE_LIMIT, `tmdb-import:${user.id}`, limits.import))) {
       return fail(c, 429, "rate_limited", "Too many film imports this hour");
     }
 
@@ -122,7 +132,7 @@ export function tmdbRoutes(db: Db) {
     const [existing] = await db.select().from(films).where(eq(films.tmdbId, tmdbId));
     if (existing) {
       const [{ n }] = await db
-        .select({ n: sql<number>`count(*)::int` })
+        .select({ n: sql<number>`count(*)` })
         .from(credits)
         .where(eq(credits.filmId, existing.id));
       // Already fully imported — idempotent return.

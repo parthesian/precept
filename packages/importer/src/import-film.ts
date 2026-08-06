@@ -79,7 +79,8 @@ function filmValuesFromMovie(movie: TmdbMovie, slug: string, filmId: string) {
     posterUrl: posterUrl(movie.poster_path),
     backdropUrl: backdropUrl(movie.backdrop_path),
     popularityScore: movie.popularity ?? 0,
-    updatedAt: new Date(),
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
   };
 }
 
@@ -128,7 +129,7 @@ async function upsertFilmMetadata(
 
   if (existing) {
     let updated = false;
-    const patch: Partial<typeof films.$inferInsert> = { updatedAt: new Date() };
+    const patch: Partial<typeof films.$inferInsert> = { updatedAt: Date.now() };
 
     if (options.backfill) {
       if (!existing.posterUrl && movie.poster_path) {
@@ -201,13 +202,14 @@ async function ensurePerson(
     if (!existing.photoUrl && person.profile_path) {
       await db
         .update(people)
-        .set({ photoUrl: profileUrl(person.profile_path), updatedAt: new Date() })
+        .set({ photoUrl: profileUrl(person.profile_path), updatedAt: Date.now() })
         .where(eq(people.id, existing.id));
     }
     return existing.id;
   }
 
   const personId = newId();
+  const now = Date.now();
   await db.insert(people).values({
     id: personId,
     slug: await resolveUniquePersonSlug(db, person.name, person.id),
@@ -215,6 +217,8 @@ async function ensurePerson(
     name: person.name,
     primaryDepartment: person.department ?? null,
     photoUrl: profileUrl(person.profile_path),
+    createdAt: now,
+    updatedAt: now,
   });
   return personId;
 }
@@ -249,7 +253,7 @@ async function importCreditsForFilm(
   movie: TmdbMovieWithCredits
 ): Promise<boolean> {
   const existingCount = await db
-    .select({ n: sql<number>`count(*)::int` })
+    .select({ n: sql<number>`count(*)` })
     .from(credits)
     .where(eq(credits.filmId, filmId));
   if ((existingCount[0]?.n ?? 0) > 0) {
