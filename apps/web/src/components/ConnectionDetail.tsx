@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { SuggestEditDelete } from "@/components/suggest/SuggestEditDelete";
 import { api } from "@/lib/api";
 import { useSelectionStore } from "@/stores/selection";
 
@@ -98,6 +99,12 @@ export function ConnectionDetail({ id }: { id: string }) {
           ))}
         </ol>
       </section>
+
+      <SuggestEditDelete
+        targetType="connection"
+        targetId={c.id}
+        editFields={{ title: c.title, rationale: c.rationale }}
+      />
     </main>
   );
 }

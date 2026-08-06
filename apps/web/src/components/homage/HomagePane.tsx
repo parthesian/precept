@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import { api } from "@/lib/api";
 import { SuggestConnectionForm } from "@/components/suggest/SuggestConnectionForm";
+import { SuggestFilmForm } from "@/components/suggest/SuggestFilmForm";
 import { SideList } from "./SideList";
 
 const HomageGraph = dynamic(() => import("./HomageGraph").then((m) => m.HomageGraph), {
@@ -41,6 +42,7 @@ export function HomagePane({
           {centerType === "film" && filmQuery.data ? (
             <SuggestConnectionForm sourceFilmId={filmQuery.data.id} />
           ) : null}
+          <SuggestFilmForm />
         </div>
       </div>
     </div>

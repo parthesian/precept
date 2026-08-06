@@ -3,6 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { SuggestPreceptForm } from "@/components/suggest/SuggestPreceptForm";
 import { api } from "@/lib/api";
 import { useSelectionStore } from "@/stores/selection";
 
@@ -28,6 +29,12 @@ export function FocusPane({
     queryKey: ["precept", preceptSlug],
     queryFn: () => api.getPrecept(preceptSlug!),
     enabled: Boolean(preceptSlug),
+  });
+
+  const filmQuery = useQuery({
+    queryKey: ["film", filmSlug],
+    queryFn: () => api.getFilm(filmSlug!),
+    enabled: Boolean(filmSlug),
   });
 
   const filmPrecepts = useQuery({
@@ -100,6 +107,7 @@ export function FocusPane({
                 </li>
               ))}
             </ul>
+            <SuggestPreceptForm filmId={filmQuery.data?.id} />
           </article>
         </div>
       </div>
@@ -167,6 +175,7 @@ export function FocusPane({
       {!list.isLoading && browseRows.length === 0 ? (
         <p className="empty-invite">No precepts match. Suggest one when Suggest mode is on.</p>
       ) : null}
+      <SuggestPreceptForm filmId={filmQuery.data?.id} />
     </div>
   );
 }

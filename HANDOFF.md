@@ -76,11 +76,13 @@ Then open http://localhost:3000/login and sign in. Seed also includes `admin@exa
 
 1. Open `/` — Spotlight on *The Dark Knight* should link into Homage in one click; a featured connection link is the second click.
 2. `/homage/film/the-dark-knight` — graph + keyboardable side list. `[` / `]` switch Vista / Homage / Focus; selection carries across panes.
-3. Turn **Suggest** on (after login). Use **Propose connection** in the Homage sidebar: pick target film id (from seed, e.g. `film_heat`), type, tier, rationale, evidence. Check **Self-approve** as admin — one click applies + writes a revision.
-4. `/vista/film/the-dark-knight` — markers for Chicago / Wacker / doubling toward Gotham.
-5. `/focus` — open *Dutch Angle* (or any precept); chronological spine of exemplars.
-6. `/moderate` — `j`/`k` move, `a` approve, `r` reject pending AI/user suggestions.
-7. There is **no** `POST /api/connections`. Everything live goes through suggestions → approve (enforced in `@precept/db` + missing HTTP route).
+3. Turn **Suggest** on (after login). Use **Propose connection** in the Homage sidebar: pick target film id (from seed, e.g. `film_heat`), type, tier, rationale, evidence. Check **Self-approve** as admin — one click applies + writes a revision. **Add film by hand** is in the same sidebar.
+4. `/vista/film/the-dark-knight` — markers for Chicago / Wacker / doubling toward Gotham. With Suggest on, use **Add location** to create a place in-flow (name/lat/lng) and attach relationship, timecode, doubling target, and evidence.
+5. `/focus` — open *Dutch Angle* (or any precept); chronological spine of exemplars. With Suggest on, **Create precept** can also queue an example + relation.
+6. `/` Spotlight — with Suggest on, **Publish Spotlight** chooses film + featured connection ids.
+7. Connection detail pages expose **Edit / delete** in Suggest mode (revision history listed above).
+8. `/moderate` — `j`/`k` move, `a` approve, `r` reject pending AI/user suggestions.
+9. There is **no** `POST /api/connections`. Everything live goes through suggestions → approve (enforced in `@precept/db` + missing HTTP route).
 
 ## 6. What’s stubbed / deferred
 
@@ -89,8 +91,8 @@ Then open http://localhost:3000/login and sign in. Seed also includes `admin@exa
 | Visual aesthetic | Neutral CSS tokens only (`apps/web/src/styles/tokens.css`) | Reskin tokens; no scattered hex |
 | AI vision proposals | `/api/ai/propose` queues a **stub** AI suggestion with metadata; never auto-approves | Wire `packages/pipeline` + `services/vision-pipeline` to emit real payloads into `createSuggestion({ source: "ai" })` |
 | Merge suggestions | Rejected at apply time | Implement merge apply path |
-| Place/precept create forms | Connection form present; other entity forms are API-ready via `POST /api/suggestions` | Add matching Suggest-mode forms (same payload shapes as seed) |
-| Spotlight authoring UI | Records + landing work; create via suggestion API / seed | Admin form for spotlight create/publish |
+| Place/precept/film/spotlight forms | Wired in Suggest mode (Vista / Focus / Homage / Spotlight) with admin self-approve | Polish UX / validation copy |
+| Entity edit/delete UI | Connection detail has edit/delete suggestion form; other entities via same API | Surface edit/delete on more entity pages |
 | Map clustering | Distinct markers + doubling lines | Add MapLibre cluster layer if pin density grows |
 | Frame hosting | Explicitly closed; `frame_ref` reserved on anchors | Keep closed unless legal review changes |
 

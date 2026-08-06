@@ -5,6 +5,7 @@ import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { SuggestLocationForm } from "@/components/suggest/SuggestLocationForm";
 import { api } from "@/lib/api";
 import { useSelectionStore } from "@/stores/selection";
 
@@ -19,6 +20,12 @@ export function VistaPaneClient({
   const mapObj = useRef<maplibregl.Map | null>(null);
   const { selection, setSelection, filters } = useSelectionStore();
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
+
+  const filmQuery = useQuery({
+    queryKey: ["film", filmSlug],
+    queryFn: () => api.getFilm(filmSlug!),
+    enabled: Boolean(filmSlug),
+  });
 
   const filmLocations = useQuery({
     queryKey: ["film-locations", filmSlug],
@@ -224,6 +231,7 @@ export function VistaPaneClient({
           ) : (
             <p className="empty-invite">Select a marker to see every film that used this place.</p>
           )}
+          <SuggestLocationForm filmId={filmQuery.data?.id} filmSlug={filmSlug} />
         </aside>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SpotlightTools } from "@/components/spotlight/SpotlightTools";
 import { api } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
@@ -25,6 +26,8 @@ export default async function SpotlightLandingPage() {
           <Link href={`/homage/film/${filmSlug}`}>Homage</Link>
           <Link href="/focus">Focus</Link>
         </nav>
+        <Link href="/login">Login</Link>
+        <Link href="/moderate">Moderate</Link>
       </header>
       <main className="page spotlight">
         <p className="eyebrow">Spotlight</p>
@@ -57,6 +60,7 @@ export default async function SpotlightLandingPage() {
             </Link>
           ) : null}
         </div>
+        <SpotlightTools filmId={spotlight?.film?.id} />
       </main>
     </div>
   );

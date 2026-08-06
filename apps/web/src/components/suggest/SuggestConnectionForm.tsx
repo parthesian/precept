@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { API_URL } from "@/lib/api";
+import { submitSuggestion } from "@/lib/suggest";
 import { useSelectionStore } from "@/stores/selection";
 
 export function SuggestConnectionForm({
@@ -29,45 +29,32 @@ export function SuggestConnectionForm({
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setMessage(null);
-    const res = await fetch(`${API_URL}/api/suggestions`, {
-      method: "POST",
-      credentials: "include",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        target_type: "connection",
-        operation: "create",
-        auto_approve: autoApprove,
-        payload: {
-          source_film_id: sourceFilmId,
-          target_film_id: target,
-          is_directed: true,
-          connection_type: type,
-          confidence_tier: tier,
-          title,
-          rationale,
-        },
-        evidence: citation
-          ? [
-              {
-                evidence_type: evidenceType,
-                citation_text: citation,
-                excerpt: excerpt || null,
-                url: url || null,
-              },
-            ]
-          : [],
-      }),
+    const evidence = citation
+      ? [
+          {
+            evidence_type: evidenceType,
+            citation_text: citation,
+            excerpt: excerpt || null,
+            url: url || null,
+          },
+        ]
+      : [];
+    const result = await submitSuggestion({
+      target_type: "connection",
+      operation: "create",
+      auto_approve: autoApprove,
+      payload: {
+        source_film_id: sourceFilmId,
+        target_film_id: target,
+        is_directed: true,
+        connection_type: type,
+        confidence_tier: tier,
+        title,
+        rationale,
+      },
+      evidence,
     });
-    const json = await res.json();
-    if (!res.ok) {
-      setMessage(json.errors?.[0]?.message ?? "Failed");
-      return;
-    }
-    setMessage(
-      json.data?.status === "approved"
-        ? `Approved — connection ${json.data.targetId}`
-        : `Queued suggestion ${json.data?.suggestionId}`
-    );
+    setMessage(result.message);
   }
 
   return (
