@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "react-router";
 import type { LoaderFunctionArgs, MetaFunction } from "react-router";
-import { createApp } from "../../api/src/create-app";
-import type { ApiBindings } from "../../api/src/env";
+import { createApp } from "@precept/api/create-app";
+import type { ApiBindings } from "@precept/api/env";
 import { SpotlightTools } from "../../src/components/spotlight/SpotlightTools";
 
 export const meta: MetaFunction = () => [
