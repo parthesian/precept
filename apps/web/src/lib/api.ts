@@ -19,11 +19,68 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return json.data as T;
 }
 
+export type TmdbSearchHit = {
+  tmdb_id: number;
+  title: string;
+  release_year: number | null;
+  overview: string | null;
+  poster_url: string | null;
+  popularity: number;
+};
+
+export type FilmImportResult = {
+  film: {
+    id: string;
+    slug: string;
+    title: string;
+    tmdb_id?: number | null;
+    release_year?: number;
+    poster_url?: string | null;
+  } | null;
+  status: string;
+  suggestionId: string | null;
+};
+
+async function requestEnvelope<T>(
+  path: string,
+  init?: RequestInit
+): Promise<{ data: T; meta: Record<string, unknown> }> {
+  const res = await fetch(`${API_URL}${path}`, {
+    ...init,
+    headers: {
+      "content-type": "application/json",
+      ...(init?.headers ?? {}),
+    },
+    credentials: "include",
+    cache: "no-store",
+  });
+  const json = (await res.json()) as Envelope<T>;
+  if (!res.ok) {
+    throw new Error(json.errors?.[0]?.message ?? `Request failed: ${res.status}`);
+  }
+  return { data: json.data as T, meta: (json.meta ?? {}) as Record<string, unknown> };
+}
+
 export const api = {
   search: (q: string, limit = 8) =>
     request<Record<string, Array<{ id: string; type: string; slug: string; label: string; sublabel?: string; thumb?: string }>>>(
       `/api/search?q=${encodeURIComponent(q)}&limit=${limit}`
     ),
+  tmdbSearch: async (q: string, page = 1) => {
+    const { data, meta } = await requestEnvelope<TmdbSearchHit[]>(
+      `/api/tmdb/search?q=${encodeURIComponent(q)}&page=${page}`
+    );
+    return {
+      results: data,
+      page: Number(meta.page ?? page),
+      total_pages: Number(meta.total_pages ?? 0),
+    };
+  },
+  importFilm: (tmdbId: number, autoApprove = false) =>
+    request<FilmImportResult>("/api/films/import", {
+      method: "POST",
+      body: JSON.stringify({ tmdb_id: tmdbId, auto_approve: autoApprove }),
+    }),
   getFilm: (slug: string) => request<any>(`/api/films/${slug}`),
   getFilmConnections: (slug: string, query = "") => request<any[]>(`/api/films/${slug}/connections${query}`),
   getFilmLocations: (slug: string) => request<any[]>(`/api/films/${slug}/locations`),

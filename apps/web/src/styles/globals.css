@@ -278,6 +278,84 @@
   resize: vertical;
 }
 
+.suggest-manual {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.button.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted, inherit);
+}
+
+.tmdb-film-search {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.tmdb-film-search.compact {
+  padding: 0 var(--space-3) var(--space-3);
+}
+
+.tmdb-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+  max-height: 16rem;
+  overflow: auto;
+}
+
+.tmdb-result-row {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.tmdb-thumb {
+  width: 40px;
+  height: 60px;
+  object-fit: cover;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+}
+
+.tmdb-thumb.placeholder {
+  display: inline-block;
+}
+
+.tmdb-result-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.tmdb-result-meta strong {
+  font-size: var(--text-sm);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tmdb-attribution {
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-muted, inherit);
+  margin: 0;
+}
+
+.tmdb-attribution a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.tmdb-fallback {
+  border-top: 1px solid var(--border);
+}
+
 .side-list-controls {
   display: grid;
   gap: var(--space-2);

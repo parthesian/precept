@@ -21,6 +21,7 @@ import { preceptRoutes } from "./routes/precepts.js";
 import { searchRoutes } from "./routes/search.js";
 import { spotlightRoutes } from "./routes/spotlight.js";
 import { suggestionRoutes } from "./routes/suggestions.js";
+import { registerTmdbFilmImport, tmdbRoutes } from "./routes/tmdb.js";
 import { voteRoutes } from "./routes/votes.js";
 
 // Turbo runs with cwd apps/api; prefer repo-root .env from HANDOFF setup.
@@ -32,6 +33,7 @@ for (const candidate of [resolve(process.cwd(), ".env"), resolve(process.cwd(), 
 }
 
 export const db = createDb(process.env.DATABASE_URL);
+registerTmdbFilmImport(db);
 const app = new Hono<AppEnv>();
 
 app.use(
@@ -53,6 +55,7 @@ app.get("/api/health", (c) => ok(c, { ok: true }));
 app.route("/api", authRoutes(db));
 app.route("/api", searchRoutes(db));
 app.route("/api", filmRoutes(db));
+app.route("/api", tmdbRoutes(db));
 app.route("/api", peopleRoutes(db));
 app.route("/api", collectionRoutes(db));
 app.route("/api", connectionRoutes(db));

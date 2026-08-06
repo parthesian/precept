@@ -15,6 +15,7 @@
   "dependencies": {
     "@hono/node-server": "^1.13",
     "@precept/db": "file:../../packages/db",
+    "@precept/importer": "file:../../packages/importer",
     "@precept/shared": "file:../../packages/shared",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16",

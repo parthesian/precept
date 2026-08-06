@@ -51,16 +51,36 @@ Seed loads ~40 films, ~150 connections, places, precepts, pending suggestions, a
 **Key page:** https://www.themoviedb.org/settings/api  
 **Terms / rate limits:** Free developer keys are fine for personal/import use; stay around **~40 requests / 10 seconds** (the importer sleeps ~260ms between calls). Do not redistribute TMDB image binaries; we store **CDN URLs only**.
 
+### Hybrid catalog strategy
+
+We do **not** mirror all of TMDB (~800k films). Instead:
+
+1. **Bootstrap (metadata only)** — one-time import of top N popular films + curated seed canon titles into Postgres (title, year, genres, synopsis, poster/backdrop CDN URLs, popularity, `tmdb_id`, `imdb_id`). No credits/people yet.
+2. **Live TMDB search** — when local search misses, logged-in users in Suggest mode see a “Search TMDB…” fallback (`GET /api/tmdb/search`, server-proxied; `TMDB_API_KEY` never reaches the browser).
+3. **Lazy full import** — picking a TMDB hit runs `POST /api/films/import` which imports metadata **plus** credits/people (same depth as the CLI). Regular users queue a suggestion (`source: "import"`); admins/mods can self-approve. Re-import by `tmdb_id` is idempotent.
+
 ```bash
 export TMDB_API_KEY=...
-npm run import:tmdb -- --tmdb-ids=155,27205,389
+
+# Bootstrap top 5k (metadata only). Safe to re-run; writes .tmdb-bootstrap-checkpoint.json
+npm run import:tmdb -- --bootstrap --top=5000
 # or
+npm run import:bootstrap
+# smoke-test a tiny batch first:
+npm run import:tmdb -- --bootstrap --top=100
+
+# Full import (metadata + credits) for specific titles — existing CLI
+npm run import:tmdb -- --tmdb-ids=155,27205,389
 npm run import:tmdb -- --titles="The Dark Knight,Inception,12 Angry Men"
+npm run import:tmdb -- --tmdb-ids=155 --metadata-only
+npm run import:tmdb -- --tmdb-ids=155 --backfill   # refresh missing posters on existing rows
 ```
 
-**Sensible first import:** a dozen titles in one influence neighborhood (e.g. Nolan + Hitchcock + Kurosawa). Expect **~1–2 minutes** for ~10 films with credits because of rate pacing.
+**Sensible first path:** bootstrap `--top=100` (or 5000 when ready), then use Suggest → Import from TMDB / GlobalSearch TMDB fallback for anything outside the popular set. Full CLI import of a dozen titles in one influence neighborhood still works (~1–2 minutes with credits because of rate pacing).
 
-After import, search in the UI should find the film immediately (Postgres `pg_trgm` + ILIKE).
+After bootstrap or import, local search (`GET /api/search`) finds films immediately (Postgres `pg_trgm` + ILIKE). Credits appear on film pages only after a **full** import (lazy import or `--tmdb-ids` without `--metadata-only`).
+
+Show TMDB attribution wherever TMDB data/images are displayed (UI already includes a short credit near TMDB search results).
 
 ## 4. Becoming an admin
 
@@ -76,7 +96,7 @@ Then open http://localhost:3000/login and sign in. Seed also includes `admin@exa
 
 1. Open `/` — Spotlight on *The Dark Knight* should link into Homage in one click; a featured connection link is the second click.
 2. `/homage/film/the-dark-knight` — graph + keyboardable side list. `[` / `]` switch Vista / Homage / Focus; selection carries across panes.
-3. Turn **Suggest** on (after login). Use **Propose connection** in the Homage sidebar: pick target film id (from seed, e.g. `film_heat`), type, tier, rationale, evidence. Check **Self-approve** as admin — one click applies + writes a revision. **Add film by hand** is in the same sidebar.
+3. Turn **Suggest** on (after login). Use **Propose connection** in the Homage sidebar: pick target film id (from seed, e.g. `film_heat`), type, tier, rationale, evidence. Check **Self-approve** as admin — one click applies + writes a revision. **Import from TMDB** (search → Import & open) is in the same sidebar; manual add is under an advanced toggle. GlobalSearch also offers a TMDB fallback when local film hits are sparse.
 4. `/vista/film/the-dark-knight` — markers for Chicago / Wacker / doubling toward Gotham. With Suggest on, use **Add location** to create a place in-flow (name/lat/lng) and attach relationship, timecode, doubling target, and evidence.
 5. `/focus` — open *Dutch Angle* (or any precept); chronological spine of exemplars. With Suggest on, **Create precept** can also queue an example + relation.
 6. `/` Spotlight — with Suggest on, **Publish Spotlight** chooses film + featured connection ids.
