@@ -1,7 +1,8 @@
 import { Hono } from "hono";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import {
   createSuggestion,
+  credits,
   films,
   registerFilmImportByTmdbHandler,
   type Db,
@@ -120,6 +121,40 @@ export function tmdbRoutes(db: Db) {
 
     const [existing] = await db.select().from(films).where(eq(films.tmdbId, tmdbId));
     if (existing) {
+      const [{ n }] = await db
+        .select({ n: sql<number>`count(*)::int` })
+        .from(credits)
+        .where(eq(credits.filmId, existing.id));
+      // Already fully imported — idempotent return.
+      if ((n ?? 0) > 0) {
+        return ok(c, {
+          film: filmDto(existing),
+          status: "exists",
+          suggestionId: null,
+        });
+      }
+      // Metadata-only bootstrap row: upgrade with credits when caller can self-approve.
+      const canUpgrade =
+        body.auto_approve === true && (user.role === "admin" || user.role === "moderator");
+      if (canUpgrade) {
+        try {
+          await importFilmFull(db, tmdbId, key!, { backfill: true });
+          const [row] = await db.select().from(films).where(eq(films.id, existing.id));
+          return ok(c, {
+            film: filmDto(row ?? existing),
+            status: "imported",
+            suggestionId: null,
+          });
+        } catch (err) {
+          return fail(
+            c,
+            400,
+            "import_error",
+            err instanceof Error ? err.message : "Import failed"
+          );
+        }
+      }
+      // Otherwise return the metadata-only film (search/navigation still works).
       return ok(c, {
         film: filmDto(existing),
         status: "exists",

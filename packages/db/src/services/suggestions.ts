@@ -143,14 +143,13 @@ async function applyCreate(
             : NaN;
 
       // Lazy TMDB import path — prefer full import over sparse manual payload fields.
+      // Handler is idempotent and upgrades metadata-only bootstrap rows with credits.
       if (Number.isFinite(tmdbId) && tmdbId > 0) {
         if (!filmImportByTmdbHandler) {
           throw new Error(
             "Film create with tmdb_id requires a registered TMDB import handler (API not configured)"
           );
         }
-        const [existing] = await db.select({ id: films.id }).from(films).where(eq(films.tmdbId, tmdbId));
-        if (existing) return existing.id;
         return filmImportByTmdbHandler(db, tmdbId);
       }
 
