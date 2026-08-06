@@ -1,6 +1,7 @@
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import type { LoaderFunctionArgs, MetaFunction } from "react-router";
-import { useLoaderData } from "react-router";
+import { createApp } from "../../api/src/create-app";
+import type { ApiBindings } from "../../api/src/env";
 import { SpotlightTools } from "../../src/components/spotlight/SpotlightTools";
 
 export const meta: MetaFunction = () => [
@@ -8,14 +9,13 @@ export const meta: MetaFunction = () => [
   { name: "description", content: "Community-curated graph of cinematic influence" },
 ];
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const url = new URL(request.url);
+export async function loader({ context }: LoaderFunctionArgs) {
   try {
-    const res = await fetch(new URL("/api/spotlight", url.origin), {
-      headers: { cookie: request.headers.get("cookie") ?? "" },
-    });
+    const env = (context as { cloudflare: { env: ApiBindings } }).cloudflare.env;
+    const app = createApp();
+    const res = await app.request("http://precept.local/api/spotlight", {}, env);
     if (!res.ok) return { spotlight: null };
-    const json = (await res.json()) as { data: any };
+    const json = (await res.json()) as { data: unknown };
     return { spotlight: json.data ?? null };
   } catch {
     return { spotlight: null };
@@ -23,7 +23,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 }
 
 export default function Index() {
-  const { spotlight } = useLoaderData<typeof loader>();
+  const { spotlight } = useLoaderData<typeof loader>() as { spotlight: any };
   const filmSlug = spotlight?.film?.slug ?? "the-dark-knight";
   const featuredId = spotlight?.featured_connection_ids?.[0];
 

@@ -105,6 +105,28 @@ Legacy shot product lives under `legacy/` untouched.
 - Worker CPU: keep heavy graph client-side; Queue TMDB imports.  
 - Nested `wrangler` versions in workspaces can corrupt local D1 state (`_cf_ALARM`); keep a single wrangler version (repo override `4.119.0`) and wipe `apps/web/.wrangler` if you hit that error.
 
+## 8. Preview / production deploy notes
+
+A Cloudflare **temporary preview** Worker was validated during cutover:
+
+- URL: `https://precept.chisel-salute.workers.dev`
+- Claim preview account (time-limited): see agent/PR notes for the claim URL from `wrangler deploy --temporary`
+- Remote D1 migrations + seed applied; `AUTH_SECRET` set
+- Replace `database_id` / KV ids in `apps/web/wrangler.jsonc` with your permanent account resources after claiming or recreating
+
+For a permanent account:
+
+```bash
+npx wrangler login
+npx wrangler d1 create precept   # paste database_id into wrangler.jsonc
+npx wrangler kv namespace create RATE_LIMIT
+npx wrangler secret put AUTH_SECRET
+npx wrangler secret put TMDB_API_KEY
+npm run db:migrate -- --remote
+# seed remote (SQL dump or adapt db:seed), then:
+npm run deploy
+```
+
 ## Docs map
 
 - `INVENTORY.md` — what the old repo was  
