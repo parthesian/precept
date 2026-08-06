@@ -5,7 +5,7 @@
   "compatibility_date": "2025-04-01",
   "compatibility_flags": ["nodejs_compat"],
   "vars": {
-    "ENVIRONMENT": "development",
+    "ENVIRONMENT": "production",
     "TRUSTED_APPROVALS_THRESHOLD": "10",
     "RATE_LIMIT_SUGGESTIONS_PER_HOUR": "60",
     "RATE_LIMIT_VOTES_PER_HOUR": "120",
@@ -16,15 +16,15 @@
     {
       "binding": "DB",
       "database_name": "precept",
-      "database_id": "00000000-0000-0000-0000-000000000001",
+      "database_id": "9fffd6c3-ae92-4aea-8f06-32e27cb31f94",
       "migrations_dir": "../../packages/db/migrations"
     }
   ],
   "kv_namespaces": [
     {
       "binding": "RATE_LIMIT",
-      "id": "00000000-0000-0000-0000-000000000002",
-      "preview_id": "00000000-0000-0000-0000-000000000002"
+      "id": "76e091f78ee0422b8afbf5eb2d19cbf6",
+      "preview_id": "599df64a2b1f462099d870bbb6df34b7"
     }
   ],
   "queues": {

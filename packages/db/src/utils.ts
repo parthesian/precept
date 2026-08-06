@@ -1,7 +1,16 @@
-import { ulid } from "ulid";
+import { factory, type PRNG } from "ulid";
+
+/** Workers-safe PRNG — never fall back to Math.random (forbidden on CF). */
+const webPrng: PRNG = () => {
+  const buf = new Uint8Array(1);
+  crypto.getRandomValues(buf);
+  return buf[0] / 255;
+};
+
+const makeUlid = factory(webPrng);
 
 export function newId(): string {
-  return ulid();
+  return makeUlid();
 }
 
 export function slugify(input: string): string {
