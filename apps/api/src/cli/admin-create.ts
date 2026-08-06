@@ -1,4 +1,13 @@
-import "dotenv/config";
+import { config as loadEnv } from "dotenv";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
+
+for (const candidate of [resolve(process.cwd(), ".env"), resolve(process.cwd(), "../../.env")]) {
+  if (existsSync(candidate)) {
+    loadEnv({ path: candidate });
+    break;
+  }
+}
 import bcrypt from "bcryptjs";
 import { createDb, newId, users } from "@precept/db";
 import { eq } from "drizzle-orm";

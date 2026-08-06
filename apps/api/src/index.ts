@@ -1,4 +1,6 @@
-import "dotenv/config";
+import { config as loadEnv } from "dotenv";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
@@ -20,6 +22,14 @@ import { searchRoutes } from "./routes/search.js";
 import { spotlightRoutes } from "./routes/spotlight.js";
 import { suggestionRoutes } from "./routes/suggestions.js";
 import { voteRoutes } from "./routes/votes.js";
+
+// Turbo runs with cwd apps/api; prefer repo-root .env from HANDOFF setup.
+for (const candidate of [resolve(process.cwd(), ".env"), resolve(process.cwd(), "../../.env")]) {
+  if (existsSync(candidate)) {
+    loadEnv({ path: candidate });
+    break;
+  }
+}
 
 export const db = createDb(process.env.DATABASE_URL);
 const app = new Hono<AppEnv>();
