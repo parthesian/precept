@@ -1,0 +1,692 @@
+[
+  {
+    "id": "precept_dutch_angle",
+    "slug": "dutch-angle",
+    "name": "Dutch Angle",
+    "aliases": [],
+    "category": "shot_type",
+    "short_definition": "A tilted camera frame that signals unease or instability.",
+    "description": "A tilted camera frame that signals unease or instability. Extended seed description for Dutch Angle.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": true
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_match_cut",
+    "slug": "match-cut",
+    "name": "Match Cut",
+    "aliases": [],
+    "category": "editing",
+    "short_definition": "A cut that links shots through graphic or conceptual similarity.",
+    "description": "A cut that links shots through graphic or conceptual similarity. Extended seed description for Match Cut.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_smash_cut",
+    "slug": "smash-cut",
+    "name": "Smash Cut",
+    "aliases": [],
+    "category": "editing",
+    "short_definition": "An abrupt cut used for shock or comic rupture.",
+    "description": "An abrupt cut used for shock or comic rupture. Extended seed description for Smash Cut.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_pov_shot",
+    "slug": "pov-shot",
+    "name": "POV Shot",
+    "aliases": [],
+    "category": "shot_type",
+    "short_definition": "A shot optically aligned with a character's gaze.",
+    "description": "A shot optically aligned with a character's gaze. Extended seed description for POV Shot.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_insert_shot",
+    "slug": "insert-shot",
+    "name": "Insert Shot",
+    "aliases": [],
+    "category": "shot_type",
+    "short_definition": "A close detail cutaway that clarifies action or motif.",
+    "description": "A close detail cutaway that clarifies action or motif. Extended seed description for Insert Shot.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_tracking_shot",
+    "slug": "tracking-shot",
+    "name": "Tracking Shot",
+    "aliases": [],
+    "category": "camera_movement",
+    "short_definition": "Camera moves through space with the action.",
+    "description": "Camera moves through space with the action. Extended seed description for Tracking Shot.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_dolly_zoom",
+    "slug": "dolly-zoom",
+    "name": "Dolly Zoom",
+    "aliases": [],
+    "category": "camera_movement",
+    "short_definition": "Simultaneous dolly and zoom creating spatial vertigo.",
+    "description": "Simultaneous dolly and zoom creating spatial vertigo. Extended seed description for Dolly Zoom.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_rack_focus",
+    "slug": "rack-focus",
+    "name": "Rack Focus",
+    "aliases": [],
+    "category": "lens_optics",
+    "short_definition": "Focus pull that shifts attention between planes.",
+    "description": "Focus pull that shifts attention between planes. Extended seed description for Rack Focus.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_deep_focus",
+    "slug": "deep-focus",
+    "name": "Deep Focus",
+    "aliases": [],
+    "category": "lens_optics",
+    "short_definition": "Multiple depth planes remain sharp simultaneously.",
+    "description": "Multiple depth planes remain sharp simultaneously. Extended seed description for Deep Focus.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_chiaroscuro_lighting",
+    "slug": "chiaroscuro-lighting",
+    "name": "Chiaroscuro Lighting",
+    "aliases": [],
+    "category": "lighting",
+    "short_definition": "High-contrast light and shadow modeling.",
+    "description": "High-contrast light and shadow modeling. Extended seed description for Chiaroscuro Lighting.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_practical_lighting",
+    "slug": "practical-lighting",
+    "name": "Practical Lighting",
+    "aliases": [],
+    "category": "lighting",
+    "short_definition": "Scene lit primarily by visible on-set sources.",
+    "description": "Scene lit primarily by visible on-set sources. Extended seed description for Practical Lighting.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_motivated_lighting",
+    "slug": "motivated-lighting",
+    "name": "Motivated Lighting",
+    "aliases": [],
+    "category": "lighting",
+    "short_definition": "Light justified by a diegetic source even if augmented.",
+    "description": "Light justified by a diegetic source even if augmented. Extended seed description for Motivated Lighting.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_cross_cutting",
+    "slug": "cross-cutting",
+    "name": "Cross Cutting",
+    "aliases": [],
+    "category": "editing",
+    "short_definition": "Alternating lines of action to build simultaneity.",
+    "description": "Alternating lines of action to build simultaneity. Extended seed description for Cross Cutting.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_jump_cut",
+    "slug": "jump-cut",
+    "name": "Jump Cut",
+    "aliases": [],
+    "category": "editing",
+    "short_definition": "An elliptical cut within a continuous shot axis.",
+    "description": "An elliptical cut within a continuous shot axis. Extended seed description for Jump Cut.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_sound_bridge",
+    "slug": "sound-bridge",
+    "name": "Sound Bridge",
+    "aliases": [],
+    "category": "sound_audiovisual",
+    "short_definition": "Audio from one scene overlaps the next image.",
+    "description": "Audio from one scene overlaps the next image. Extended seed description for Sound Bridge.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_mickey_mousing",
+    "slug": "mickey-mousing",
+    "name": "Mickey Mousing",
+    "aliases": [],
+    "category": "sound_audiovisual",
+    "short_definition": "Music tightly mirrors on-screen action.",
+    "description": "Music tightly mirrors on-screen action. Extended seed description for Mickey Mousing.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_needle_drop",
+    "slug": "needle-drop",
+    "name": "Needle Drop",
+    "aliases": [],
+    "category": "sound_audiovisual",
+    "short_definition": "Pre-existing song placed as a dramatic accent.",
+    "description": "Pre-existing song placed as a dramatic accent. Extended seed description for Needle Drop.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_teal_and_orange",
+    "slug": "teal-and-orange",
+    "name": "Teal and Orange",
+    "aliases": [],
+    "category": "color",
+    "short_definition": "Complementary grade emphasizing skin against cyan shadows.",
+    "description": "Complementary grade emphasizing skin against cyan shadows. Extended seed description for Teal and Orange.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_monochrome_motif",
+    "slug": "monochrome-motif",
+    "name": "Monochrome Motif",
+    "aliases": [],
+    "category": "color",
+    "short_definition": "Restricted palette used as thematic signature.",
+    "description": "Restricted palette used as thematic signature. Extended seed description for Monochrome Motif.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_blocking_for_depth",
+    "slug": "blocking-for-depth",
+    "name": "Blocking for Depth",
+    "aliases": [],
+    "category": "staging_blocking",
+    "short_definition": "Staging actors across depth planes for power dynamics.",
+    "description": "Staging actors across depth planes for power dynamics. Extended seed description for Blocking for Depth.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_planimetric_staging",
+    "slug": "planimetric-staging",
+    "name": "Planimetric Staging",
+    "aliases": [],
+    "category": "staging_blocking",
+    "short_definition": "Action arranged parallel to the camera plane.",
+    "description": "Action arranged parallel to the camera plane. Extended seed description for Planimetric Staging.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_unreliable_narration",
+    "slug": "unreliable-narration",
+    "name": "Unreliable Narration",
+    "aliases": [],
+    "category": "narrative_device",
+    "short_definition": "Storytelling that withholds or distorts truth.",
+    "description": "Storytelling that withholds or distorts truth. Extended seed description for Unreliable Narration.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_frame_story",
+    "slug": "frame-story",
+    "name": "Frame Story",
+    "aliases": [],
+    "category": "narrative_device",
+    "short_definition": "A narrative enclosure that contains another tale.",
+    "description": "A narrative enclosure that contains another tale. Extended seed description for Frame Story.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_macguffin",
+    "slug": "macguffin",
+    "name": "MacGuffin",
+    "aliases": [],
+    "category": "narrative_device",
+    "short_definition": "An object that motivates pursuit more than meaning.",
+    "description": "An object that motivates pursuit more than meaning. Extended seed description for MacGuffin.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_final_girl",
+    "slug": "final-girl",
+    "name": "Final Girl",
+    "aliases": [],
+    "category": "genre_convention",
+    "short_definition": "Last surviving woman confronting the threat.",
+    "description": "Last surviving woman confronting the threat. Extended seed description for Final Girl.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_mexican_standoff",
+    "slug": "mexican-standoff",
+    "name": "Mexican Standoff",
+    "aliases": [],
+    "category": "genre_convention",
+    "short_definition": "Multi-party aimed weapons in suspended deadlock.",
+    "description": "Multi-party aimed weapons in suspended deadlock. Extended seed description for Mexican Standoff.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_bullet_time",
+    "slug": "bullet-time",
+    "name": "Bullet Time",
+    "aliases": [],
+    "category": "vfx",
+    "short_definition": "Extremely slowed action suggesting virtual camera orbit.",
+    "description": "Extremely slowed action suggesting virtual camera orbit. Extended seed description for Bullet Time.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_miniature_effects",
+    "slug": "miniature-effects",
+    "name": "Miniature Effects",
+    "aliases": [],
+    "category": "vfx",
+    "short_definition": "Physical scale models photographed as full-size worlds.",
+    "description": "Physical scale models photographed as full-size worlds. Extended seed description for Miniature Effects.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_split_diopter",
+    "slug": "split-diopter",
+    "name": "Split Diopter",
+    "aliases": [],
+    "category": "lens_optics",
+    "short_definition": "Optic allowing two focus planes in one frame.",
+    "description": "Optic allowing two focus planes in one frame. Extended seed description for Split Diopter.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "precept_god_s_eye_view",
+    "slug": "god-s-eye-view",
+    "name": "God's Eye View",
+    "aliases": [],
+    "category": "shot_type",
+    "short_definition": "Directly overhead angle that abstracts the scene.",
+    "description": "Directly overhead angle that abstracts the scene. Extended seed description for God's Eye View.",
+    "origin_claim": {
+      "film_id": "film_vertigo",
+      "year": 1958,
+      "note": "Popular association in seed data; not a rigorous first-use claim.",
+      "is_disputed": false
+    },
+    "popularized_by_film_ids": [
+      "film_vertigo",
+      "film_psycho"
+    ],
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "name": "@precept/importer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "import": "tsx src/cli.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo \"No lint configured for @precept/importer\""
+  },
+  "dependencies": {
+    "@precept/db": "file:../db",
+    "@precept/shared": "file:../shared",
+    "dotenv": "^16",
+    "ulid": "^2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "tsx": "^4",
+    "typescript": "^5.5"
+  }
+}

@@ -1,29 +1,32 @@
+import "dotenv/config";
+import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { connectionsRouter } from "./routes/connections";
-import { directorsRouter } from "./routes/directors";
-import { filmsRouter } from "./routes/films";
-import { ingestRouter } from "./routes/ingest";
-import { searchRouter } from "./routes/search";
-import { shotsRouter } from "./routes/shots";
+import { createDb } from "@precept/db";
+import { ok } from "./lib/envelope.js";
 
-type Bindings = {
-  DB: D1Database;
-  FRAMES: R2Bucket;
-  VECTORS: VectorizeIndex;
-  API_KEY: string;
-};
+const app = new Hono();
+const db = createDb(process.env.DATABASE_URL);
 
-const app = new Hono<{ Bindings: Bindings }>();
-app.use("*", cors());
+app.use(
+  "*",
+  cors({
+    origin: process.env.CORS_ORIGIN ?? "http://localhost:3000",
+    credentials: true,
+  })
+);
 
-app.get("/", (c) => c.json({ name: "precept-api", status: "ok" }));
+app.get("/", (c) => ok(c, { name: "precept-api", status: "ok", version: "0.1.0" }));
+app.get("/api/health", (c) => ok(c, { ok: true }));
 
-app.route("/api/films", filmsRouter);
-app.route("/api", shotsRouter);
-app.route("/api", searchRouter);
-app.route("/api", connectionsRouter);
-app.route("/api", ingestRouter);
-app.route("/api", directorsRouter);
+// Placeholder — Milestone 3 wires full read API.
+app.get("/api/search", (c) =>
+  ok(c, { film: [], person: [], collection: [], place: [], precept: [] }, { q: c.req.query("q") ?? "" })
+);
 
-export default app;
+const port = Number(process.env.API_PORT ?? 8787);
+serve({ fetch: app.fetch, port }, () => {
+  console.log(`precept-api listening on http://localhost:${port}`);
+});
+
+export { app, db };

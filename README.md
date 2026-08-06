@@ -1,80 +1,56 @@
 # Precept
 
-Cinematic visual genealogy platform for shot-level analysis, similarity, and connection mapping.
+Community-curated, human-verified graph of cinematic influence — WhoSampled for film, with a Wikipedia-style contribution model.
 
-## Intelligent Pipeline Architecture
+Three explorable surfaces share selection state on one page:
 
-Precept now supports a hybrid pipeline in one monorepo:
+| Pane | Job |
+|---|---|
+| **Vista** | Where films were filmed and where they are set |
+| **Homage** | Influence graph — films, people, typed connections |
+| **Focus** | Dictionary of cinematic language (precepts) |
+| **Spotlight** | Editorial landing feature on one film |
 
-- **Python local analysis service** (`services/vision-pipeline`) for shot detection, adaptive keyframe selection, and local embeddings.
-- **TypeScript orchestrator** (`packages/pipeline`) for extraction, tiered VLM routing, narrative memory, and ingest upload.
-- **TypeScript API + Web** (`apps/api`, `apps/web`) remain the serving and exploration layers.
+Automated vision/tagging is a **proposal feeder** (optional Milestone 8), not the product.
 
-### Tiered routing model
+## Stack
 
-- `tier_0`: local heuristic fallback (no remote VLM call).
-- `tier_1`: routine shots routed to low-cost model (Gemini Flash-Lite or local Qwen).
-- `tier_2`: complex shots routed to premium model (Gemini Pro or Anthropic).
+- Next.js (App Router) — `apps/web`
+- Hono on Node — `apps/api`
+- Postgres + Drizzle — `packages/db`
+- Shared domain types — `packages/shared`
+- TMDB importer — `packages/importer`
+- Legacy shot pipeline archived under `legacy/` (and demoted pipeline still in `packages/pipeline` + `services/vision-pipeline`)
 
-Model/provider routing and feature flags are centralized in `packages/pipeline/src/config/pipeline-config.ts`.
+See `INVENTORY.md`, `MIGRATION.md`, and `DECISIONS.md`.
 
-## Documentation
+## Quick start
 
-- Local pipeline upload + verification:
-  - `docs/01-local-pipeline-testing.md`
-- Cloudflare + repo setup:
-  - `docs/02-cloudflare-and-repo-setup.md`
-- Intelligent cinematic pipeline architecture + operations:
-  - `docs/03-intelligent-video-analysis-pipeline.md`
-
-## Quick Start
+Requirements: Node 22+, npm 10+, Postgres 16.
 
 ```bash
+cp .env.example .env
+# If using Docker: docker compose up -d postgres
+# Or local apt Postgres with user/db `precept` / password `precept`
+
 npm install
-npm run typecheck
+npm run db:migrate
+npm run db:seed
 npm run dev:api
-```
-
-In another terminal:
-
-```bash
+# other terminal
 npm run dev:web
 ```
 
-## Pipeline Quick Start (Hybrid)
+Open http://localhost:3000
 
-1. Start the Python vision service:
-
-```bash
-cd services/vision-pipeline
-python -m venv .venv
-. .venv/Scripts/activate
-pip install -e .
-uvicorn app.main:app --host 0.0.0.0 --port 8010 --reload
-```
-
-2. Configure `packages/pipeline/.env` (example keys):
-
-```env
-PRECEPT_API_URL=http://localhost:8787
-PRECEPT_API_KEY=dev-local-key
-
-ENABLE_PYTHON_VISION_SERVICE=true
-VISION_SERVICE_URL=http://localhost:8010
-ENABLE_ADAPTIVE_KEYFRAMES=true
-
-PIPELINE_TIER1_PROVIDER=gemini
-PIPELINE_TIER1_MODEL=gemini-2.5-flash-lite
-PIPELINE_TIER2_PROVIDER=anthropic
-PIPELINE_TIER2_MODEL=claude-sonnet-4-6
-
-GEMINI_API_KEY=...
-ANTHROPIC_API_KEY=...
-```
-
-3. Run the end-to-end ingest pipeline:
+Create an admin:
 
 ```bash
-npx turbo build --filter=@precept/pipeline
-node packages/pipeline/dist/cli.js process --input "<video-path>" --title "<title>" --year <year> --director "<director>"
+npm run admin:create -- --email=you@example.com --password='choose-a-password' --handle=you
 ```
+
+## Docs
+
+- `HANDOFF.md` — owner setup walkthrough (written at end of rebuild)
+- `seed/README.md` — fixture schema
+- `legacy/docs/` — previous Cloudflare/shot-pipeline ops docs

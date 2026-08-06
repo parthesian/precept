@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39",
-    "@precept/shared": "file:../shared",
     "@xenova/transformers": "^2.17",
     "chalk": "^5",
     "commander": "^12",
@@ -25,7 +24,8 @@
     "ora": "^8",
     "p-limit": "^6",
     "sharp": "^0.33",
-    "ulid": "^2.3"
+    "ulid": "^2.3",
+    "zod": "^3.23"
   },
   "devDependencies": {
     "@types/ffprobe-static": "^2.0.3",

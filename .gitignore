@@ -2,8 +2,10 @@ node_modules
 dist
 .turbo
 .wrangler
+.next
 .env
 .env.*
+!.env.example
 .dev.vars
 **/.dev.vars
 *.log
@@ -11,3 +13,4 @@ workspace
 .venv
 __pycache__
 *.pyc
+coverage

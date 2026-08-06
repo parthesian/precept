@@ -1,0 +1,39 @@
+[
+  {
+    "id": "col_batman_nolan",
+    "slug": "the-dark-knight-trilogy",
+    "name": "The Dark Knight Trilogy",
+    "description": "Nolan's Batman films (partial seed — only TDK present).",
+    "kind": "trilogy",
+    "film_ids": [
+      "film_the_dark_knight"
+    ],
+    "is_seed_data": true
+  },
+  {
+    "id": "col_dollars",
+    "slug": "dollars-trilogy",
+    "name": "Dollars Trilogy",
+    "description": "Leone's Dollars films in seed.",
+    "kind": "trilogy",
+    "film_ids": [
+      "film_a_fistful_of_dollars",
+      "film_the_good_the_bad_and_the_ugly"
+    ],
+    "is_seed_data": true
+  },
+  {
+    "id": "col_hitchcock_late",
+    "slug": "hitchcock-paramount-peak",
+    "name": "Hitchcock Peak Thriller",
+    "description": "Thematic cluster of Hitchcock thrillers.",
+    "kind": "thematic",
+    "film_ids": [
+      "film_rear_window",
+      "film_vertigo",
+      "film_north_by_northwest",
+      "film_psycho"
+    ],
+    "is_seed_data": true
+  }
+]

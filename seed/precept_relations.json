@@ -1,0 +1,102 @@
+[
+  {
+    "id": "prel_1",
+    "source_precept_id": "precept_dutch_angle",
+    "target_precept_id": "precept_god_s_eye_view",
+    "relation_type": "see_also",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_2",
+    "source_precept_id": "precept_match_cut",
+    "target_precept_id": "precept_smash_cut",
+    "relation_type": "opposite_of",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_3",
+    "source_precept_id": "precept_tracking_shot",
+    "target_precept_id": "precept_dolly_zoom",
+    "relation_type": "commonly_paired_with",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_4",
+    "source_precept_id": "precept_deep_focus",
+    "target_precept_id": "precept_split_diopter",
+    "relation_type": "see_also",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_5",
+    "source_precept_id": "precept_deep_focus",
+    "target_precept_id": "precept_rack_focus",
+    "relation_type": "opposite_of",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_6",
+    "source_precept_id": "precept_chiaroscuro_lighting",
+    "target_precept_id": "precept_practical_lighting",
+    "relation_type": "commonly_paired_with",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_7",
+    "source_precept_id": "precept_cross_cutting",
+    "target_precept_id": "precept_jump_cut",
+    "relation_type": "see_also",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_8",
+    "source_precept_id": "precept_sound_bridge",
+    "target_precept_id": "precept_needle_drop",
+    "relation_type": "see_also",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_9",
+    "source_precept_id": "precept_pov_shot",
+    "target_precept_id": "precept_insert_shot",
+    "relation_type": "commonly_paired_with",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  },
+  {
+    "id": "prel_10",
+    "source_precept_id": "precept_bullet_time",
+    "target_precept_id": "precept_tracking_shot",
+    "relation_type": "broader",
+    "status": "approved",
+    "created_by": "user_admin",
+    "approved_by": "user_admin",
+    "is_seed_data": true
+  }
+]
