@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 import "dotenv/config";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { getPlatformProxy } from "wrangler";
 import { createDb } from "@precept/db";
 import { bootstrapPopularFilms } from "./bootstrap.js";
 import { importFilmFull, importFilmMetadata } from "./import-film.js";
@@ -45,66 +48,76 @@ async function main() {
     process.exit(1);
   }
 
-  const db = createDb();
-  const metadataOnly = hasFlag("--metadata-only");
-  const backfill = hasFlag("--backfill");
-  const bootstrap = hasFlag("--bootstrap");
+  const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
+  const proxy = await getPlatformProxy({
+    configPath: path.join(root, "apps/web/wrangler.jsonc"),
+    persist: { path: path.join(root, "apps/web/.wrangler/state/v3") },
+  });
 
-  if (bootstrap) {
-    const top = Number(flag("--top") ?? "5000");
-    if (!Number.isFinite(top) || top < 1) {
-      console.error("--top must be a positive number");
+  try {
+    const db = createDb(proxy.env.DB as D1Database);
+    const metadataOnly = hasFlag("--metadata-only");
+    const backfill = hasFlag("--backfill");
+    const bootstrap = hasFlag("--bootstrap");
+
+    if (bootstrap) {
+      const top = Number(flag("--top") ?? "5000");
+      if (!Number.isFinite(top) || top < 1) {
+        console.error("--top must be a positive number");
+        process.exit(1);
+      }
+      console.log(`Bootstrapping top ${top} films (metadata only)…`);
+      const result = await bootstrapPopularFilms(db, key, {
+        top,
+        backfill: backfill || true,
+        resume: !hasFlag("--no-resume"),
+        onProgress: ({ index, total, title, status }) => {
+          const mark = status === "created" ? "film+" : status === "updated" ? "film~" : "film=";
+          console.log(`${mark} ${index}/${total} ${title}`);
+        },
+      });
+      console.log(
+        `Bootstrap done: ${result.imported} created, ${result.updated} updated, ${result.skipped} skipped (${result.total} total).`
+      );
+      return;
+    }
+
+    const idsArg = flag("--tmdb-ids");
+    const titlesArg = flag("--titles");
+
+    let ids: number[] = [];
+    if (idsArg) {
+      ids = idsArg
+        .split(",")
+        .map((x) => Number(x.trim()))
+        .filter(Boolean);
+    } else if (titlesArg) {
+      ids = await resolveTitlesToIds(
+        titlesArg
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean),
+        key
+      );
+    } else {
+      console.error("Provide --bootstrap, --tmdb-ids=, or --titles=");
+      console.error(usage());
       process.exit(1);
     }
-    console.log(`Bootstrapping top ${top} films (metadata only)…`);
-    const result = await bootstrapPopularFilms(db, key, {
-      top,
-      backfill: backfill || true,
-      resume: !hasFlag("--no-resume"),
-      onProgress: ({ index, total, title, status }) => {
-        const mark = status === "created" ? "film+" : status === "updated" ? "film~" : "film=";
-        console.log(`${mark} ${index}/${total} ${title}`);
-      },
-    });
-    console.log(
-      `Bootstrap done: ${result.imported} created, ${result.updated} updated, ${result.skipped} skipped (${result.total} total).`
-    );
-    return;
-  }
 
-  const idsArg = flag("--tmdb-ids");
-  const titlesArg = flag("--titles");
-
-  let ids: number[] = [];
-  if (idsArg) {
-    ids = idsArg
-      .split(",")
-      .map((x) => Number(x.trim()))
-      .filter(Boolean);
-  } else if (titlesArg) {
-    ids = await resolveTitlesToIds(
-      titlesArg
-        .split(",")
-        .map((t) => t.trim())
-        .filter(Boolean),
-      key
-    );
-  } else {
-    console.error("Provide --bootstrap, --tmdb-ids=, or --titles=");
-    console.error(usage());
-    process.exit(1);
+    for (const id of ids) {
+      const result = metadataOnly
+        ? await importFilmMetadata(db, id, key, { backfill })
+        : await importFilmFull(db, id, key, { backfill: backfill || true });
+      if (result.created) console.log(`film+ ${result.title}`);
+      else if (result.updated) console.log(`film~ ${result.title} (updated)`);
+      else console.log(`film= ${result.title} (exists)`);
+      if (!metadataOnly && result.creditsImported) console.log(`  credits+ ${result.title}`);
+    }
+    console.log(`Imported ${ids.length} film(s).`);
+  } finally {
+    await proxy.dispose();
   }
-
-  for (const id of ids) {
-    const result = metadataOnly
-      ? await importFilmMetadata(db, id, key, { backfill })
-      : await importFilmFull(db, id, key, { backfill: backfill || true });
-    if (result.created) console.log(`film+ ${result.title}`);
-    else if (result.updated) console.log(`film~ ${result.title} (updated)`);
-    else console.log(`film= ${result.title} (exists)`);
-    if (!metadataOnly && result.creditsImported) console.log(`  credits+ ${result.title}`);
-  }
-  console.log(`Imported ${ids.length} film(s).`);
 }
 
 main().catch((err) => {

@@ -1,14 +1,15 @@
 import { Hono } from "hono";
-import { and, asc, eq, ilike, or, sql } from "drizzle-orm";
-import type { Db } from "@precept/db";
+import { and, asc, eq } from "drizzle-orm";
 import { films, preceptExamples, preceptRelations, precepts } from "@precept/db";
 import { fail, ok } from "../lib/envelope.js";
 import { filmDto, preceptDto } from "../lib/serialize.js";
+import type { AppEnv } from "../middleware/auth.js";
 
-export function preceptRoutes(db: Db) {
-  const app = new Hono();
+export function preceptRoutes() {
+  const app = new Hono<AppEnv>();
 
   app.get("/precepts", async (c) => {
+    const db = c.get("db");
     const category = c.req.query("category");
     const q = c.req.query("q");
     let rows = await db.select().from(precepts).where(eq(precepts.status, "approved"));
@@ -27,6 +28,7 @@ export function preceptRoutes(db: Db) {
   });
 
   app.get("/precepts/:slug", async (c) => {
+    const db = c.get("db");
     const [row] = await db.select().from(precepts).where(eq(precepts.slug, c.req.param("slug")));
     if (!row) return fail(c, 404, "not_found", "Precept not found");
 

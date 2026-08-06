@@ -5,9 +5,15 @@ import type { Db } from "@precept/db";
 import { importFilmMetadata } from "./import-film.js";
 import { discoverPopularMovies } from "./tmdb-client.js";
 
-const HERE = dirname(fileURLToPath(import.meta.url));
-const DEFAULT_CANON_PATH = resolve(HERE, "../data/canon.json");
-const DEFAULT_CHECKPOINT = resolve(process.cwd(), ".tmdb-bootstrap-checkpoint.json");
+/** Lazy — top-level fileURLToPath(import.meta.url) breaks Workers bundles. */
+function defaultCanonPath(): string {
+  const here = dirname(fileURLToPath(import.meta.url));
+  return resolve(here, "../data/canon.json");
+}
+
+function defaultCheckpointPath(): string {
+  return resolve(process.cwd(), ".tmdb-bootstrap-checkpoint.json");
+}
 
 export type CanonEntry = {
   tmdb_id: number;
@@ -23,9 +29,10 @@ export type BootstrapCheckpoint = {
   updatedAt: string;
 };
 
-function loadCanon(path = DEFAULT_CANON_PATH): CanonEntry[] {
-  if (!existsSync(path)) return [];
-  const raw = JSON.parse(readFileSync(path, "utf8")) as CanonEntry[];
+function loadCanon(path?: string): CanonEntry[] {
+  const resolved = path ?? defaultCanonPath();
+  if (!existsSync(resolved)) return [];
+  const raw = JSON.parse(readFileSync(resolved, "utf8")) as CanonEntry[];
   return raw.filter((e) => Number.isFinite(e.tmdb_id));
 }
 
@@ -55,7 +62,7 @@ export async function collectBootstrapIds(
     resume?: boolean;
   } = {}
 ): Promise<{ ids: number[]; checkpoint: BootstrapCheckpoint }> {
-  const checkpointPath = options.checkpointPath ?? DEFAULT_CHECKPOINT;
+  const checkpointPath = options.checkpointPath ?? defaultCheckpointPath();
   const resume = options.resume !== false;
   const existing = resume ? loadCheckpoint(checkpointPath) : null;
 
@@ -71,7 +78,7 @@ export async function collectBootstrapIds(
     }
   }
 
-  for (const entry of loadCanon(options.canonPath ?? DEFAULT_CANON_PATH)) {
+  for (const entry of loadCanon(options.canonPath)) {
     if (ids.length >= top) break;
     if (seen.has(entry.tmdb_id)) continue;
     seen.add(entry.tmdb_id);
@@ -130,7 +137,7 @@ export async function bootstrapPopularFilms(
   options: BootstrapOptions = {}
 ): Promise<{ imported: number; skipped: number; updated: number; total: number }> {
   const top = options.top ?? 5000;
-  const checkpointPath = options.checkpointPath ?? DEFAULT_CHECKPOINT;
+  const checkpointPath = options.checkpointPath ?? defaultCheckpointPath();
   const { ids, checkpoint } = await collectBootstrapIds(apiKey, top, {
     canonPath: options.canonPath,
     checkpointPath,
@@ -214,4 +221,13 @@ export async function bootstrapPopularFilms(
   return { imported, skipped, updated, total: ids.length };
 }
 
-export { DEFAULT_CANON_PATH, DEFAULT_CHECKPOINT };
+export function getDefaultCanonPath() {
+  return defaultCanonPath();
+}
+export function getDefaultCheckpointPath() {
+  return defaultCheckpointPath();
+}
+/** @deprecated Use getDefaultCanonPath() — kept for CLI string display. */
+export const DEFAULT_CANON_PATH = "(resolved at runtime)";
+/** @deprecated Use getDefaultCheckpointPath() — kept for CLI string display. */
+export const DEFAULT_CHECKPOINT = ".tmdb-bootstrap-checkpoint.json";

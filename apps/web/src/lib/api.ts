@@ -1,6 +1,11 @@
-const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8787").replace(/\/$/, "");
+/** Same-origin API client — cookies work without CORS. */
+const API_URL = "";
 
-export type Envelope<T> = { data?: T; meta?: Record<string, unknown>; errors?: Array<{ code: string; message: string }> };
+export type Envelope<T> = {
+  data?: T;
+  meta?: Record<string, unknown>;
+  errors?: Array<{ code: string; message: string }>;
+};
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
@@ -63,9 +68,19 @@ async function requestEnvelope<T>(
 
 export const api = {
   search: (q: string, limit = 8) =>
-    request<Record<string, Array<{ id: string; type: string; slug: string; label: string; sublabel?: string; thumb?: string }>>>(
-      `/api/search?q=${encodeURIComponent(q)}&limit=${limit}`
-    ),
+    request<
+      Record<
+        string,
+        Array<{
+          id: string;
+          type: string;
+          slug: string;
+          label: string;
+          sublabel?: string;
+          thumb?: string;
+        }>
+      >
+    >(`/api/search?q=${encodeURIComponent(q)}&limit=${limit}`),
   tmdbSearch: async (q: string, page = 1) => {
     const { data, meta } = await requestEnvelope<TmdbSearchHit[]>(
       `/api/tmdb/search?q=${encodeURIComponent(q)}&page=${page}`
@@ -82,7 +97,8 @@ export const api = {
       body: JSON.stringify({ tmdb_id: tmdbId, auto_approve: autoApprove }),
     }),
   getFilm: (slug: string) => request<any>(`/api/films/${slug}`),
-  getFilmConnections: (slug: string, query = "") => request<any[]>(`/api/films/${slug}/connections${query}`),
+  getFilmConnections: (slug: string, query = "") =>
+    request<any[]>(`/api/films/${slug}/connections${query}`),
   getFilmLocations: (slug: string) => request<any[]>(`/api/films/${slug}/locations`),
   getFilmPrecepts: (slug: string) => request<any[]>(`/api/films/${slug}/precepts`),
   getFilmCredits: (slug: string) => request<any[]>(`/api/films/${slug}/credits`),
@@ -101,8 +117,24 @@ export const api = {
   getSpotlight: () => request<any>("/api/spotlight"),
   getSpotlightBySlug: (slug: string) => request<any>(`/api/spotlight/${slug}`),
   me: () => request<any>("/api/me"),
+  login: (body: { email: string; password: string }) =>
+    request<any>("/api/auth/login", { method: "POST", body: JSON.stringify(body) }),
+  register: (body: { email: string; password: string; handle: string; display_name?: string }) =>
+    request<any>("/api/auth/register", { method: "POST", body: JSON.stringify(body) }),
+  logout: () => request<any>("/api/auth/logout", { method: "POST" }),
   createSuggestion: (body: unknown) =>
     request<any>("/api/suggestions", { method: "POST", body: JSON.stringify(body) }),
+  listSuggestions: (query = "") => request<any[]>(`/api/suggestions${query}`),
+  approveSuggestion: (id: string, body: unknown = {}) =>
+    request<any>(`/api/suggestions/${id}/approve`, {
+      method: "POST",
+      body: JSON.stringify(body),
+    }),
+  rejectSuggestion: (id: string, body: unknown) =>
+    request<any>(`/api/suggestions/${id}/reject`, {
+      method: "POST",
+      body: JSON.stringify(body),
+    }),
   vote: (body: unknown) => request<any>("/api/votes", { method: "POST", body: JSON.stringify(body) }),
 };
 

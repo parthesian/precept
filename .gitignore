@@ -3,6 +3,8 @@ dist
 .turbo
 .wrangler
 .next
+.react-router
+build
 .env
 .env.*
 !.env.example
@@ -16,3 +18,4 @@ __pycache__
 coverage
 *.tsbuildinfo
 .tmdb-bootstrap-checkpoint.json
+*.bak

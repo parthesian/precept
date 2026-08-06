@@ -1,3 +1,4 @@
+import type { AppEnv } from "../middleware/auth.js";
 import { Hono } from "hono";
 import { and, asc, eq, inArray } from "drizzle-orm";
 import type { Db } from "@precept/db";
@@ -10,10 +11,11 @@ import {
   revisionDto,
 } from "../lib/serialize.js";
 
-export function connectionRoutes(db: Db) {
-  const app = new Hono();
+export function connectionRoutes() {
+  const app = new Hono<AppEnv>();
 
   app.get("/connections/:id", async (c) => {
+    const db = c.get("db");
     const [row] = await db
       .select()
       .from(connections)

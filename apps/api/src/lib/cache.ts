@@ -1,5 +1,10 @@
 import type { Context, Next } from "hono";
-import { createHash } from "node:crypto";
+
+async function sha1Hex(text: string): Promise<string> {
+  const data = new TextEncoder().encode(text);
+  const digest = await crypto.subtle.digest("SHA-1", data);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
 
 export async function etagMiddleware(c: Context, next: Next) {
   await next();
@@ -8,7 +13,7 @@ export async function etagMiddleware(c: Context, next: Next) {
   if (!res || res.status !== 200) return;
   const clone = res.clone();
   const body = await clone.text();
-  const etag = `"${createHash("sha1").update(body).digest("hex")}"`;
+  const etag = `"${await sha1Hex(body)}"`;
   const headers = new Headers(res.headers);
   headers.set("ETag", etag);
   headers.set("Cache-Control", "public, max-age=30, stale-while-revalidate=120");

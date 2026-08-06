@@ -1,3 +1,4 @@
+import type { AppEnv } from "../middleware/auth.js";
 import { Hono } from "hono";
 import { desc, eq } from "drizzle-orm";
 import type { Db } from "@precept/db";
@@ -5,10 +6,11 @@ import { films, spotlights } from "@precept/db";
 import { fail, ok } from "../lib/envelope.js";
 import { filmDto } from "../lib/serialize.js";
 
-export function spotlightRoutes(db: Db) {
-  const app = new Hono();
+export function spotlightRoutes() {
+  const app = new Hono<AppEnv>();
 
   app.get("/spotlight", async (c) => {
+    const db = c.get("db");
     const [row] = await db
       .select()
       .from(spotlights)
@@ -29,6 +31,7 @@ export function spotlightRoutes(db: Db) {
   });
 
   app.get("/spotlight/:slug", async (c) => {
+    const db = c.get("db");
     const [row] = await db
       .select()
       .from(spotlights)

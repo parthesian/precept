@@ -4,24 +4,27 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "echo \"Use npm run dev (Workers). API is mounted by apps/web.\"",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
+    "start": "echo \"Use wrangler deploy / npm run deploy\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "echo \"No lint configured for @precept/api\"",
     "test": "vitest run",
     "admin:create": "tsx src/cli/admin-create.ts"
   },
+  "exports": {
+    ".": "./src/create-app.ts",
+    "./create-app": "./src/create-app.ts",
+    "./env": "./src/env.ts"
+  },
   "dependencies": {
-    "@hono/node-server": "^1.13",
     "@precept/db": "file:../../packages/db",
     "@precept/importer": "file:../../packages/importer",
     "@precept/shared": "file:../../packages/shared",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16",
     "drizzle-orm": "^0.39",
-    "hono": "^4.6",
-    "ulid": "^2.3",
+    "hono": "^4.13.0",
     "zod": "^3.23"
   },
   "devDependencies": {
@@ -29,6 +32,8 @@
     "@types/node": "^22",
     "tsx": "^4",
     "typescript": "^5.5",
-    "vitest": "^3"
+    "vitest": "^3",
+    "wrangler": "4.119.0",
+    "@cloudflare/workers-types": "^4.20260507.1"
   }
 }

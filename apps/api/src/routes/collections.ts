@@ -1,3 +1,4 @@
+import type { AppEnv } from "../middleware/auth.js";
 import { Hono } from "hono";
 import { asc, eq } from "drizzle-orm";
 import type { Db } from "@precept/db";
@@ -5,10 +6,11 @@ import { collectionFilms, collections, films } from "@precept/db";
 import { fail, ok } from "../lib/envelope.js";
 import { filmDto } from "../lib/serialize.js";
 
-export function collectionRoutes(db: Db) {
-  const app = new Hono();
+export function collectionRoutes() {
+  const app = new Hono<AppEnv>();
 
   app.get("/collections/:slug", async (c) => {
+    const db = c.get("db");
     const [col] = await db
       .select()
       .from(collections)

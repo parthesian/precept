@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
+import { Link } from "react-router";
 import { useMemo, useState } from "react";
 import { SuggestPreceptForm } from "@/components/suggest/SuggestPreceptForm";
 import { api } from "@/lib/api";
@@ -87,7 +87,7 @@ export function FocusPane({
                       });
                     }}
                   >
-                    <Link href={`/homage/film/${ex.film.slug}`}>
+                    <Link to={`/homage/film/${ex.film.slug}`}>
                       {ex.film.release_year} — {ex.film.title}
                     </Link>
                   </button>
@@ -161,7 +161,7 @@ export function FocusPane({
         {browseRows.map((p: any) => (
           <li key={p.id}>
             <Link
-              href={`/focus/${p.slug}`}
+              to={`/focus/${p.slug}`}
               onClick={() =>
                 setSelection({ type: "precept", id: p.id, slug: p.slug, label: p.name })
               }

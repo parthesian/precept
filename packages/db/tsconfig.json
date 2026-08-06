@@ -6,7 +6,8 @@
     "noEmit": false,
     "declaration": true,
     "module": "ESNext",
-    "moduleResolution": "Bundler"
+    "moduleResolution": "Bundler",
+    "types": ["node", "@cloudflare/workers-types"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.test.ts", "src/seed/generate.ts", "vitest.config.ts"]

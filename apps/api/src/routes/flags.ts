@@ -6,10 +6,11 @@ import { fail, ok } from "../lib/envelope.js";
 import type { AppEnv } from "../middleware/auth.js";
 import { requireUser, unauthorized } from "../middleware/auth.js";
 
-export function flagRoutes(db: Db) {
+export function flagRoutes() {
   const app = new Hono<AppEnv>();
 
   app.post("/flags", async (c) => {
+    const db = c.get("db");
     const user = requireUser(c);
     if (!user) return unauthorized(c);
     const parsed = flagSchema.safeParse(await c.req.json());

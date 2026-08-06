@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
+import { Link } from "react-router";
 import { SuggestEditDelete } from "@/components/suggest/SuggestEditDelete";
 import { api } from "@/lib/api";
 import { useSelectionStore } from "@/stores/selection";
@@ -17,7 +17,7 @@ export function ConnectionDetail({ id }: { id: string }) {
   if (query.error || !query.data) {
     return (
       <p className="error page">
-        Connection not found. <Link href="/homage">Back to Homage</Link>
+        Connection not found. <Link to="/homage">Back to Homage</Link>
       </p>
     );
   }
@@ -27,7 +27,7 @@ export function ConnectionDetail({ id }: { id: string }) {
     return (
       <main className="page">
         <p className="muted">AI-suggested connections are hidden while Suggest mode is off.</p>
-        <Link href="/homage">Back to Homage</Link>
+        <Link to="/homage">Back to Homage</Link>
       </main>
     );
   }
@@ -45,14 +45,14 @@ export function ConnectionDetail({ id }: { id: string }) {
         <section>
           <h2>Source</h2>
           {c.source_film ? (
-            <Link href={`/homage/film/${c.source_film.slug}`}>{c.source_film.title}</Link>
+            <Link to={`/homage/film/${c.source_film.slug}`}>{c.source_film.title}</Link>
           ) : null}
           <pre className="anchor">{JSON.stringify(c.source_anchor, null, 2)}</pre>
         </section>
         <section>
           <h2>Target</h2>
           {c.target_film ? (
-            <Link href={`/homage/film/${c.target_film.slug}`}>{c.target_film.title}</Link>
+            <Link to={`/homage/film/${c.target_film.slug}`}>{c.target_film.title}</Link>
           ) : null}
           <pre className="anchor">{JSON.stringify(c.target_anchor, null, 2)}</pre>
         </section>

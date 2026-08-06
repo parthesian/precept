@@ -1,3 +1,4 @@
+import type { AppEnv } from "../middleware/auth.js";
 import { Hono } from "hono";
 import { and, asc, desc, eq, sql } from "drizzle-orm";
 import type { Db } from "@precept/db";
@@ -20,10 +21,11 @@ import {
   preceptDto,
 } from "../lib/serialize.js";
 
-export function filmRoutes(db: Db) {
-  const app = new Hono();
+export function filmRoutes() {
+  const app = new Hono<AppEnv>();
 
   app.get("/films/:slug", async (c) => {
+    const db = c.get("db");
     const slug = c.req.param("slug");
     const [row] = await db.select().from(films).where(eq(films.slug, slug));
     if (!row) return fail(c, 404, "not_found", "Film not found");
@@ -31,6 +33,7 @@ export function filmRoutes(db: Db) {
   });
 
   app.get("/films/:slug/connections", async (c) => {
+    const db = c.get("db");
     const slug = c.req.param("slug");
     const [film] = await db.select().from(films).where(eq(films.slug, slug));
     if (!film) return fail(c, 404, "not_found", "Film not found");
@@ -79,6 +82,7 @@ export function filmRoutes(db: Db) {
   });
 
   app.get("/films/:slug/locations", async (c) => {
+    const db = c.get("db");
     const slug = c.req.param("slug");
     const [film] = await db.select().from(films).where(eq(films.slug, slug));
     if (!film) return fail(c, 404, "not_found", "Film not found");
@@ -108,6 +112,7 @@ export function filmRoutes(db: Db) {
   });
 
   app.get("/films/:slug/precepts", async (c) => {
+    const db = c.get("db");
     const slug = c.req.param("slug");
     const [film] = await db.select().from(films).where(eq(films.slug, slug));
     if (!film) return fail(c, 404, "not_found", "Film not found");
@@ -132,6 +137,7 @@ export function filmRoutes(db: Db) {
   });
 
   app.get("/films/:slug/credits", async (c) => {
+    const db = c.get("db");
     const slug = c.req.param("slug");
     const [film] = await db.select().from(films).where(eq(films.slug, slug));
     if (!film) return fail(c, 404, "not_found", "Film not found");
