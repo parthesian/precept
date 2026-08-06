@@ -74,7 +74,9 @@ export function ThreePaneShell({
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  const offset = -PANES.indexOf(active) * 100;
+  // Percentages in translate are relative to the transformed element (the 300%-wide track),
+  // so one viewport is 33.333% of the track — not 100%.
+  const offset = -PANES.indexOf(active) * (100 / 3);
 
   return (
     <div className="app-root shell">
