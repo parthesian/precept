@@ -4,9 +4,11 @@
     "outDir": "dist",
     "rootDir": "src",
     "noEmit": false,
+    "declaration": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "types": ["node"]
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts", "vitest.config.ts"]
 }

@@ -7,6 +7,8 @@ export {
   rejectSuggestion,
   withdrawSuggestion,
   insertCreditForImport,
+  registerFilmImportByTmdbHandler,
   type CreateSuggestionInput,
   type EvidenceInput,
+  type FilmImportByTmdbHandler,
 } from "./services/suggestions.js";

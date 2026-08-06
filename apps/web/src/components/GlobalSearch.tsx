@@ -3,12 +3,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { TmdbFilmSearch } from "@/components/tmdb/TmdbFilmSearch";
 import { api } from "@/lib/api";
 import { useSelectionStore } from "@/stores/selection";
 
+/**
+ * TMDB fallback appears when the user is logged in and Suggest mode is on,
+ * local film hits are empty or &lt; 3, and the query is at least 3 characters.
+ */
 export function GlobalSearch() {
   const router = useRouter();
-  const { query, setQuery, setSelection, pane } = useSelectionStore();
+  const { query, setQuery, setSelection, pane, suggestMode } = useSelectionStore();
   const [open, setOpen] = useState(false);
   const [local, setLocal] = useState(query);
 
@@ -17,6 +22,12 @@ export function GlobalSearch() {
     return () => clearTimeout(t);
   }, [local, setQuery]);
 
+  const me = useQuery({
+    queryKey: ["me"],
+    queryFn: () => api.me(),
+    staleTime: 60_000,
+  });
+
   const search = useQuery({
     queryKey: ["search", query],
     queryFn: () => api.search(query),
@@ -24,6 +35,15 @@ export function GlobalSearch() {
   });
 
   const groups = useMemo(() => search.data ?? {}, [search.data]);
+  const filmHits = (groups.film as any[] | undefined) ?? [];
+  const loggedIn = Boolean(me.data && me.data.role && me.data.role !== "anon");
+  const showTmdbFallback =
+    loggedIn &&
+    suggestMode &&
+    open &&
+    query.trim().length >= 3 &&
+    !search.isFetching &&
+    filmHits.length < 3;
 
   function choose(item: { id: string; type: string; slug: string; label: string }) {
     setSelection({
@@ -73,7 +93,22 @@ export function GlobalSearch() {
               </div>
             ) : null
           )}
-          {!search.isFetching && Object.values(groups).every((r) => !(r as any[]).length) ? (
+          {showTmdbFallback ? (
+            <div className="search-group tmdb-fallback">
+              <h4>Search TMDB…</h4>
+              <TmdbFilmSearch
+                compact
+                showAutoApprove={false}
+                defaultAutoApprove
+                minChars={3}
+                externalQuery={query.trim()}
+                onImported={() => setOpen(false)}
+              />
+            </div>
+          ) : null}
+          {!search.isFetching &&
+          Object.values(groups).every((r) => !(r as any[]).length) &&
+          !showTmdbFallback ? (
             <p className="muted" style={{ padding: "0.75rem" }}>
               No results.
             </p>

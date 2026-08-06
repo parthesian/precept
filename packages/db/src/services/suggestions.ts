@@ -26,6 +26,18 @@ import { assertExcerptCap, newId, slugify } from "../utils.js";
 
 const TRUSTED_THRESHOLD = Number(process.env.TRUSTED_APPROVALS_THRESHOLD ?? "10");
 
+/**
+ * Optional hook for TMDB-backed film creates (payload.tmdb_id).
+ * Registered by the API so @precept/db does not depend on @precept/importer.
+ */
+export type FilmImportByTmdbHandler = (db: Db, tmdbId: number) => Promise<string>;
+
+let filmImportByTmdbHandler: FilmImportByTmdbHandler | null = null;
+
+export function registerFilmImportByTmdbHandler(handler: FilmImportByTmdbHandler | null) {
+  filmImportByTmdbHandler = handler;
+}
+
 export type EvidenceInput = {
   evidence_type: string;
   url?: string | null;
@@ -122,13 +134,34 @@ async function applyCreate(
 
   switch (targetType) {
     case "film": {
+      const tmdbIdRaw = payload.tmdb_id;
+      const tmdbId =
+        typeof tmdbIdRaw === "number"
+          ? tmdbIdRaw
+          : typeof tmdbIdRaw === "string"
+            ? Number(tmdbIdRaw)
+            : NaN;
+
+      // Lazy TMDB import path — prefer full import over sparse manual payload fields.
+      if (Number.isFinite(tmdbId) && tmdbId > 0) {
+        if (!filmImportByTmdbHandler) {
+          throw new Error(
+            "Film create with tmdb_id requires a registered TMDB import handler (API not configured)"
+          );
+        }
+        const [existing] = await db.select({ id: films.id }).from(films).where(eq(films.tmdbId, tmdbId));
+        if (existing) return existing.id;
+        return filmImportByTmdbHandler(db, tmdbId);
+      }
+
       const title = String(payload.title ?? "");
+      if (!title) throw new Error("film create requires title or tmdb_id");
       const slug = String(payload.slug ?? slugify(title));
       const id = newId();
       await db.insert(films).values({
         id,
         slug,
-        tmdbId: (payload.tmdb_id as number | undefined) ?? null,
+        tmdbId: null,
         imdbId: (payload.imdb_id as string | undefined) ?? null,
         title,
         originalTitle: (payload.original_title as string | undefined) ?? null,

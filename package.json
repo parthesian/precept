@@ -18,6 +18,7 @@
     "db:seed": "npm run db:seed --workspace=@precept/db",
     "db:reset": "npm run db:reset --workspace=@precept/db",
     "import:tmdb": "npm run import --workspace=@precept/importer",
+    "import:bootstrap": "npm run bootstrap --workspace=@precept/importer",
     "admin:create": "npm run admin:create -w @precept/api --",
     "pipeline": "turbo pipeline --filter=@precept/pipeline"
   },
